@@ -71,8 +71,8 @@ export default function ProductDetail() {
                     </Col>
                 </Row>
                 <Row className="mb-2">
-                    <Col className="d-flex justify-content-center align-items-center">
-                        <h4>{product.title} - {product.brand}</h4>
+                    <Col className="d-flex flex-wrap justify-content-center align-items-center">
+                        <h4>{product.title}</h4> <h4>-</h4> <h4>{product.brand}</h4>
                     </Col>
                 </Row>
                 <Row className="mb-4">

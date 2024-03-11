@@ -80,7 +80,7 @@ export default function SearchResults() {
                             {categoriesWithCount.map((cat, index) => (                            
                                 <span 
                                     key={index} 
-                                    className="me-2 p-1 mb-1 rounded" 
+                                    className="me-2 p-1 mb-1 rounded small fw-bold" 
                                     style={{ backgroundColor: generateColor(cat.category) }}
                                 >
                                     {cat.category} - {cat.count}
