@@ -143,3 +143,10 @@ INSERT INTO "BazarUniversal"."Image" (url, product_id) VALUES
     ('https://cdn.dummyjson.com/product-images/15/2.jpg', 15),
     ('https://cdn.dummyjson.com/product-images/15/3.jpg', 15),
     ('https://cdn.dummyjson.com/product-images/15/thumbnail.jpg', 15);
+
+
+
+--Verificar correcto funcionamiento de tablas
+select * from "BazarUniversal"."Category";
+select * from "BazarUniversal"."Image";
+select * from "BazarUniversal"."Product";
