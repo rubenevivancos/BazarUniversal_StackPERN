@@ -155,9 +155,8 @@ select * from "BazarUniversal"."Product";
 
 --Creacion de Store Procedure para la busqueda del producto
 
-CREATE OR REPLACE PROCEDURE get_product_category_names(IN search VARCHAR)
-LANGUAGE plpgsql
-AS $$
+CREATE OR REPLACE FUNCTION get_product_category_names(IN search VARCHAR)
+RETURNS TABLE (product_title VARCHAR, category_name VARCHAR) AS $$
 BEGIN
     RETURN QUERY 
     SELECT LOWER(p.title) AS product_title, LOWER(c.name) AS category_name
@@ -165,4 +164,4 @@ BEGIN
     INNER JOIN "BazarUniversal"."Category" c ON p.category_id = c.id
     WHERE LOWER(p.title) LIKE '%' || LOWER(search) || '%' OR LOWER(c.name) LIKE '%' || LOWER(search) || '%';
 END;
-$$;
+$$ LANGUAGE plpgsql;
