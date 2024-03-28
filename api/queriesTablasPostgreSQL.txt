@@ -153,13 +153,13 @@ select * from "BazarUniversal"."Product";
 
 *******************************************************************************************
 
---Creacion de Store Procedure para la busqueda del producto
+--Creacion de Function para la busqueda del producto
 
-CREATE OR REPLACE FUNCTION get_product_category_names(IN search VARCHAR)
-RETURNS TABLE (product_title VARCHAR, category_name VARCHAR) AS $$
+CREATE OR REPLACE FUNCTION "BazarUniversal".get_product_category_names(search character varying)
+RETURNS TABLE (product_title character varying, category_name character varying) AS $$
 BEGIN
     RETURN QUERY 
-    SELECT LOWER(p.title) AS product_title, LOWER(c.name) AS category_name
+    SELECT LOWER(p.title)::character varying AS product_title, LOWER(c.name)::character varying AS category_name
     FROM "BazarUniversal"."Product" p
     INNER JOIN "BazarUniversal"."Category" c ON p.category_id = c.id
     WHERE LOWER(p.title) LIKE '%' || LOWER(search) || '%' OR LOWER(c.name) LIKE '%' || LOWER(search) || '%';
