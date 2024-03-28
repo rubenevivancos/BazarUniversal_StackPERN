@@ -1,5 +1,4 @@
-const fs = require("fs");
-const { sequelize } = require('./models'); // Importa tu instancia de Sequelize
+const { sequelize } = require('../db.js'); // Importa tu instancia de Sequelize
 
 
 function productSearch(req, res){
@@ -14,7 +13,7 @@ function productSearch(req, res){
         //Obteniendo el listado de la busqueda usando el store procedure
         const result = getListProducts(search);
 
-
+        /*
         //Obteniendo la cantidad de productos por categoria del listado de la busqueda: INICIO
         const categories = result.map((object) => object.category);
         const uniqueCategories = new Set(categories);
@@ -31,12 +30,14 @@ function productSearch(req, res){
             console.log("category -->" + categoriesWithCount[i].category);
             console.log("count -->" + categoriesWithCount[i].count);
         }
-
+        */
+        const categoriesWithCount = [];
         let resul = {listProducts: result, categoriesWithCount: categoriesWithCount};
 
         if(result.length){
             console.log("[ productSearch ] Se encontraron " + result.length + " resultados");
-            console.log("[ productSearch ] image: " + result[0].images[0]);
+            console.log("[ productSearch ] product_title: " + result[0].product_title);
+            console.log("[ productSearch ] category_name: " + result[0].category_name);
             return res.status(200).json(resul);
         }
         console.log("[ productSearch ] No hay resultados");
