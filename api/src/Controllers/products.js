@@ -1,4 +1,4 @@
-const { sequelize } = require('../db.js'); // Importa tu instancia de Sequelize
+const { conn } = require('../db.js'); // Importa tu instancia de Sequelize
 
 
 function productSearch(req, res){
@@ -71,9 +71,9 @@ function getDetail(req, res){
 
 async function getListProducts(search) {
     try {
-        const results = await sequelize.query('CALL get_product_category_names(:search)', {
+        const results = await conn.query('CALL get_product_category_names(:search)', {
             replacements: { search: search },
-            type: sequelize.QueryTypes.SELECT
+            type: conn.QueryTypes.SELECT
         });
     
         return results;
