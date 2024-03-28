@@ -150,3 +150,11 @@ INSERT INTO "BazarUniversal"."Image" (url, product_id) VALUES
 select * from "BazarUniversal"."Category";
 select * from "BazarUniversal"."Image";
 select * from "BazarUniversal"."Product";
+
+*******************************************************************************************
+
+--Creacion de Stored Procedure para la busqueda del producto
+
+SELECT p.title AS product_title, c.name AS category_name
+FROM "BazarUniversal"."Product" p
+INNER JOIN "BazarUniversal"."Category" c ON p.category_id = c.id;
