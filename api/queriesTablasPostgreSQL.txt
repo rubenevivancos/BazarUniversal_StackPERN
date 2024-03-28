@@ -159,21 +159,10 @@ CREATE OR REPLACE PROCEDURE get_product_category_names(IN search VARCHAR)
 LANGUAGE plpgsql
 AS $$
 BEGIN
-    -- Declarar variables
-    product_title VARCHAR(255);
-    category_name VARCHAR(100);
-
-    -- Crear un cursor para ejecutar la consulta con el filtro
-    FOR product_row IN
-        SELECT p.title AS product_title, c.name AS category_name
-        FROM "BazarUniversal"."Product" p
-        INNER JOIN "BazarUniversal"."Category" c ON p.category_id = c.id
-        WHERE p.title ILIKE '%' || search || '%' OR c.name ILIKE '%' || search || '%'
-    LOOP
-        -- Asignar los valores de las columnas a las variables
-        product_title := product_row.product_title;
-        category_name := product_row.category_name;
-
-        -- Mostrar los resultados (puedes realizar acciones adicionales aquí)
-        RAISE NOTICE 'Product: %, Category: %', product_title, category_name;
-    END LOOP;
+    RETURN QUERY 
+    SELECT LOWER(p.title) AS product_title, LOWER(c.name) AS category_name
+    FROM "BazarUniversal"."Product" p
+    INNER JOIN "BazarUniversal"."Category" c ON p.category_id = c.id
+    WHERE LOWER(p.title) LIKE '%' || LOWER(search) || '%' OR LOWER(c.name) LIKE '%' || LOWER(search) || '%';
+END;
+$$;

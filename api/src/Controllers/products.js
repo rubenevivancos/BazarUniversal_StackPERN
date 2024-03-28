@@ -1,4 +1,5 @@
 const fs = require("fs");
+const { sequelize } = require('./models'); // Importa tu instancia de Sequelize
 
 
 function productSearch(req, res){
@@ -9,11 +10,9 @@ function productSearch(req, res){
     if (search) {
         search = search.toLowerCase();
         console.log("[ productSearch ] El producto a buscar es: " + search);
-        
-        const listProducts = getListProducts();
 
-        //Obteniendo el listado de la busqueda
-        const result = listProducts.filter(product => product.title.toLowerCase().includes(search) || product.category.toLowerCase().includes(search));
+        //Obteniendo el listado de la busqueda usando el store procedure
+        const result = getListProducts(search);
 
 
         //Obteniendo la cantidad de productos por categoria del listado de la busqueda: INICIO
@@ -67,11 +66,20 @@ function getDetail(req, res){
     return res.status(400).json({message: "Falta enviar datos obligatorios"});
 }
 
-function getListProducts(){
-    //const data = JSON.parse(fs.readFileSync('C:\\Descargas\\Programacion\\Programacion\\BazarUniversal\\api\\src\\Json\\products.json'));
-    const data = JSON.parse(fs.readFileSync('products.json'));
-        
-    return data.products; 
+
+
+async function getListProducts(search) {
+    try {
+        const results = await sequelize.query('CALL get_product_category_names(:search)', {
+            replacements: { search: search },
+            type: sequelize.QueryTypes.SELECT
+        });
+    
+        return results;
+    } catch (error) {
+        console.error('Error al llamar al procedimiento almacenado:', error);
+        throw error;
+    }
 }
 
 module.exports = {
