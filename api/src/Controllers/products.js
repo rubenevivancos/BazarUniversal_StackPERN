@@ -78,7 +78,7 @@ function getDetail(req, res){
 
 async function getListProducts(search) {
     try {
-        const results = await conn.query('SELECT * FROM "BazarUniversal".get_product_category_names(:search)', {
+        const results = await conn.query('SELECT * FROM "BazarUniversal"."getProductCategoryNames"(:search)', {
             replacements: { search: search },
             type: conn.QueryTypes.SELECT
         });

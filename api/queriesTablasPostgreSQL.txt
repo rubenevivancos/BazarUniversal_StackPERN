@@ -1,6 +1,6 @@
 create database Proyectos;
 
-create schema BazarUniversal;
+create schema "BazarUniversal";
 
 
 CREATE TABLE "BazarUniversal"."Category" (
@@ -155,7 +155,7 @@ select * from "BazarUniversal"."Product";
 
 --Creacion de Function para la busqueda del producto
 
-CREATE OR REPLACE FUNCTION "BazarUniversal".get_product_category_names(search character varying)
+CREATE OR REPLACE FUNCTION "BazarUniversal"."getProductCategoryNames"(search character varying)
 RETURNS TABLE (product_title character varying, category_name character varying) AS $$
 BEGIN
     RETURN QUERY 
