@@ -156,12 +156,28 @@ select * from "BazarUniversal"."Product";
 --Creacion de Function para la busqueda del producto
 
 CREATE OR REPLACE FUNCTION "BazarUniversal"."getProductCategoryNames"(search character varying)
-RETURNS TABLE (product_title character varying, category_name character varying) AS $$
+RETURNS TABLE (p_id integer, title character varying, description text, price numeric, 
+			   discountpercentage numeric, rating numeric, stock integer, 
+		       brand character varying, thumbnail character varying, category_id integer, 
+			   c_id integer, category character varying) AS $$
 BEGIN
     RETURN QUERY 
-    SELECT LOWER(p.title)::character varying AS product_title, LOWER(c.name)::character varying AS category_name
+    SELECT p.id as p_id, p.title, p.description, p.price, p.discountpercentage, p.rating, p.stock, 
+		   p.brand, p.thumbnail, p.category_id, c.id as c_id, c.name as category
     FROM "BazarUniversal"."Product" p
     INNER JOIN "BazarUniversal"."Category" c ON p.category_id = c.id
     WHERE LOWER(p.title) LIKE '%' || LOWER(search) || '%' OR LOWER(c.name) LIKE '%' || LOWER(search) || '%';
 END;
 $$ LANGUAGE plpgsql;
+
+
+--CREATE OR REPLACE FUNCTION "BazarUniversal"."getProductCategoryNames"(search character varying)
+--RETURNS TABLE (product_title character varying, category_name character varying) AS $$
+--BEGIN
+    --RETURN QUERY 
+    --SELECT LOWER(p.title)::character varying AS product_title, LOWER(c.name)::character varying AS category_name
+    --FROM "BazarUniversal"."Product" p
+    --INNER JOIN "BazarUniversal"."Category" c ON p.category_id = c.id
+    --WHERE LOWER(p.title) LIKE '%' || LOWER(search) || '%' OR LOWER(c.name) LIKE '%' || LOWER(search) || '%';
+--END;
+--$$ LANGUAGE plpgsql;

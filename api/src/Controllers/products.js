@@ -37,8 +37,8 @@ async function productSearch(req, res){
 
             if(result.length){
                 console.log("[ productSearch ] Se encontraron " + result.length + " resultados");
-                console.log("[ productSearch ] product_title: " + result[0].product_title);
-                console.log("[ productSearch ] category_name: " + result[0].category_name);
+                console.log("[ productSearch ] product title: " + result[0].title);
+                console.log("[ productSearch ] category name: " + result[0].category);
                 return res.status(200).json(resul);
             }
             console.log("[ productSearch ] No hay resultados");
