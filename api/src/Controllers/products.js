@@ -11,7 +11,7 @@ async function productSearch(req, res){
         console.log("[ productSearch ] El producto a buscar es: " + search);
 
         try{
-            //Obteniendo el listado de la busqueda usando la FUNCTION
+            //Obteniendo el listado de la busqueda usando la FUNCTION: "BazarUniversal"."getProductCategoryNames"
             const result = await getListProducts(search);
 
             /*
