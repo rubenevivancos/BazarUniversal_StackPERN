@@ -14,10 +14,14 @@ async function productSearch(req, res){
             //Obteniendo el listado de la busqueda usando la FUNCTION: "BazarUniversal"."getProductCategoryNames"
             const result = await getListProducts(search);
 
-            /*
+            
             //Obteniendo la cantidad de productos por categoria del listado de la busqueda: INICIO
             const categories = result.map((object) => object.category);
             const uniqueCategories = new Set(categories);
+
+            uniqueCategories.forEach((category) => {
+                console.log("category --> " + category);
+            });
 
             const categoriesWithCount = [];
 
@@ -31,8 +35,8 @@ async function productSearch(req, res){
                 console.log("category -->" + categoriesWithCount[i].category);
                 console.log("count -->" + categoriesWithCount[i].count);
             }
-            */
-            const categoriesWithCount = [];
+            
+            //const categoriesWithCount = [];
             let resul = {listProducts: result, categoriesWithCount: categoriesWithCount};
 
             if(result.length){
