@@ -1,4 +1,4 @@
-create database Proyectos;
+create database "Proyectos";
 
 create schema "BazarUniversal";
 
@@ -153,7 +153,7 @@ select * from "BazarUniversal"."Product";
 
 *******************************************************************************************
 
---Creacion de Function para la busqueda del producto
+--Creacion de Function para la Busqueda del Producto
 
 CREATE OR REPLACE FUNCTION "BazarUniversal"."getProductCategoryNames"(search character varying)
 RETURNS TABLE (p_id integer, title character varying, description text, price numeric, 
@@ -171,13 +171,15 @@ END;
 $$ LANGUAGE plpgsql;
 
 
---CREATE OR REPLACE FUNCTION "BazarUniversal"."getProductCategoryNames"(search character varying)
---RETURNS TABLE (product_title character varying, category_name character varying) AS $$
---BEGIN
-    --RETURN QUERY 
-    --SELECT LOWER(p.title)::character varying AS product_title, LOWER(c.name)::character varying AS category_name
-    --FROM "BazarUniversal"."Product" p
-    --INNER JOIN "BazarUniversal"."Category" c ON p.category_id = c.id
-    --WHERE LOWER(p.title) LIKE '%' || LOWER(search) || '%' OR LOWER(c.name) LIKE '%' || LOWER(search) || '%';
---END;
---$$ LANGUAGE plpgsql;
+--Creacion de Function para la busqueda de las imagenes por producto
+
+CREATE OR REPLACE FUNCTION "BazarUniversal"."getImagesByProduct"(INTEGER[])
+RETURNS TABLE (
+    im_id INTEGER,
+    product_id INTEGER,
+    url character varying
+) AS $$
+BEGIN
+    RETURN QUERY SELECT im.id as im_id, im.product_id, im.url FROM "BazarUniversal"."Image" im WHERE im.product_id = ANY($1);
+END;
+$$ LANGUAGE plpgsql;
