@@ -82,12 +82,23 @@ function getDetail(req, res){
 
 async function getListProducts(search) {
     try {
-        const results = await conn.query('SELECT * FROM "BazarUniversal"."getProductCategoryNames"(:search)', {
+        const listProducts = await conn.query('SELECT * FROM "BazarUniversal"."getProductCategoryNames"(:search)', {
             replacements: { search: search },
             type: conn.QueryTypes.SELECT
         });
+
+
+        const listID = listProducts.map((product) => product.p_id);
+        const uniqueIDs = [...new Set(listID)]; // Convierte el Set en un array
+
+        const listImagesByProduct = await conn.query('SELECT * FROM "BazarUniversal"."getImagesByProduct"(ARRAY[:productIds])', {
+            replacements: { productIds: uniqueIDs },
+            type: conn.QueryTypes.SELECT
+        });
+
+        console.log("listImagesByProduct --> " + listImagesByProduct.length);
     
-        return results;
+        return listProducts;
     } catch (error) {
         console.error('Error al llamar a la funcion:', error);
         throw error;
