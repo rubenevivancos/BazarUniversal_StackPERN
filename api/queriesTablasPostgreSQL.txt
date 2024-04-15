@@ -56,7 +56,6 @@ VALUES
   ('Microsoft Surface Laptop 4', 'Style and speed. Stand out on HD video calls backed by Studio Mics. Capture ideas on the vibrant touchscreen.', 1499, 10.23, 4.43, 68, 'Microsoft Surface', 'https://cdn.dummyjson.com/product-images/8/thumbnail.jpg', 2),
   ('Infinix INBOOK', 'Infinix Inbook X1 Ci3 10th 8GB 256GB 14 Win10 Grey – 1 Year Warranty', 1099, 11.83, 4.54, 96, 'Infinix', 'https://cdn.dummyjson.com/product-images/9/thumbnail.jpg', 2),
   ('HP Pavilion 15-DK1056WM', 'HP Pavilion 15-DK1056WM Gaming Laptop 10th Gen Core i5, 8GB, 256GB SSD, GTX 1650 4GB, Windows 10', 1099, 6.18, 4.43, 89, 'HP Pavilion', 'https://cdn.dummyjson.com/product-images/10/thumbnail.jpeg', 2),
-
   ('perfume Oil', 'Mega Discount, Impression of Acqua Di Gio by GiorgioArmani concentrated attar perfume Oil', 13, 8.4, 4.26, 65, 'Impression of Acqua Di Gio', 'https://cdn.dummyjson.com/product-images/11/thumbnail.jpg', 3),
   ('Brown Perfume', 'Royal_Mirage Sport Brown Perfume for Men & Women - 120ml', 40, 15.66, 4, 52, 'Royal_Mirage', 'https://cdn.dummyjson.com/product-images/12/thumbnail.jpg', 3),
   ('Fog Scent Xpressio Perfume', 'Product details of Best Fog Scent Xpressio Perfume 100ml For Men cool long lasting perfumes for Men', 13, 8.14, 4.59, 61, 'Fog Scent Xpressio', 'https://cdn.dummyjson.com/product-images/13/thumbnail.webp', 3),
@@ -66,7 +65,17 @@ VALUES
   ('Tree Oil 30ml', 'Tea tree oil contains a number of compounds, including terpinen-4-ol, that have been shown to kill certain bacteria,', 12, 4.09, 4.52, 78, 'Hemani Tea', 'https://cdn.dummyjson.com/product-images/17/thumbnail.jpg', 4),
   ('Oil Free Moisturizer 100ml', 'Dermive Oil Free Moisturizer with SPF 20 is specifically formulated with ceramides, hyaluronic acid & sunscreen.', 40, 13.1, 4.56, 88, 'Dermive', 'https://cdn.dummyjson.com/product-images/18/thumbnail.jpg', 4),
   ('Skin Beauty Serum.', 'Product name: rorec collagen hyaluronic acid white face serum riceNet weight: 15 m', 46, 10.68, 4.42, 54, 'ROREC White Rice', 'https://cdn.dummyjson.com/product-images/19/thumbnail.jpg', 4),
-  ('Freckle Treatment Cream- 15gm', 'Fair & Clear is Pakistan\'s only pure Freckle cream which helpsfade Freckles, Darkspots and pigments. Mercury level is 0%, so there are no side effects.', 70, 16.99, 4.06, 140, 'Fair & Clear', 'https://cdn.dummyjson.com/product-images/20/thumbnail.jpg', 4);
+  ('Freckle Treatment Cream- 15gm', 'Fair & Clear is Pakistan\'s only pure Freckle cream which helpsfade Freckles, Darkspots and pigments. Mercury level is 0%, so there are no side effects.', 70, 16.99, 4.06, 140, 'Fair & Clear', 'https://cdn.dummyjson.com/product-images/20/thumbnail.jpg', 4),
+  ('- Daal Masoor 500 grams', 'Fine quality Branded Product Keep in a cool and dry place', 20, 4.81, 4.44, 133, 'Saaf & Khaas', 'https://cdn.dummyjson.com/product-images/21/thumbnail.png', 5),
+  ('Elbow Macaroni - 400 gm', 'Product details of Bake Parlor Big Elbow Macaroni - 400 gm', 14, 15.58, 4.57, 146, 'Bake Parlor Big', 'https://cdn.dummyjson.com/product-images/22/thumbnail.jpg', 5),
+  ('Orange Essence Food Flavou', 'Specifications of Orange Essence Food Flavour For Cakes and Baking Food Item', 14, 8.04, 4.85, 26, 'Baking Food Items', 'https://cdn.dummyjson.com/product-images/23/thumbnail.jpg', 5),
+  ('cereals muesli fruit nuts', 'original fauji cereal muesli 250gm box pack original fauji cereals muesli fruit nuts flakes breakfast cereal break fast faujicereals cerels cerel foji fouji', 46, 16.8, 4.94, 113, 'fauji', 'https://cdn.dummyjson.com/product-images/24/thumbnail.jpg', 5),
+  ('Gulab Powder 50 Gram', 'Dry Rose Flower Powder Gulab Powder 50 Gram • Treats Wounds', 70, 13.58, 4.87, 47, 'Dry Rose', 'https://cdn.dummyjson.com/product-images/25/thumbnail.jpg', 5),
+  ('Plant Hanger For Home', 'Boho Decor Plant Hanger For Home Wall Decoration Macrame Wall Hanging Shelf', 41, 17.86, 4.08, 131, 'Boho Decor', 'https://cdn.dummyjson.com/product-images/26/thumbnail.jpg', 6),
+  ('Flying Wooden Bird', 'Package Include 6 Birds with Adhesive Tape Shape: 3D Shaped Wooden Birds Material: Wooden MDF, Laminated 3.5mm', 51, 15.58, 4.41, 17, 'Flying Wooden', 'https://cdn.dummyjson.com/product-images/27/thumbnail.webp', 6),
+  ('3D Embellishment Art Lamp', '3D led lamp sticker Wall sticker 3d wall art light on/off button  cell operated (included)', 20, 16.49, 4.82, 54, 'LED Lights', 'https://cdn.dummyjson.com/product-images/28/thumbnail.jpg', 6),
+  ('Handcraft Chinese style', 'Handcraft Chinese style art luxury palace hotel villa mansion home decor ceramic vase with brass fruit plate', 60, 15.34, 4.44, 7, 'luxury palace', 'https://cdn.dummyjson.com/product-images/29/thumbnail.webp', 6),
+  ('Key Holder', 'Attractive DesignMetallic materialFour key hooksReliable & DurablePremium Quality', 30, 2.92, 4.92, 54, 'Golden', 'https://cdn.dummyjson.com/product-images/30/thumbnail.jpg', 6);  
 
 
 
