@@ -58,9 +58,31 @@ async function productSearch(req, res){
     return res.status(200).json([]);
 }
 
-function getDetail(req, res){
-    console.log("[ src/routes/products.js/:id ] INICIO");
+async function getDetail(req, res){
+    console.log("[ products.js/getDetail ] INICIO");
     const { idProduct } = req.params;
+
+    if (idProduct) {
+        console.log("[ products.js/getDetail ] El ID del producto a buscar es: " + idProduct);
+
+        try {
+            let functionName = "BazarUniversal.productDetail";
+            console.log("[ products.js/getDetail ] Se procede a llamar a la funcion: " + functionName);
+
+            const productDetail = await conn.query('SELECT * FROM "BazarUniversal"."productDetail"(:id)', {
+                replacements: { id: idProduct },
+                type: conn.QueryTypes.SELECT
+            });         
+        
+            console.log("[ products.js/getDetail ] FIN");
+            return productDetail;
+        } catch (error) {
+            console.error("[ products.js/getDetail ] Error al llamar a la funcion: " + functionName, error);
+            throw error;
+        }
+    }
+
+    /*
     const listProducts = getListProducts();
 
     if (idProduct) {
@@ -74,6 +96,7 @@ function getDetail(req, res){
         console.log("[ src/routes/products.js/:idProduct ] No hay resultados");
         return res.status(422).json({message: "No hay resultados"}); 
     }
+    */
 
     return res.status(400).json({message: "Falta enviar datos obligatorios"});
 }
@@ -81,7 +104,10 @@ function getDetail(req, res){
 
 
 async function getListProducts(search) {
+    console.log("[ products.js/getListProducts ] INICIO");
     try {
+        let functionName = "BazarUniversal.getProductCategoryNames";
+        console.log("[ products.js/getListProducts ] Se procede a llamar a la funcion: " + functionName);
         const listProducts = await conn.query('SELECT * FROM "BazarUniversal"."getProductCategoryNames"(:search)', {
             replacements: { search: search },
             type: conn.QueryTypes.SELECT
@@ -90,6 +116,8 @@ async function getListProducts(search) {
 
         const listID = listProducts.map((product) => product.p_id);
 
+        functionName = "BazarUniversal.getImagesByProduct";
+        console.log("[ products.js/getListProducts ] Se procede a llamar a la funcion: " + functionName);
         const listImagesByProduct = await conn.query('SELECT * FROM "BazarUniversal"."getImagesByProduct"(ARRAY[:productIds])', {
             replacements: { productIds: listID },
             type: conn.QueryTypes.SELECT
@@ -104,13 +132,12 @@ async function getListProducts(search) {
 
             // Agrega el atributo "images" al objeto product con el arreglo de imágenes correspondientes
             product.images = listUrl;
-            console.log("productID - images[0] --> " + product.p_id + " / " + product.images[0]);
         }
         
-    
+        console.log("[ products.js/getListProducts ] FIN");
         return listProducts;
     } catch (error) {
-        console.error('Error al llamar a la funcion:', error);
+        console.error("[ products.js/getListProducts ] Error al llamar a la funcion: " + functionName, error);
         throw error;
     }
 }
