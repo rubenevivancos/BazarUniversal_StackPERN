@@ -254,3 +254,21 @@ BEGIN
     RETURN QUERY SELECT im.id as im_id, im.product_id, im.url FROM "BazarUniversal"."Image" im WHERE im.product_id = ANY($1);
 END;
 $$ LANGUAGE plpgsql;
+
+
+--Creacion de Function para obtener el detalle de un producto
+
+CREATE OR REPLACE FUNCTION "BazarUniversal"."productDetail"(idProduct integer)
+RETURNS TABLE (p_id integer, title character varying, description text, price numeric, 
+			   discountpercentage numeric, rating numeric, stock integer, 
+		       brand character varying, thumbnail character varying, category_id integer, 
+			   c_id integer, category character varying) AS $$
+BEGIN
+    RETURN QUERY 
+    SELECT p.id as p_id, p.title, p.description, p.price, p.discountpercentage, p.rating, p.stock, 
+		   p.brand, p.thumbnail, p.category_id, c.id as c_id, c.name as category
+    FROM "BazarUniversal"."Product" p
+    INNER JOIN "BazarUniversal"."Category" c ON p.category_id = c.id
+    WHERE p.id = idProduct;
+END;
+$$ LANGUAGE plpgsql;
