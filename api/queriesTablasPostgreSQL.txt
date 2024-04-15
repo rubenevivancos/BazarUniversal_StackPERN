@@ -57,6 +57,16 @@ VALUES
   ('Infinix INBOOK', 'Infinix Inbook X1 Ci3 10th 8GB 256GB 14 Win10 Grey – 1 Year Warranty', 1099, 11.83, 4.54, 96, 'Infinix', 'https://cdn.dummyjson.com/product-images/9/thumbnail.jpg', 2),
   ('HP Pavilion 15-DK1056WM', 'HP Pavilion 15-DK1056WM Gaming Laptop 10th Gen Core i5, 8GB, 256GB SSD, GTX 1650 4GB, Windows 10', 1099, 6.18, 4.43, 89, 'HP Pavilion', 'https://cdn.dummyjson.com/product-images/10/thumbnail.jpeg', 2),
 
+  ('perfume Oil', 'Mega Discount, Impression of Acqua Di Gio by GiorgioArmani concentrated attar perfume Oil', 13, 8.4, 4.26, 65, 'Impression of Acqua Di Gio', 'https://cdn.dummyjson.com/product-images/11/thumbnail.jpg', 3),
+  ('Brown Perfume', 'Royal_Mirage Sport Brown Perfume for Men & Women - 120ml', 40, 15.66, 4, 52, 'Royal_Mirage', 'https://cdn.dummyjson.com/product-images/12/thumbnail.jpg', 3),
+  ('Fog Scent Xpressio Perfume', 'Product details of Best Fog Scent Xpressio Perfume 100ml For Men cool long lasting perfumes for Men', 13, 8.14, 4.59, 61, 'Fog Scent Xpressio', 'https://cdn.dummyjson.com/product-images/13/thumbnail.webp', 3),
+  ('Non-Alcoholic Concentrated Perfume Oil', 'Original Al Munakh® by Mahal Al Musk | Our Impression of Climate | 6ml Non-Alcoholic Concentrated Perfume Oil', 120, 15.6, 4.21, 114, 'Al Munakh', 'https://cdn.dummyjson.com/product-images/14/thumbnail.jpg', 3),
+  ('Eau De Perfume Spray', 'Genuine  Al-Rehab spray perfume from UAE/Saudi Arabia/Yemen High Quality', 30, 10.99, 4.7, 105, 'Lord - Al-Rehab', 'https://cdn.dummyjson.com/product-images/15/thumbnail.jpg', 3),
+  ('Hyaluronic Acid Serum', 'L\'OrÃ©al Paris introduces Hyaluron Expert Replumping Serum formulated with 1.5% Hyaluronic Acid', 19, 13.31, 4.83, 110, 'L\'Oreal Paris', 'https://cdn.dummyjson.com/product-images/16/thumbnail.jpg', 4),
+  ('Tree Oil 30ml', 'Tea tree oil contains a number of compounds, including terpinen-4-ol, that have been shown to kill certain bacteria,', 12, 4.09, 4.52, 78, 'Hemani Tea', 'https://cdn.dummyjson.com/product-images/17/thumbnail.jpg', 4),
+  ('Oil Free Moisturizer 100ml', 'Dermive Oil Free Moisturizer with SPF 20 is specifically formulated with ceramides, hyaluronic acid & sunscreen.', 40, 13.1, 4.56, 88, 'Dermive', 'https://cdn.dummyjson.com/product-images/18/thumbnail.jpg', 4),
+  ('Skin Beauty Serum.', 'Product name: rorec collagen hyaluronic acid white face serum riceNet weight: 15 m', 46, 10.68, 4.42, 54, 'ROREC White Rice', 'https://cdn.dummyjson.com/product-images/19/thumbnail.jpg', 4),
+  ('Freckle Treatment Cream- 15gm', 'Fair & Clear is Pakistan\'s only pure Freckle cream which helpsfade Freckles, Darkspots and pigments. Mercury level is 0%, so there are no side effects.', 70, 16.99, 4.06, 140, 'Fair & Clear', 'https://cdn.dummyjson.com/product-images/20/thumbnail.jpg', 4);
 
 
 
