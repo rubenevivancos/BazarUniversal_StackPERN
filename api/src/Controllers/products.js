@@ -89,14 +89,24 @@ async function getListProducts(search) {
 
 
         const listID = listProducts.map((product) => product.p_id);
-        const uniqueIDs = [...new Set(listID)]; // Convierte el Set en un array
 
         const listImagesByProduct = await conn.query('SELECT * FROM "BazarUniversal"."getImagesByProduct"(ARRAY[:productIds])', {
-            replacements: { productIds: uniqueIDs },
+            replacements: { productIds: listID },
             type: conn.QueryTypes.SELECT
         });
 
-        console.log("listImagesByProduct --> " + listImagesByProduct.length);
+        //Se setea a cada producto su correspondiente arreglo de imagenes
+        for (let product of listProducts) {
+            // Filtra las imágenes correspondientes al producto actual
+            const productImages = listImagesByProduct.filter(image => image.product_id === product.p_id);
+
+            const listUrl = productImages.map((images) => images.url);
+
+            // Agrega el atributo "images" al objeto product con el arreglo de imágenes correspondientes
+            product.images = listUrl;
+            console.log("productID - images[0] --> " + product.p_id + " / " + product.images[0]);
+        }
+        
     
         return listProducts;
     } catch (error) {
