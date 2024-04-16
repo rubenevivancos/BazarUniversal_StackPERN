@@ -258,15 +258,27 @@ $$ LANGUAGE plpgsql;
 
 --Creacion de Function para obtener el detalle de un producto
 
-CREATE OR REPLACE FUNCTION "BazarUniversal"."productDetail"(idProduct integer)
-RETURNS TABLE (p_id integer, title character varying, description text, price numeric, 
-			   discountpercentage numeric, rating numeric, stock integer, 
-		       brand character varying, thumbnail character varying, category_id integer, 
-			   c_id integer, category character varying) AS $$
+CREATE OR REPLACE FUNCTION "BazarUniversal"."productDetail"(
+    IN idProduct integer,
+    OUT p_id integer,
+    OUT title character varying,
+    OUT description text,
+    OUT price numeric,
+    OUT discountpercentage numeric,
+    OUT rating numeric,
+    OUT stock integer,
+    OUT brand character varying,
+    OUT thumbnail character varying,
+    OUT category_id integer,
+    OUT c_id integer,
+    OUT category character varying
+)
+AS $$
 BEGIN
-    RETURN QUERY 
-    SELECT p.id as p_id, p.title, p.description, p.price, p.discountpercentage, p.rating, p.stock, 
-		   p.brand, p.thumbnail, p.category_id, c.id as c_id, c.name as category
+    SELECT p.id, p.title, p.description, p.price, p.discountpercentage, p.rating, p.stock, 
+           p.brand, p.thumbnail, p.category_id, c.id, c.name
+    INTO p_id, title, description, price, discountpercentage, rating, stock, 
+         brand, thumbnail, category_id, c_id, category
     FROM "BazarUniversal"."Product" p
     INNER JOIN "BazarUniversal"."Category" c ON p.category_id = c.id
     WHERE p.id = idProduct;

@@ -91,7 +91,7 @@ export default function SearchResults() {
                     <Row>
                         <Col className="text-left overflow-auto" style={{ maxHeight: '60vh' }}>
                             <div>
-                                { listProducts.map( product => <Link to={"/items/"+product.id} key={product.id} style={{ textDecoration: 'none' }}><Product product={product} /></Link>) }
+                                { listProducts.map( product => <Link to={"/items/"+product.p_id} key={product.p_id} style={{ textDecoration: 'none' }}><Product product={product} /></Link>) }
                             </div>
                         </Col>
                     </Row>

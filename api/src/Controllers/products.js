@@ -69,13 +69,29 @@ async function getDetail(req, res){
             let functionName = "BazarUniversal.productDetail";
             console.log("[ products.js/getDetail ] Se procede a llamar a la funcion: " + functionName);
 
+            //OBS: Pese a que la funcion productDetail en postgresql devuelve un objeto, sequelize lo interpreta como un arreglo,
+            //     por eso, productDetail es un arreglo con un solo elemento
             const productDetail = await conn.query('SELECT * FROM "BazarUniversal"."productDetail"(:id)', {
                 replacements: { id: idProduct },
                 type: conn.QueryTypes.SELECT
-            });         
-        
+            });
+            
+            if(productDetail.length > 0){
+                const product = productDetail[0];
+                console.log("[ products.js/getDetail ] Se encontro el detalle del producto");
+                console.log("[ products.js/getDetail ] El producto es: " + product.title);
+
+                const productDetailKeys = Object.keys(product);
+                console.log("productDetailKeys --> " + productDetailKeys);
+
+                console.log("[ products.js/getDetail ] FIN");
+                return res.status(200).json(product);
+            }
+
+            console.log("[ products.js/getDetail ] No hay resultados");
             console.log("[ products.js/getDetail ] FIN");
-            return productDetail;
+            return res.status(422).json({message: "No hay resultados"}); 
+
         } catch (error) {
             console.error("[ products.js/getDetail ] Error al llamar a la funcion: " + functionName, error);
             throw error;
