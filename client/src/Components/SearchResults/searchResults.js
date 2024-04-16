@@ -7,7 +7,7 @@ import { Container, Row, Col, Image, InputGroup, FormControl } from 'react-boots
 import Product from "../Product/product.js";
 import imagen from '../../Images/carrito.png';
 import lupaIcon from '../../Images/lupa.png';
-
+import GoBack from '../GoBack/goBack';
 
 
 export default function SearchResults() {
@@ -54,6 +54,9 @@ export default function SearchResults() {
         return(
             <>
                 <Container fluid className="py-4" style={{ maxHeight: '90vh', maxWidth: '50vh', backgroundColor: '#fdfd96' }}>
+                    <Row className="mb-2">
+                        <GoBack/>
+                    </Row>    
                     <Row className="mb-4 justify-content-left align-items-left">
                         <Col>
                             <InputGroup>
@@ -75,7 +78,7 @@ export default function SearchResults() {
                             <div>Resultados de la busqueda de " {productToSearch} ": {listProducts.length}</div>
                         </Col>
                     </Row>
-                    <Row className="mb-4">                        
+                    <Row className="mb-4">
                         <Col className="d-flex flex-wrap justify-content-start">
                             {categoriesWithCount.map((cat, index) => (                            
                                 <span 

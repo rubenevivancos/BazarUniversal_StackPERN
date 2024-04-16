@@ -1,14 +1,14 @@
 import React, { useEffect, useState }  from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { Container, Row, Col, Image, InputGroup, FormControl, Button } from 'react-bootstrap';
-import { useNavigate   } from 'react-router-dom';
+import { Container, Row, Col, Image, InputGroup, FormControl } from 'react-bootstrap';
 
 
 import { getProductDetail } from "../../Redux/Actions/productAction";
 import imagen from '../../Images/carrito.png';
 import lupaIcon from '../../Images/lupa.png';
 import CalificacionEstrellas from '../Product/stars';
+import GoBack from '../GoBack/goBack';
 
 
 export default function ProductDetail() {
@@ -30,26 +30,13 @@ export default function ProductDetail() {
     useEffect(() => {
         dispatch(getProductDetail(id));
     }, [dispatch, id]);
-
-    const navigate = useNavigate();
-    const goBack = () => {
-        navigate(-1); // Retrocede una página en el historial
-    };
     
 
     if(product !== null){
         return(
             <Container fluid className="py-4 overflow-auto" style={{ maxHeight: '90vh', maxWidth: '50vh', backgroundColor: '#fdfd96' }}>
                 <Row className="mb-2">
-                    <div className="text-start">
-                        <Button 
-                            variant="outline-secondary" 
-                            className="p-0 border-0"
-                            size="xs" 
-                            onClick={goBack}>
-                                Volver
-                        </Button>
-                    </div>
+                    <GoBack/>
                 </Row>
                 <Row className="mb-4 justify-content-left align-items-left">
                     <Col>
