@@ -81,8 +81,22 @@ async function getDetail(req, res){
                 console.log("[ products.js/getDetail ] Se encontro el detalle del producto");
                 console.log("[ products.js/getDetail ] El producto es: " + product.title);
 
-                const productDetailKeys = Object.keys(product);
-                console.log("productDetailKeys --> " + productDetailKeys);
+                //Llamar a la funcion para obtener su listado de imagenes
+                const listID = [product.p_id];
+                functionName = "BazarUniversal.getImagesByProduct";
+                console.log("[ products.js/getDetail ] Se procede a llamar a la funcion: " + functionName);
+                const productImages = await conn.query('SELECT * FROM "BazarUniversal"."getImagesByProduct"(ARRAY[:productIds])', {
+                    replacements: { productIds: listID },
+                    type: conn.QueryTypes.SELECT
+                });
+
+                if(productImages.length > 0){
+                    console.log("[ products.js/getDetail ] El producto tiene " + productImages.length + " imagenes");
+                    const listUrl = productImages.map((images) => images.url);
+                    product.images = listUrl;
+                }else{
+                    product.images = [];
+                }
 
                 console.log("[ products.js/getDetail ] FIN");
                 return res.status(200).json(product);

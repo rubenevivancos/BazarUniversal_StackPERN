@@ -25,7 +25,7 @@ export const getProductDetail = (id) => async (dispatch) => {
         console.log("Se obtendra el detalle del producto con id: " + id);
         let response = (await axios.get(`http://localhost:3001/products/${id}`)).data;
         console.log("[ getProductDetail ] Se recibio respuesta del backend");
-        console.log("[ getProductDetail ] response: " + response);
+        console.log("[ getProductDetail ] response: " + response.title);
 
         dispatch(getProductDetailReducer(response));
 
