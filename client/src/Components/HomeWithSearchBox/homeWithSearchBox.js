@@ -32,10 +32,10 @@ export default function HomeWithSearchBox() {
 
 
     return(
-        <>
-            <Container fluid className="py-4" style={{ maxHeight: '90vh', maxWidth: '40vh', backgroundColor: '#fdfd96' }}>
+        <div className="d-flex justify-content-center align-items-center" style={{ height: '100vh', backgroundColor: '#fdfd96' }}>
+            <Container className="py-4">
                 <Row className="mb-4">
-                    <Col className="text-center">
+                    <Col className="d-flex justify-content-center">
                         <Image src={imagen} style={{ width: "200px" }}/>
                     </Col>
                 </Row>
@@ -45,26 +45,28 @@ export default function HomeWithSearchBox() {
                     </Col>
                 </Row>
                 <Row className="mb-4 justify-content-center">
-                    <Col  className="text-center"> {/* Utilizamos lg=6 para que ocupe la mitad del ancho en pantallas grandes */}
-                        <InputGroup>
-                            <FormControl
-                                placeholder="smartphones, laptops..."
-                                aria-label="Búsqueda"
-                                aria-describedby="basic-addon2"
-                                onChange={handleInput}
-                            />
-                            <Image src={lupaIcon} alt="Lupa" />
-                        </InputGroup>
+                    <Col className="d-flex justify-content-center">
+                        <div style={{ width: '30%'}}>
+                            <InputGroup>
+                                <FormControl
+                                    placeholder="smartphones, laptops..."
+                                    aria-label="Búsqueda"
+                                    aria-describedby="basic-addon2"
+                                    onChange={handleInput}                                
+                                />
+                                <Image src={lupaIcon} alt="Lupa" />
+                            </InputGroup>
+                        </div>
                     </Col>
                 </Row>
                 <Row>
-                    <Col className="text-center">
+                    <Col className="d-flex justify-content-center">
                         <Button variant="primary" onClick={handleSubmit}>
                             Buscar
                         </Button>
                     </Col>
                 </Row>
             </Container>
-        </>
+        </div>
     )
 }
