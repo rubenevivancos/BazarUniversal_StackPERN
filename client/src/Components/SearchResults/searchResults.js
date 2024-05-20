@@ -52,8 +52,8 @@ export default function SearchResults() {
 
     if(listProducts.length){
         return(
-            <>
-                <Container fluid className="py-4" style={{ maxHeight: '90vh', maxWidth: '50vh', backgroundColor: '#fdfd96' }}>
+            <div className="d-flex justify-content-center align-items-start" style={{ height: '100vh', backgroundColor: '#fdfd96' }}>
+                <Container fluid className="py-4" style={{ maxHeight: '90vh', maxWidth: '50vh' }}>
                     <Row className="mb-2">
                         <GoBack/>
                     </Row>    
@@ -99,7 +99,7 @@ export default function SearchResults() {
                         </Col>
                     </Row>
                 </Container>
-            </>
+            </div>
         )
     }
 }
