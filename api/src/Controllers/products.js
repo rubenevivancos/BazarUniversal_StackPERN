@@ -64,9 +64,9 @@ async function getDetail(req, res){
 
     if (idProduct) {
         console.log("[ products.js/getDetail ] El ID del producto a buscar es: " + idProduct);
+        let functionName = "BazarUniversal.productDetail";
 
         try {
-            let functionName = "BazarUniversal.productDetail";
             console.log("[ products.js/getDetail ] Se procede a llamar a la funcion: " + functionName);
 
             //OBS: Pese a que la funcion productDetail en postgresql devuelve un objeto, sequelize lo interpreta como un arreglo,
@@ -135,8 +135,9 @@ async function getDetail(req, res){
 
 async function getListProducts(search) {
     console.log("[ products.js/getListProducts ] INICIO");
-    try {
-        let functionName = "BazarUniversal.getProductCategoryNames";
+    let functionName = "BazarUniversal.getProductCategoryNames";
+
+    try {        
         console.log("[ products.js/getListProducts ] Se procede a llamar a la funcion: " + functionName);
         const listProducts = await conn.query('SELECT * FROM "BazarUniversal"."getProductCategoryNames"(:search)', {
             replacements: { search: search },
