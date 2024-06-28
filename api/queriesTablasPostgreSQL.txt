@@ -116,7 +116,7 @@ INSERT INTO "BazarUniversal"."Image" (url, product_id) VALUES
 ('https://cdn.dummyjson.com/products/images/fragrances/Calvin%20Klein%20CK%20One/3.png', 11),
 ('https://cdn.dummyjson.com/products/images/fragrances/Chanel%20Coco%20Noir%20Eau%20De/1.png', 12),
 ('https://cdn.dummyjson.com/products/images/fragrances/Chanel%20Coco%20Noir%20Eau%20De/2.png', 12),
-('https://cdn.dummyjson.com/products/images/fragrances/Chanel%20Coco%20Noir%20Eau%20De/3.png', 12);
+('https://cdn.dummyjson.com/products/images/fragrances/Chanel%20Coco%20Noir%20Eau%20De/3.png', 12),
 ('https://cdn.dummyjson.com/products/images/fragrances/Dior%20J%27adore/1.png', 13),
 ('https://cdn.dummyjson.com/products/images/fragrances/Dior%20J%27adore/2.png', 13),
 ('https://cdn.dummyjson.com/products/images/fragrances/Dior%20J%27adore/3.png', 13),
