@@ -12,11 +12,9 @@
       "category":"smartphones",
       "thumbnail":"https://cdn.dummyjson.com/product-images/1/thumbnail.jpg",
       "images":[
-        "https://cdn.dummyjson.com/product-images/1/1.jpg",
-        "https://cdn.dummyjson.com/product-images/1/2.jpg",
-        "https://cdn.dummyjson.com/product-images/1/3.jpg",
-        "https://cdn.dummyjson.com/product-images/1/4.jpg",
-        "https://cdn.dummyjson.com/product-images/1/thumbnail.jpg"
+        "https://cdn.dummyjson.com/products/images/smartphones/iPhone%2013%20Pro/1.png",
+        "https://cdn.dummyjson.com/products/images/smartphones/iPhone%2013%20Pro/2.png",
+        "https://cdn.dummyjson.com/products/images/smartphones/iPhone%2013%20Pro/3.png"
       ]
     },
     {
@@ -31,10 +29,9 @@
       "category":"smartphones",
       "thumbnail":"https://cdn.dummyjson.com/product-images/2/thumbnail.jpg",
       "images":[
-        "https://cdn.dummyjson.com/product-images/2/1.jpg",
-        "https://cdn.dummyjson.com/product-images/2/2.jpg",
-        "https://cdn.dummyjson.com/product-images/2/3.jpg",
-        "https://cdn.dummyjson.com/product-images/2/thumbnail.jpg"
+        "https://cdn.dummyjson.com/products/images/smartphones/iPhone%20X/1.png",
+        "https://cdn.dummyjson.com/products/images/smartphones/iPhone%20X/2.png",
+        "https://cdn.dummyjson.com/products/images/smartphones/iPhone%20X/3.png"
       ]
     },
     {
@@ -49,7 +46,9 @@
       "category":"smartphones",
       "thumbnail":"https://cdn.dummyjson.com/product-images/3/thumbnail.jpg",
       "images":[
-        "https://cdn.dummyjson.com/product-images/3/1.jpg"
+        "https://cdn.dummyjson.com/products/images/smartphones/Samsung%20Galaxy%20S10/1.png",
+        "https://cdn.dummyjson.com/products/images/smartphones/Samsung%20Galaxy%20S10/2.png",
+        "https://cdn.dummyjson.com/products/images/smartphones/Samsung%20Galaxy%20S10/3.png"
       ]
     },
     {
@@ -64,11 +63,9 @@
       "category":"smartphones",
       "thumbnail":"https://cdn.dummyjson.com/product-images/4/thumbnail.jpg",
       "images":[
-        "https://cdn.dummyjson.com/product-images/4/1.jpg",
-        "https://cdn.dummyjson.com/product-images/4/2.jpg",
-        "https://cdn.dummyjson.com/product-images/4/3.jpg",
-        "https://cdn.dummyjson.com/product-images/4/4.jpg",
-        "https://cdn.dummyjson.com/product-images/4/thumbnail.jpg"
+        "https://cdn.dummyjson.com/products/images/smartphones/Oppo%20F19%20Pro%20Plus/1.png",
+        "https://cdn.dummyjson.com/products/images/smartphones/Oppo%20F19%20Pro%20Plus/2.png",
+        "https://cdn.dummyjson.com/products/images/smartphones/Oppo%20F19%20Pro%20Plus/3.png"
       ]
     },
     {
@@ -83,9 +80,9 @@
       "category":"smartphones",
       "thumbnail":"https://cdn.dummyjson.com/product-images/5/thumbnail.jpg",
       "images":[
-        "https://cdn.dummyjson.com/product-images/5/1.jpg",
-        "https://cdn.dummyjson.com/product-images/5/2.jpg",
-        "https://cdn.dummyjson.com/product-images/5/3.jpg"
+        "https://cdn.dummyjson.com/products/images/smartphones/Vivo%20X21/1.png",
+        "https://cdn.dummyjson.com/products/images/smartphones/Vivo%20X21/2.png",
+        "https://cdn.dummyjson.com/products/images/smartphones/Vivo%20X21/3.png"
       ]
     },
     {
@@ -100,10 +97,9 @@
       "category":"laptops",
       "thumbnail":"https://cdn.dummyjson.com/product-images/6/thumbnail.png",
       "images":[
-        "https://cdn.dummyjson.com/product-images/6/1.png",
-        "https://cdn.dummyjson.com/product-images/6/2.jpg",
-        "https://cdn.dummyjson.com/product-images/6/3.png",
-        "https://cdn.dummyjson.com/product-images/6/4.jpg"
+        "https://cdn.dummyjson.com/products/images/laptops/Apple%20MacBook%20Pro%2014%20Inch%20Space%20Grey/1.png",
+        "https://cdn.dummyjson.com/products/images/laptops/Apple%20MacBook%20Pro%2014%20Inch%20Space%20Grey/2.png",
+        "https://cdn.dummyjson.com/products/images/laptops/Apple%20MacBook%20Pro%2014%20Inch%20Space%20Grey/3.png"
       ]
     },
     {
@@ -118,10 +114,9 @@
       "category":"laptops",
       "thumbnail":"https://cdn.dummyjson.com/product-images/7/thumbnail.jpg",
       "images":[
-        "https://cdn.dummyjson.com/product-images/7/1.jpg",
-        "https://cdn.dummyjson.com/product-images/7/2.jpg",
-        "https://cdn.dummyjson.com/product-images/7/3.jpg",
-        "https://cdn.dummyjson.com/product-images/7/thumbnail.jpg"
+        "https://cdn.dummyjson.com/products/images/laptops/Asus%20Zenbook%20Pro%20Dual%20Screen%20Laptop/1.png",
+        "https://cdn.dummyjson.com/products/images/laptops/Asus%20Zenbook%20Pro%20Dual%20Screen%20Laptop/2.png",
+        "https://cdn.dummyjson.com/products/images/laptops/Asus%20Zenbook%20Pro%20Dual%20Screen%20Laptop/3.png"
       ]
     },
     {
@@ -136,11 +131,9 @@
       "category":"laptops",
       "thumbnail":"https://cdn.dummyjson.com/product-images/8/thumbnail.jpg",
       "images":[
-        "https://cdn.dummyjson.com/product-images/8/1.jpg",
-        "https://cdn.dummyjson.com/product-images/8/2.jpg",
-        "https://cdn.dummyjson.com/product-images/8/3.jpg",
-        "https://cdn.dummyjson.com/product-images/8/4.jpg",
-        "https://cdn.dummyjson.com/product-images/8/thumbnail.jpg"
+        "https://cdn.dummyjson.com/products/images/laptops/Huawei%20Matebook%20X%20Pro/1.png",
+        "https://cdn.dummyjson.com/products/images/laptops/Huawei%20Matebook%20X%20Pro/2.png",
+        "https://cdn.dummyjson.com/products/images/laptops/Huawei%20Matebook%20X%20Pro/3.png"
       ]
     },
     {
@@ -155,11 +148,9 @@
       "category":"laptops",
       "thumbnail":"https://cdn.dummyjson.com/product-images/9/thumbnail.jpg",
       "images":[
-        "https://cdn.dummyjson.com/product-images/9/1.jpg",
-        "https://cdn.dummyjson.com/product-images/9/2.png",
-        "https://cdn.dummyjson.com/product-images/9/3.png",
-        "https://cdn.dummyjson.com/product-images/9/4.jpg",
-        "https://cdn.dummyjson.com/product-images/9/thumbnail.jpg"
+        "https://cdn.dummyjson.com/products/images/laptops/Lenovo%20Yoga%20920/1.png",
+        "https://cdn.dummyjson.com/products/images/laptops/Lenovo%20Yoga%20920/2.png",
+        "https://cdn.dummyjson.com/products/images/laptops/Lenovo%20Yoga%20920/3.png"
       ]
     },
     {
@@ -174,10 +165,9 @@
       "category":"laptops",
       "thumbnail":"https://cdn.dummyjson.com/product-images/10/thumbnail.jpeg",
       "images":[
-        "https://cdn.dummyjson.com/product-images/10/1.jpg",
-        "https://cdn.dummyjson.com/product-images/10/2.jpg",
-        "https://cdn.dummyjson.com/product-images/10/3.jpg",
-        "https://cdn.dummyjson.com/product-images/10/thumbnail.jpeg"
+        "https://cdn.dummyjson.com/products/images/laptops/New%20DELL%20XPS%2013%209300%20Laptop/1.png",
+        "https://cdn.dummyjson.com/products/images/laptops/New%20DELL%20XPS%2013%209300%20Laptop/2.png",
+        "https://cdn.dummyjson.com/products/images/laptops/New%20DELL%20XPS%2013%209300%20Laptop/3.png"
       ]
     },
     {
@@ -192,10 +182,9 @@
       "category":"fragrances",
       "thumbnail":"https://cdn.dummyjson.com/product-images/11/thumbnail.jpg",
       "images":[
-        "https://cdn.dummyjson.com/product-images/11/1.jpg",
-        "https://cdn.dummyjson.com/product-images/11/2.jpg",
-        "https://cdn.dummyjson.com/product-images/11/3.jpg",
-        "https://cdn.dummyjson.com/product-images/11/thumbnail.jpg"
+        "https://cdn.dummyjson.com/products/images/fragrances/Calvin%20Klein%20CK%20One/1.png",
+        "https://cdn.dummyjson.com/products/images/fragrances/Calvin%20Klein%20CK%20One/2.png",
+        "https://cdn.dummyjson.com/products/images/fragrances/Calvin%20Klein%20CK%20One/3.png"
       ]
     },
     {
@@ -210,11 +199,9 @@
       "category":"fragrances",
       "thumbnail":"https://cdn.dummyjson.com/product-images/12/thumbnail.jpg",
       "images":[
-        "https://cdn.dummyjson.com/product-images/12/1.jpg",
-        "https://cdn.dummyjson.com/product-images/12/2.jpg",
-        "https://cdn.dummyjson.com/product-images/12/3.png",
-        "https://cdn.dummyjson.com/product-images/12/4.jpg",
-        "https://cdn.dummyjson.com/product-images/12/thumbnail.jpg"
+        "https://cdn.dummyjson.com/products/images/fragrances/Chanel%20Coco%20Noir%20Eau%20De/1.png",
+        "https://cdn.dummyjson.com/products/images/fragrances/Chanel%20Coco%20Noir%20Eau%20De/2.png",
+        "https://cdn.dummyjson.com/products/images/fragrances/Chanel%20Coco%20Noir%20Eau%20De/3.png"
       ]
     },
     {
@@ -229,11 +216,9 @@
       "category":"fragrances",
       "thumbnail":"https://cdn.dummyjson.com/product-images/13/thumbnail.webp",
       "images":[
-        "https://cdn.dummyjson.com/product-images/13/1.jpg",
-        "https://cdn.dummyjson.com/product-images/13/2.png",
-        "https://cdn.dummyjson.com/product-images/13/3.jpg",
-        "https://cdn.dummyjson.com/product-images/13/4.jpg",
-        "https://cdn.dummyjson.com/product-images/13/thumbnail.webp"
+        "https://cdn.dummyjson.com/products/images/fragrances/Dior%20J'adore/1.png",
+        "https://cdn.dummyjson.com/products/images/fragrances/Dior%20J'adore/2.png",
+        "https://cdn.dummyjson.com/products/images/fragrances/Dior%20J'adore/3.png"
       ]
     },
     {
@@ -248,10 +233,9 @@
       "category":"fragrances",
       "thumbnail":"https://cdn.dummyjson.com/product-images/14/thumbnail.jpg",
       "images":[
-        "https://cdn.dummyjson.com/product-images/14/1.jpg",
-        "https://cdn.dummyjson.com/product-images/14/2.jpg",
-        "https://cdn.dummyjson.com/product-images/14/3.jpg",
-        "https://cdn.dummyjson.com/product-images/14/thumbnail.jpg"
+        "https://cdn.dummyjson.com/products/images/fragrances/Dolce%20Shine%20Eau%20de/1.png",
+        "https://cdn.dummyjson.com/products/images/fragrances/Dolce%20Shine%20Eau%20de/2.png",
+        "https://cdn.dummyjson.com/products/images/fragrances/Dolce%20Shine%20Eau%20de/3.png"
       ]
     },
     {
@@ -266,11 +250,9 @@
       "category":"fragrances",
       "thumbnail":"https://cdn.dummyjson.com/product-images/15/thumbnail.jpg",
       "images":[
-        "https://cdn.dummyjson.com/product-images/15/1.jpg",
-        "https://cdn.dummyjson.com/product-images/15/2.jpg",
-        "https://cdn.dummyjson.com/product-images/15/3.jpg",
-        "https://cdn.dummyjson.com/product-images/15/4.jpg",
-        "https://cdn.dummyjson.com/product-images/15/thumbnail.jpg"
+        "https://cdn.dummyjson.com/products/images/fragrances/Gucci%20Bloom%20Eau%20de/1.png",
+        "https://cdn.dummyjson.com/products/images/fragrances/Gucci%20Bloom%20Eau%20de/2.png",
+        "https://cdn.dummyjson.com/products/images/fragrances/Gucci%20Bloom%20Eau%20de/3.png"
       ]
     },
     {
@@ -285,11 +267,9 @@
       "category":"skincare",
       "thumbnail":"https://cdn.dummyjson.com/product-images/16/thumbnail.jpg",
       "images":[
-        "https://cdn.dummyjson.com/product-images/16/1.png",
-        "https://cdn.dummyjson.com/product-images/16/2.webp",
-        "https://cdn.dummyjson.com/product-images/16/3.jpg",
-        "https://cdn.dummyjson.com/product-images/16/4.jpg",
-        "https://cdn.dummyjson.com/product-images/16/thumbnail.jpg"
+        "https://cdn.dummyjson.com/products/images/skin-care/Attitude%20Super%20Leaves%20Hand%20Soap/1.png",
+        "https://cdn.dummyjson.com/products/images/skin-care/Attitude%20Super%20Leaves%20Hand%20Soap/2.png",
+        "https://cdn.dummyjson.com/products/images/skin-care/Attitude%20Super%20Leaves%20Hand%20Soap/3.png"
       ]
     },
     {
@@ -304,10 +284,9 @@
       "category":"skincare",
       "thumbnail":"https://cdn.dummyjson.com/product-images/17/thumbnail.jpg",
       "images":[
-        "https://cdn.dummyjson.com/product-images/17/1.jpg",
-        "https://cdn.dummyjson.com/product-images/17/2.jpg",
-        "https://cdn.dummyjson.com/product-images/17/3.jpg",
-        "https://cdn.dummyjson.com/product-images/17/thumbnail.jpg"
+        "https://cdn.dummyjson.com/products/images/skin-care/Olay%20Ultra%20Moisture%20Shea%20Butter%20Body%20Wash/1.png",
+        "https://cdn.dummyjson.com/products/images/skin-care/Olay%20Ultra%20Moisture%20Shea%20Butter%20Body%20Wash/2.png",
+        "https://cdn.dummyjson.com/products/images/skin-care/Olay%20Ultra%20Moisture%20Shea%20Butter%20Body%20Wash/3.png"
       ]
     },
     {
@@ -322,11 +301,9 @@
       "category":"skincare",
       "thumbnail":"https://cdn.dummyjson.com/product-images/18/thumbnail.jpg",
       "images":[
-        "https://cdn.dummyjson.com/product-images/18/1.jpg",
-        "https://cdn.dummyjson.com/product-images/18/2.jpg",
-        "https://cdn.dummyjson.com/product-images/18/3.jpg",
-        "https://cdn.dummyjson.com/product-images/18/4.jpg",
-        "https://cdn.dummyjson.com/product-images/18/thumbnail.jpg"
+        "https://cdn.dummyjson.com/products/images/skin-care/Vaseline%20Men%20Body%20and%20Face%20Lotion/1.png",
+        "https://cdn.dummyjson.com/products/images/skin-care/Vaseline%20Men%20Body%20and%20Face%20Lotion/2.png",
+        "https://cdn.dummyjson.com/products/images/skin-care/Vaseline%20Men%20Body%20and%20Face%20Lotion/3.png"
       ]
     },
     {
@@ -341,10 +318,8 @@
       "category":"skincare",
       "thumbnail":"https://cdn.dummyjson.com/product-images/19/thumbnail.jpg",
       "images":[
-        "https://cdn.dummyjson.com/product-images/19/1.jpg",
-        "https://cdn.dummyjson.com/product-images/19/2.jpg",
-        "https://cdn.dummyjson.com/product-images/19/3.png",
-        "https://cdn.dummyjson.com/product-images/19/thumbnail.jpg"
+        "https://acdn.mitiendanube.com/stores/001/915/791/products/skinbeauty_169-b9dc315726e934472216964318599822-1024-1024.jpg",
+        "https://www.skinbeautysolutions.com/wp-content/uploads/2018/11/serums-and-creams-hyaluronic-acid-skin-serum-pro-formula-100-pure-highest-quality-vegan-hyaluronic-acid-non-greasy-reduce-wrinkles-fine-lines-paraben-free-hydration-moisturize.jpg"
       ]
     },
     {
@@ -359,11 +334,9 @@
       "category":"skincare",
       "thumbnail":"https://cdn.dummyjson.com/product-images/20/thumbnail.jpg",
       "images":[
-        "https://cdn.dummyjson.com/product-images/20/1.jpg",
-        "https://cdn.dummyjson.com/product-images/20/2.jpg",
-        "https://cdn.dummyjson.com/product-images/20/3.jpg",
-        "https://cdn.dummyjson.com/product-images/20/4.jpg",
-        "https://cdn.dummyjson.com/product-images/20/thumbnail.jpg"
+        "https://vincecare.com/cdn/shop/files/advance-frackel-cream_73063555-b0e3-4463-ba19-f04611f6cea9_grande.png?v=1686308063",
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDrs_Nh_w1ChY3c81Y_jNZHmj1X7Xsn_Dxgfn99a6DXNxFxgVWStr4ZGeYL03izXo3An8&usqp=CAU",
+        "https://static-01.daraz.pk/p/9e6c7c389da1a87a446e7d505f3f93c5.jpg_750x400.jpg_.webp"
       ]
     },
     {
@@ -378,9 +351,8 @@
       "category":"groceries",
       "thumbnail":"https://cdn.dummyjson.com/product-images/21/thumbnail.png",
       "images":[
-        "https://cdn.dummyjson.com/product-images/21/1.png",
-        "https://cdn.dummyjson.com/product-images/21/2.jpg",
-        "https://cdn.dummyjson.com/product-images/21/3.jpg"
+        "https://cdn.dummyjson.com/products/images/groceries/Chicken%20Meat/1.png",
+        "https://cdn.dummyjson.com/products/images/groceries/Chicken%20Meat/2.png"
       ]
     },
     {
@@ -395,9 +367,10 @@
       "category":"groceries",
       "thumbnail":"https://cdn.dummyjson.com/product-images/22/thumbnail.jpg",
       "images":[
-        "https://cdn.dummyjson.com/product-images/22/1.jpg",
-        "https://cdn.dummyjson.com/product-images/22/2.jpg",
-        "https://cdn.dummyjson.com/product-images/22/3.jpg"
+        "https://cdn.dummyjson.com/products/images/groceries/Ice%20Cream/1.png",
+        "https://cdn.dummyjson.com/products/images/groceries/Ice%20Cream/2.png",
+        "https://cdn.dummyjson.com/products/images/groceries/Ice%20Cream/3.png",
+        "https://cdn.dummyjson.com/products/images/groceries/Ice%20Cream/4.png"
       ]
     },
     {
@@ -412,11 +385,8 @@
       "category":"groceries",
       "thumbnail":"https://cdn.dummyjson.com/product-images/23/thumbnail.jpg",
       "images":[
-        "https://cdn.dummyjson.com/product-images/23/1.jpg",
-        "https://cdn.dummyjson.com/product-images/23/2.jpg",
-        "https://cdn.dummyjson.com/product-images/23/3.jpg",
-        "https://cdn.dummyjson.com/product-images/23/4.jpg",
-        "https://cdn.dummyjson.com/product-images/23/thumbnail.jpg"
+        "https://cdn.dummyjson.com/products/images/groceries/Tissue%20Paper%20Box/1.png",
+        "https://cdn.dummyjson.com/products/images/groceries/Tissue%20Paper%20Box/2.png"
       ]
     },
     {
@@ -431,11 +401,7 @@
       "category":"groceries",
       "thumbnail":"https://cdn.dummyjson.com/product-images/24/thumbnail.jpg",
       "images":[
-        "https://cdn.dummyjson.com/product-images/24/1.jpg",
-        "https://cdn.dummyjson.com/product-images/24/2.jpg",
-        "https://cdn.dummyjson.com/product-images/24/3.jpg",
-        "https://cdn.dummyjson.com/product-images/24/4.jpg",
-        "https://cdn.dummyjson.com/product-images/24/thumbnail.jpg"
+        "https://cdn.dummyjson.com/products/images/groceries/Apple/1.png"
       ]
     },
     {
@@ -450,11 +416,7 @@
       "category":"groceries",
       "thumbnail":"https://cdn.dummyjson.com/product-images/25/thumbnail.jpg",
       "images":[
-        "https://cdn.dummyjson.com/product-images/25/1.png",
-        "https://cdn.dummyjson.com/product-images/25/2.jpg",
-        "https://cdn.dummyjson.com/product-images/25/3.png",
-        "https://cdn.dummyjson.com/product-images/25/4.jpg",
-        "https://cdn.dummyjson.com/product-images/25/thumbnail.jpg"
+        "https://cdn.dummyjson.com/products/images/groceries/Beef%20Steak/1.png"
       ]
     },
     {
@@ -469,12 +431,9 @@
       "category":"home-decoration",
       "thumbnail":"https://cdn.dummyjson.com/product-images/26/thumbnail.jpg",
       "images":[
-        "https://cdn.dummyjson.com/product-images/26/1.jpg",
-        "https://cdn.dummyjson.com/product-images/26/2.jpg",
-        "https://cdn.dummyjson.com/product-images/26/3.jpg",
-        "https://cdn.dummyjson.com/product-images/26/4.jpg",
-        "https://cdn.dummyjson.com/product-images/26/5.jpg",
-        "https://cdn.dummyjson.com/product-images/26/thumbnail.jpg"
+        "https://cdn.dummyjson.com/products/images/home-decoration/Decoration%20Swing/1.png",
+        "https://cdn.dummyjson.com/products/images/home-decoration/Decoration%20Swing/2.png",
+        "https://cdn.dummyjson.com/products/images/home-decoration/Decoration%20Swing/3.png"
       ]
     },
     {
@@ -489,11 +448,7 @@
       "category":"home-decoration",
       "thumbnail":"https://cdn.dummyjson.com/product-images/27/thumbnail.webp",
       "images":[
-        "https://cdn.dummyjson.com/product-images/27/1.jpg",
-        "https://cdn.dummyjson.com/product-images/27/2.jpg",
-        "https://cdn.dummyjson.com/product-images/27/3.jpg",
-        "https://cdn.dummyjson.com/product-images/27/4.jpg",
-        "https://cdn.dummyjson.com/product-images/27/thumbnail.webp"
+        "https://cdn.dummyjson.com/products/images/home-decoration/Family%20Tree%20Photo%20Frame/1.png"
       ]
     },
     {
@@ -508,11 +463,9 @@
       "category":"home-decoration",
       "thumbnail":"https://cdn.dummyjson.com/product-images/28/thumbnail.jpg",
       "images":[
-        "https://cdn.dummyjson.com/product-images/28/1.jpg",
-        "https://cdn.dummyjson.com/product-images/28/2.jpg",
-        "https://cdn.dummyjson.com/product-images/28/3.png",
-        "https://cdn.dummyjson.com/product-images/28/4.jpg",
-        "https://cdn.dummyjson.com/product-images/28/thumbnail.jpg"
+        "https://cdn.dummyjson.com/products/images/home-decoration/House%20Showpiece%20Plant/1.png",
+        "https://cdn.dummyjson.com/products/images/home-decoration/House%20Showpiece%20Plant/2.png",
+        "https://cdn.dummyjson.com/products/images/home-decoration/House%20Showpiece%20Plant/3.png"
       ]
     },
     {
@@ -527,11 +480,10 @@
       "category":"home-decoration",
       "thumbnail":"https://cdn.dummyjson.com/product-images/29/thumbnail.webp",
       "images":[
-        "https://cdn.dummyjson.com/product-images/29/1.jpg",
-        "https://cdn.dummyjson.com/product-images/29/2.jpg",
-        "https://cdn.dummyjson.com/product-images/29/3.webp",
-        "https://cdn.dummyjson.com/product-images/29/4.webp",
-        "https://cdn.dummyjson.com/product-images/29/thumbnail.webp"
+        "https://cdn.dummyjson.com/products/images/home-decoration/Plant%20Pot/1.png",
+        "https://cdn.dummyjson.com/products/images/home-decoration/Plant%20Pot/2.png",
+        "https://cdn.dummyjson.com/products/images/home-decoration/Plant%20Pot/3.png",
+        "https://cdn.dummyjson.com/products/images/home-decoration/Plant%20Pot/4.png"
       ]
     },
     {
@@ -546,10 +498,7 @@
       "category":"home-decoration",
       "thumbnail":"https://cdn.dummyjson.com/product-images/30/thumbnail.jpg",
       "images":[
-        "https://cdn.dummyjson.com/product-images/30/1.jpg",
-        "https://cdn.dummyjson.com/product-images/30/2.jpg",
-        "https://cdn.dummyjson.com/product-images/30/3.jpg",
-        "https://cdn.dummyjson.com/product-images/30/thumbnail.jpg"
+        "https://cdn.dummyjson.com/products/images/home-decoration/Table%20Lamp/1.png"
       ]
     }
   ],
