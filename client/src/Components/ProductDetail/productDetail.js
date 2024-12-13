@@ -5,7 +5,7 @@ import { Container, Row, Col, Image, InputGroup, FormControl } from 'react-boots
 
 
 import { getProductDetail } from "../../Redux/Actions/productAction";
-import imagen from '../../Images/carrito.png';
+import imagen from '../../Images/libreMercado.png';
 import lupaIcon from '../../Images/lupa.png';
 import CalificacionEstrellas from '../Product/stars';
 import GoBack from '../GoBack/goBack';

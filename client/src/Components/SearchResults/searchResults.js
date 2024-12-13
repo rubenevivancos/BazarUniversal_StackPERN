@@ -5,7 +5,7 @@ import { Container, Row, Col, Image, InputGroup, FormControl } from 'react-boots
 
 
 import Product from "../Product/product.js";
-import imagen from '../../Images/carrito.png';
+import imagen from '../../Images/libreMercado.png';
 import lupaIcon from '../../Images/lupa.png';
 import GoBack from '../GoBack/goBack';
 
