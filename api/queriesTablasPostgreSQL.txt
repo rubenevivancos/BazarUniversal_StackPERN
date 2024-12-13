@@ -1,14 +1,14 @@
-create database "Proyectos";
+create database free_market;
 
-create schema "BazarUniversal";
+create schema market;
 
 
-CREATE TABLE "BazarUniversal"."Category" (
+CREATE TABLE market.category (
     id SERIAL PRIMARY KEY,
     name VARCHAR(100) UNIQUE
 );
 
-CREATE TABLE "BazarUniversal"."Product" (
+CREATE TABLE market.product (
     id SERIAL PRIMARY KEY,
     title VARCHAR(255),
     description TEXT,
@@ -18,14 +18,14 @@ CREATE TABLE "BazarUniversal"."Product" (
     stock INTEGER,
     brand VARCHAR(100),
     thumbnail VARCHAR(255),
-    category_id INTEGER REFERENCES "BazarUniversal"."Category"(id)    
+    category_id INTEGER REFERENCES market.category(id)    
 );
 
 
-CREATE TABLE "BazarUniversal"."Image" (
+CREATE TABLE market.image (
     id SERIAL PRIMARY KEY,
     url VARCHAR(255),
-    product_id INTEGER REFERENCES "BazarUniversal"."Product"(id)
+    product_id INTEGER REFERENCES market.product(id)
 );
 
 
@@ -33,7 +33,7 @@ CREATE TABLE "BazarUniversal"."Image" (
 
 
 -- Insertar CATEGORY
-INSERT INTO "BazarUniversal"."Category" (name)
+INSERT INTO market.category (name)
 VALUES ('smartphones'),
        ('laptops'),
        ('fragrances'),
@@ -44,7 +44,7 @@ VALUES ('smartphones'),
 
 
 -- Insertar PRODUCT
-INSERT INTO "BazarUniversal"."Product" (title, description, price, discountPercentage, rating, stock, brand, thumbnail, category_id)
+INSERT INTO market.product (title, description, price, discountPercentage, rating, stock, brand, thumbnail, category_id)
 VALUES 
   ('iPhone 9', 'An apple mobile which is nothing like apple', 549, 12.96, 4.69, 94, 'Apple', 'https://cdn.dummyjson.com/product-images/1/thumbnail.jpg', 1),
   ('iPhone X', 'SIM-Free, Model A19211 6.5-inch Super Retina HD display with OLED technology A12 Bionic chip with ...', 899, 17.94, 4.44, 34, 'Apple', 'https://cdn.dummyjson.com/product-images/2/thumbnail.jpg', 1),
@@ -75,12 +75,12 @@ VALUES
   ('Flying Wooden Bird', 'Package Include 6 Birds with Adhesive Tape Shape: 3D Shaped Wooden Birds Material: Wooden MDF, Laminated 3.5mm', 51, 15.58, 4.41, 17, 'Flying Wooden', 'https://cdn.dummyjson.com/product-images/27/thumbnail.webp', 6),
   ('3D Embellishment Art Lamp', '3D led lamp sticker Wall sticker 3d wall art light on/off button  cell operated (included)', 20, 16.49, 4.82, 54, 'LED Lights', 'https://cdn.dummyjson.com/product-images/28/thumbnail.jpg', 6),
   ('Handcraft Chinese style', 'Handcraft Chinese style art luxury palace hotel villa mansion home decor ceramic vase with brass fruit plate', 60, 15.34, 4.44, 7, 'luxury palace', 'https://cdn.dummyjson.com/product-images/29/thumbnail.webp', 6),
-  ('Key Holder', 'Attractive DesignMetallic materialFour key hooksReliable & DurablePremium Quality', 30, 2.92, 4.92, 54, 'Golden', 'https://cdn.dummyjson.com/product-images/30/thumbnail.jpg', 6);  
+  ('Key Holder', 'Attractive DesignMetallic materialFour key hooksReliable & DurablePremium Quality', 30, 2.92, 4.92, 54, 'Golden', 'https://cdn.dummyjson.com/product-images/30/thumbnail.jpg', 6);
 
 
 
 --Insertar IMAGE
-INSERT INTO "BazarUniversal"."Image" (url, product_id) VALUES
+INSERT INTO market.image (url, product_id) VALUES
 ('https://cdn.dummyjson.com/products/images/smartphones/iPhone%2013%20Pro/1.png', 1),
 ('https://cdn.dummyjson.com/products/images/smartphones/iPhone%2013%20Pro/2.png', 1),
 ('https://cdn.dummyjson.com/products/images/smartphones/iPhone%2013%20Pro/3.png', 1),
@@ -167,15 +167,15 @@ INSERT INTO "BazarUniversal"."Image" (url, product_id) VALUES
 
 
 --Verificar correcto funcionamiento de tablas
-select * from "BazarUniversal"."Category";
-select * from "BazarUniversal"."Image";
-select * from "BazarUniversal"."Product";
+select * from market.category;
+select * from market.image;
+select * from market.product;
 
 *******************************************************************************************
 
 --Creacion de Function para la Busqueda del Producto
 
-CREATE OR REPLACE FUNCTION "BazarUniversal"."getProductCategoryNames"(search character varying)
+CREATE OR REPLACE FUNCTION market.get_product_category_names(search character varying)
 RETURNS TABLE (p_id integer, title character varying, description text, price numeric, 
 			   discountpercentage numeric, rating numeric, stock integer, 
 		       brand character varying, thumbnail character varying, category_id integer, 
@@ -184,8 +184,8 @@ BEGIN
     RETURN QUERY 
     SELECT p.id as p_id, p.title, p.description, p.price, p.discountpercentage, p.rating, p.stock, 
 		   p.brand, p.thumbnail, p.category_id, c.id as c_id, c.name as category
-    FROM "BazarUniversal"."Product" p
-    INNER JOIN "BazarUniversal"."Category" c ON p.category_id = c.id
+    FROM market.product p
+    INNER JOIN market.category c ON p.category_id = c.id
     WHERE LOWER(p.title) LIKE '%' || LOWER(search) || '%' OR LOWER(c.name) LIKE '%' || LOWER(search) || '%';
 END;
 $$ LANGUAGE plpgsql;
@@ -193,21 +193,21 @@ $$ LANGUAGE plpgsql;
 
 --Creacion de Function para la busqueda de las imagenes por producto
 
-CREATE OR REPLACE FUNCTION "BazarUniversal"."getImagesByProduct"(INTEGER[])
+CREATE OR REPLACE FUNCTION market.get_images_by_product(INTEGER[])
 RETURNS TABLE (
     im_id INTEGER,
     product_id INTEGER,
     url character varying
 ) AS $$
 BEGIN
-    RETURN QUERY SELECT im.id as im_id, im.product_id, im.url FROM "BazarUniversal"."Image" im WHERE im.product_id = ANY($1);
+    RETURN QUERY SELECT im.id as im_id, im.product_id, im.url FROM market.image im WHERE im.product_id = ANY($1);
 END;
 $$ LANGUAGE plpgsql;
 
 
 --Creacion de Function para obtener el detalle de un producto
 
-CREATE OR REPLACE FUNCTION "BazarUniversal"."productDetail"(
+CREATE OR REPLACE FUNCTION market.product_detail(
     IN idProduct integer,
     OUT p_id integer,
     OUT title character varying,
@@ -228,8 +228,8 @@ BEGIN
            p.brand, p.thumbnail, p.category_id, c.id, c.name
     INTO p_id, title, description, price, discountpercentage, rating, stock, 
          brand, thumbnail, category_id, c_id, category
-    FROM "BazarUniversal"."Product" p
-    INNER JOIN "BazarUniversal"."Category" c ON p.category_id = c.id
+    FROM market.product p
+    INNER JOIN market.category c ON p.category_id = c.id
     WHERE p.id = idProduct;
 END;
 $$ LANGUAGE plpgsql;

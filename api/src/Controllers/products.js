@@ -1,4 +1,4 @@
-const { conn } = require('../db.js'); // Importa tu instancia de Sequelize
+const { conn } = require('../db.js');
 
 
 async function productSearch(req, res){
@@ -64,14 +64,14 @@ async function getDetail(req, res){
 
     if (idProduct) {
         console.log("[ products.js/getDetail ] El ID del producto a buscar es: " + idProduct);
-        let functionName = "BazarUniversal.productDetail";
+        let functionName = "market.product_detail";
 
         try {
             console.log("[ products.js/getDetail ] Se procede a llamar a la funcion: " + functionName);
 
             //OBS: Pese a que la funcion productDetail en postgresql devuelve un objeto, sequelize lo interpreta como un arreglo,
             //     por eso, productDetail es un arreglo con un solo elemento
-            const productDetail = await conn.query('SELECT * FROM "BazarUniversal"."productDetail"(:id)', {
+            const productDetail = await conn.query('SELECT * FROM market.product_detail(:id)', {
                 replacements: { id: idProduct },
                 type: conn.QueryTypes.SELECT
             });
@@ -83,9 +83,9 @@ async function getDetail(req, res){
 
                 //Llamar a la funcion para obtener su listado de imagenes
                 const listID = [product.p_id];
-                functionName = "BazarUniversal.getImagesByProduct";
+                functionName = "market.get_images_by_product";
                 console.log("[ products.js/getDetail ] Se procede a llamar a la funcion: " + functionName);
-                const productImages = await conn.query('SELECT * FROM "BazarUniversal"."getImagesByProduct"(ARRAY[:productIds])', {
+                const productImages = await conn.query('SELECT * FROM market.get_images_by_product(ARRAY[:productIds])', {
                     replacements: { productIds: listID },
                     type: conn.QueryTypes.SELECT
                 });
@@ -135,11 +135,11 @@ async function getDetail(req, res){
 
 async function getListProducts(search) {
     console.log("[ products.js/getListProducts ] INICIO");
-    let functionName = "BazarUniversal.getProductCategoryNames";
+    let functionName = "market.get_product_category_names";
 
     try {        
         console.log("[ products.js/getListProducts ] Se procede a llamar a la funcion: " + functionName);
-        const listProducts = await conn.query('SELECT * FROM "BazarUniversal"."getProductCategoryNames"(:search)', {
+        const listProducts = await conn.query('SELECT * FROM market.get_product_category_names(:search)', {
             replacements: { search: search },
             type: conn.QueryTypes.SELECT
         });
@@ -147,9 +147,9 @@ async function getListProducts(search) {
 
         const listID = listProducts.map((product) => product.p_id);
 
-        functionName = "BazarUniversal.getImagesByProduct";
+        functionName = "market.get_images_by_product";
         console.log("[ products.js/getListProducts ] Se procede a llamar a la funcion: " + functionName);
-        const listImagesByProduct = await conn.query('SELECT * FROM "BazarUniversal"."getImagesByProduct"(ARRAY[:productIds])', {
+        const listImagesByProduct = await conn.query('SELECT * FROM market.get_images_by_product(ARRAY[:productIds])', {
             replacements: { productIds: listID },
             type: conn.QueryTypes.SELECT
         });
