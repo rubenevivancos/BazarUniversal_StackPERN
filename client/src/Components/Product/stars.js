@@ -1,6 +1,6 @@
 import React from 'react';
 import { BsStar, BsStarFill, BsStarHalf } from 'react-icons/bs';
-
+import { Row, Col } from 'react-bootstrap';
 
 
 function CalificacionEstrellas({ calificacion }) {
@@ -27,9 +27,16 @@ function CalificacionEstrellas({ calificacion }) {
 
     return (
         <div>
-            {renderEstrellas().map((estrella, index) => (
-                <span key={index}>{estrella}</span>
-            ))}
+            <Row>
+                <Col className="d-flex align-items-center">
+                    <span>{calificacion}</span>
+                    <span className="ms-2 d-flex align-items-center">
+                        {renderEstrellas().map((estrella, index) => (
+                            <span key={index} className="d-flex align-items-center">{estrella}</span>
+                        ))}
+                    </span>
+                </Col>
+            </Row>
         </div>
     );
 }

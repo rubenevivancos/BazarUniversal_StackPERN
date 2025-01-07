@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useSelector } from 'react-redux';
 import { Link } from "react-router-dom";
-import { Container, Row, Col, Image, InputGroup, FormControl } from 'react-bootstrap';
+import { Container, Row, Col } from 'react-bootstrap';
 
 
 import MainHeader from '../MainHeader/mainHeader';
@@ -88,7 +88,17 @@ export default function SearchResults() {
                                     <Row>
                                         <Col className="text-left">
                                             <div>
-                                                { listProducts.map( product => <Link to={"/items/"+product.p_id} key={product.p_id} style={{ textDecoration: 'none' }}><Product product={product} /></Link>) }
+                                                { listProducts.map( product => (
+                                                    <div key={product.p_id} style={{ marginBottom: '4rem' }}>
+                                                        <Link 
+                                                            to={"/items/"+product.p_id} 
+                                                            key={product.p_id} 
+                                                            className="text-decoration-none"
+                                                        >
+                                                            <Product product={product}/>
+                                                        </Link>
+                                                    </div>
+                                                ))}
                                             </div>
                                         </Col>
                                     </Row>
