@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { Container, Row, Col, Image, InputGroup, FormControl } from 'react-bootstrap';
 
 
+import MainHeader from '../MainHeader/mainHeader';
 import Product from "../Product/product.js";
 import imagen from '../../Images/libreMercado.png';
 import lupaIcon from '../../Images/lupa.png';
@@ -52,50 +53,48 @@ export default function SearchResults() {
 
     if(listProducts.length){
         return(
-            <div className="d-flex justify-content-center align-items-start" style={{ height: '100vh', backgroundColor: '#fdfd96' }}>
-                <Container fluid className="py-4" style={{ maxHeight: '90vh', maxWidth: '50vh' }}>
+            <div className="d-flex justify-content-center align-items-start" style={{ backgroundColor: '#fdfd96' }}>
+                <Container fluid>
+                    <Row className="mb-2">
+                        <MainHeader/>
+                    </Row>   
                     <Row className="mb-2">
                         <GoBack/>
-                    </Row>    
-                    <Row className="mb-4 justify-content-left align-items-left">
-                        <Col>
-                            <InputGroup>
-                                <Image src={imagen} style={{ width: "50px" }}/>
-                                <InputGroup.Text> </InputGroup.Text>
-                                <FormControl
-                                    placeholder="smartphones, laptops..."
-                                    aria-label="Búsqueda"
-                                    aria-describedby="basic-addon2"
-                                    value={productToSearch}
-                                    onChange={handleInput}
-                                />
-                                <Image src={lupaIcon} alt="Lupa"/>
-                            </InputGroup>
-                        </Col>
-                    </Row>
-                    <Row className="mb-4 justify-content-left">
-                        <Col xs={12} md={10} className="text-left">
-                            <div>Resultados de la busqueda de " {productToSearch} ": {listProducts.length}</div>
-                        </Col>
-                    </Row>
-                    <Row className="mb-4">
-                        <Col className="d-flex flex-wrap justify-content-start">
-                            {categoriesWithCount.map((cat, index) => (                            
-                                <span 
-                                    key={index} 
-                                    className="me-2 p-1 mb-1 rounded small fw-bold" 
-                                    style={{ backgroundColor: generateColor(cat.category) }}
-                                >
-                                    {cat.category} - {cat.count}
-                                </span>
-                            ))}
-                        </Col>
                     </Row>
                     <Row>
-                        <Col className="text-left overflow-auto" style={{ maxHeight: '60vh' }}>
-                            <div>
-                                { listProducts.map( product => <Link to={"/items/"+product.p_id} key={product.p_id} style={{ textDecoration: 'none' }}><Product product={product} /></Link>) }
-                            </div>
+                        <Col>
+                            <Row className="mb-4 justify-content-left">
+                                <Col xs={12} md={10} className="text-left">
+                                    <div>Resultados de la busqueda de " {productToSearch} ": {listProducts.length}</div>
+                                </Col>
+                            </Row>
+                            <Row className="mb-4">
+                                <Col className="d-flex flex-wrap justify-content-start">
+                                    {categoriesWithCount.map((cat, index) => (                            
+                                        <span 
+                                            key={index} 
+                                            className="me-2 p-1 mb-1 rounded small fw-bold" 
+                                            style={{ backgroundColor: generateColor(cat.category) }}
+                                        >
+                                            {cat.category} - {cat.count}
+                                        </span>
+                                    ))}
+                                </Col>
+                            </Row>
+                        </Col>
+                        <Col>
+                            <Row>
+                                <Col className="text-left">
+                                    <div>
+                                        { listProducts.map( product => <Link to={"/items/"+product.p_id} key={product.p_id} style={{ textDecoration: 'none' }}><Product product={product} /></Link>) }
+                                    </div>
+                                </Col>
+                            </Row>
+                        </Col>
+                        <Col>
+                            <Row>
+                                Ordenar por
+                            </Row>
                         </Col>
                     </Row>
                 </Container>
