@@ -6,8 +6,6 @@ import { Container, Row, Col } from 'react-bootstrap';
 
 import MainHeader from '../MainHeader/mainHeader';
 import Product from "../Product/product.js";
-import imagen from '../../Images/libreMercado.png';
-import lupaIcon from '../../Images/lupa.png';
 import GoBack from '../GoBack/goBack';
 
 
@@ -57,7 +55,7 @@ export default function SearchResults() {
                 <Container fluid>
                     <Row className="mb-2">
                         <MainHeader/>
-                    </Row>   
+                    </Row>
                     <Row>
                         <Container className="w-75">
                             <Row className="mb-2">
