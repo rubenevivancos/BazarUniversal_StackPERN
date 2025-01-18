@@ -35,7 +35,7 @@ export default function ProductDetail() {
 
     if(product !== null){
         return(
-            <div className="d-flex justify-content-center align-items-start" style={{ backgroundColor: '#fdfd96' }}>
+            <div className="d-flex justify-content-center align-items-start" style={{ backgroundColor: '#fdfd96', minHeight: '100vh' }}>
                 <Container fluid>
                     <Row className="mb-2">
                         <MainHeader/>

@@ -51,7 +51,7 @@ export default function SearchResults() {
 
     if(listProducts.length){
         return(
-            <div className="d-flex justify-content-center align-items-start" style={{ backgroundColor: '#fdfd96' }}>
+            <div className="d-flex justify-content-center align-items-start" style={{ backgroundColor: '#fdfd96', minHeight: '100vh' }}>
                 <Container fluid>
                     <Row className="mb-2">
                         <MainHeader/>
