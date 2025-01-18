@@ -48,24 +48,24 @@ export default function ProductDetail() {
                             <Row>
                                 <Col md={4}>
                                     <Row className="mb-4">
-                                        {/* Columna para la imagen */}
-                                        <Col className="d-flex justify-content-center align-items-center">
-                                            <Image src={selectedImage || product.images[0]} alt={product.title} className="img-fluid"/>
-                                        </Col>
                                         {/* Columna para el carrusel de imagenes */}
-                                        <Col className="d-flex flex-column align-items-start">
+                                        <Col md={4} className="d-flex flex-column align-items-start">
                                             {product.images.map((image, index) => (
                                                 <Image 
                                                     key={index} 
                                                     src={image} 
                                                     className="img-fluid mt-2 mb-2" 
                                                     style={{ 
-                                                        maxHeight: '20vh',
+                                                        maxHeight: '5vh',
                                                         border: selectedImage === image || selectedImage == "" && index === 0 ? '2px solid blue' : 'none' // Aplicar borde azul a la imagen seleccionada
                                                     }}
                                                     onClick={() => setSelectedImage(image)}
                                                 />
                                             ))}
+                                        </Col>
+                                        {/* Columna para la imagen */}
+                                        <Col md={8} className="d-flex justify-content-center align-items-center">
+                                            <Image src={selectedImage || product.images[0]} alt={product.title} className="img-fluid" style={{ height: '50vh', objectFit: 'contain' }}/>
                                         </Col>
                                     </Row>
                                 </Col>
