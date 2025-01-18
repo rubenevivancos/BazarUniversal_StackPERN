@@ -59,7 +59,7 @@ export default function ProductDetail() {
                                                         maxHeight: '5vh',
                                                         border: selectedImage === image || selectedImage == "" && index === 0 ? '2px solid blue' : 'none' // Aplicar borde azul a la imagen seleccionada
                                                     }}
-                                                    onClick={() => setSelectedImage(image)}
+                                                    onMouseEnter={() => setSelectedImage(image)}
                                                 />
                                             ))}
                                         </Col>
