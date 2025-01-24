@@ -1,5 +1,8 @@
-require('dotenv').config();
-const { Sequelize } = require('sequelize');
+import { config } from 'dotenv';
+import { Sequelize } from 'sequelize';
+
+config();  // Carga las variables de entorno desde el archivo .env
+
 const {
   DB_USER, DB_PASSWORD, DB_HOST, DB_NAME
 } = process.env;
@@ -14,6 +17,4 @@ const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}
 });
 
 
-module.exports = {
-  conn: sequelize     // para importart la conexión { conn } = require('./db.js');
-};
+export default sequelize;
