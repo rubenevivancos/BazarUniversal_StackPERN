@@ -13,7 +13,7 @@ CREATE TABLE market.product (
     title VARCHAR(255),
     description TEXT,
     price DECIMAL(10, 2),
-    discountPercentage DECIMAL(5, 2),
+    discount_percentage DECIMAL(5, 2),
     rating DECIMAL(3, 2),
     stock INTEGER,
     brand VARCHAR(100),
