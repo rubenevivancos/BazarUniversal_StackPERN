@@ -21,9 +21,10 @@ const Product = sequelize.define('Product', {
                                     // Scale: números decimales
     allowNull: false,
   },
-  discount_percentage: {
+  discountPercentage: {
     type: DataTypes.DECIMAL(5, 2),
     allowNull: true,
+    field: 'discount_percentage' // El nombre del campo en la tabla en la BD
   },
   rating: {
     type: DataTypes.DECIMAL(3, 2),
@@ -41,13 +42,14 @@ const Product = sequelize.define('Product', {
     type: DataTypes.STRING(255),
     allowNull: false,
   },
-  category_id: {
+  categoryID: {
     type: DataTypes.INTEGER,
     allowNull: false,
     references: {
       model: 'category', // El nombre de la tabla en la BD
       key: 'id',
     },
+    field: 'category_id' // El nombre del campo en la tabla en la BD
   }
 }, {
   tableName: 'product', // El nombre de la tabla en la BD
