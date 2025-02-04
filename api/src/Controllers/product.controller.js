@@ -1,4 +1,9 @@
 import sequelize from '../db.js';
+/*
+import { Op } from 'sequelize';
+import Product from './models/Product'; // Asegúrate de importar tu modelo de Product
+import Category from './models/Category';
+*/
 
 
 const productController = {
@@ -176,5 +181,54 @@ async function getListProducts(search) {
         throw error;
     }
 }
+
+
+
+/*
+
+async function getProductCategoryNames(search) {
+  try {
+    // Realizamos la consulta con Sequelize, usando `Op.like` para las búsquedas con LIKE
+    const result = await Product.findAll({
+      attributes: [
+        ['id', 'p_id'],
+        'title',
+        'description',
+        'price',
+        'discountPercentage',
+        'rating',
+        'stock',
+        'brand',
+        'thumbnail',
+        'categoryID',
+        [sequelize.col('category.id'), 'c_id'], // Alias para la columna 'id' de la tabla Category
+        [sequelize.col('category.name'), 'category'] // Alias para la columna 'name' de la tabla Category
+      ],
+      include: {
+        model: Category,
+        attributes: [], // No seleccionamos más atributos de la tabla Category, solo los campos especificados
+      },
+      where: {
+        [Op.or]: [
+          { title: { [Op.iLike]: `%${search}%` } }, // Búsqueda en 'title' de 'Product'
+          { '$category.name$': { [Op.iLike]: `%${search}%` } } // Búsqueda en 'name' de 'Category'
+        ]
+      }
+    });
+
+    return result; // Retornamos los resultados encontrados
+  } catch (error) {
+    console.error('Error al obtener productos y categorías:', error);
+    throw error; // Lanza el error para manejo posterior
+  }
+}
+
+
+Asi se usa:
+const searchQuery = 'some search term';
+const productsWithCategories = await getProductCategoryNames(searchQuery);
+console.log(productsWithCategories);
+
+*/
 
 export default productController;
