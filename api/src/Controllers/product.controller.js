@@ -1,4 +1,5 @@
 import sequelize from '../db.js';
+import ProductService from '../Services/product.service.js';
 /*
 import { Op } from 'sequelize';
 import Product from './models/Product'; // Asegúrate de importar tu modelo de Product
