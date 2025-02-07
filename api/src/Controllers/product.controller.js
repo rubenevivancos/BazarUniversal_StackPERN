@@ -1,10 +1,5 @@
 import sequelize from '../db.js';
 import ProductService from '../Services/product.service.js';
-/*
-import { Op } from 'sequelize';
-import Product from './models/Product'; // Asegúrate de importar tu modelo de Product
-import Category from './models/Category';
-*/
 
 
 const productController = {
@@ -149,10 +144,7 @@ async function getListProducts(search) {
 
     try {        
         console.log("[ products.js/getListProducts ] Se procede a llamar a la funcion: " + functionName);
-        const listProducts = await sequelize.query('SELECT * FROM market.get_product_category_names(:search)', {
-            replacements: { search: search },
-            type: sequelize.QueryTypes.SELECT
-        });
+        const listProducts = await ProductService.getProductCategoryNames(search);
 
 
         const listID = listProducts.map((product) => product.p_id);
