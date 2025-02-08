@@ -55,6 +55,7 @@ export default (sequelize) => {
     }
   }, {
     tableName: 'product', // El nombre de la tabla en la BD
+    schema: 'market',
     timestamps: false, // Evita que agregue createdAt y updatedAt automáticamente
   });
 

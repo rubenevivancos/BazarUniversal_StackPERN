@@ -22,6 +22,7 @@ const Image = sequelize.define('Image', {
   }
 }, {
   tableName: 'image', // El nombre de la tabla en la BD
+  schema: 'market',
   timestamps: false, // Evita que agregue createdAt y updatedAt automáticamente
 });
 
