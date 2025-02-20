@@ -7,7 +7,6 @@ const productController = {
     productSearch: async (req, res) =>{
         console.log("[ productSearch ] INICIO");
         let { search } = req.query;
-        console.log("[ productSearch ] search --> " + search);
     
         if (search) {
             search = search.toLowerCase();
@@ -140,17 +139,15 @@ const productController = {
 
 async function getListProducts(search) {
     console.log("[ products.js/getListProducts ] INICIO");
-    let functionName = "market.get_product_category_names";
 
-    try {        
-        console.log("[ products.js/getListProducts ] Se procede a llamar a la funcion: " + functionName);
+    try {
+        //Se obtiene el listado de productos seguú la búsqueda
         const listProducts = await ProductService.getProductCategoryNames(search);
 
+        //Del listado de productos obtenido, se crea un arreglo con solo los ids
+        const listID = listProducts.map((product) => product.id);
 
-        const listID = listProducts.map((product) => product.p_id);
-
-        functionName = "market.get_images_by_product";
-        console.log("[ products.js/getListProducts ] Se procede a llamar a la funcion: " + functionName);
+        //Se obtiene el listado de las imágenes correspondientes a cada producto del listado de productos
         const listImagesByProduct = await sequelize.query('SELECT * FROM market.get_images_by_product(ARRAY[:productIds])', {
             replacements: { productIds: listID },
             type: sequelize.QueryTypes.SELECT

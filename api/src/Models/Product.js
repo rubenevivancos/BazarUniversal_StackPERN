@@ -1,4 +1,4 @@
-import { DataTypes } from 'sequelize';
+import DataTypes from 'sequelize';
 
 
 // Exportamos la definición del modelo sin necesidad de importar sequelize aquí
