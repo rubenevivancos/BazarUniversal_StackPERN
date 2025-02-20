@@ -1,7 +1,7 @@
 import DataTypes from 'sequelize';
 
 
-// Exportamos la definición del modelo sin necesidad de importar sequelize aquí
+// Exportamos la definición del modelo sin necesidad de importar sequelize aquí, ya que será inyectado en db.js
 export default (sequelize) => {
   const Product = sequelize.define('Product', {
     id: {

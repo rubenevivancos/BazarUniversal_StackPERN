@@ -5,40 +5,21 @@ const { Image } = sequelize.models;
 
 class ImageDAO {
 
-  async getImagesByProduct(search) {
+  async getImagesByProduct(productIds) {
     try {
-      const result = await Product.findAll({
-        attributes: [
-          'id',
-          'title',
-          'description',
-          'price',
-          'discountPercentage',
-          'rating',
-          'stock',
-          'brand',
-          'thumbnail',
-          'categoryID'
-        ],
-        include: [
-          {
-            model: Category, // Relación sin alias
-            attributes: ['id', 'name'] 
-          }
-        ],
-        where: {
-          [Op.or]: [
-            { title: { [Op.iLike]: `%${search}%` } },
-            { '$Category.name$': { [Op.iLike]: `%${search}%` } } // $ hace que Sequelize interprete que estás referenciando un campo del modelo incluido (Category), no de la tabla principal (Product).
-          ]
-        },
-        raw: true
-      });
-  
-      return result;
+
+        // Realizamos la consulta a la base de datos, filtrando por los productIds proporcionados
+        const images = await Image.findAll({
+            where: {
+                productID: productIds,  // Filtramos por los IDs de los productos
+            },
+            raw: true,
+        });
+        return images;
+
     } catch (error) {
-      console.error('Error al obtener productos y categorías:', error);
-      throw error; 
+      console.error('[ image.dao.js ] Error al obtener las imágenes: ' + error.message);
+      throw error;
     }
   }
 

@@ -22,22 +22,23 @@ const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}
   native: false // lets Sequelize know we can use pg-native for ~30% more speed
 });
 
-
-
 import ProductModel from './Models/Product.js';
 import CategoryModel from './Models/Category.js';
+import ImageModel from './Models/Image.js';
 
 // Ahora pasamos el objeto sequelize a los modelos al momento de importarlos
 const Product = ProductModel(sequelize); // Llamamos la función que define el modelo, pasándole sequelize
 const Category = CategoryModel(sequelize); // Llamamos la función que define el modelo, pasándole sequelize
+const Image = ImageModel(sequelize); // Llamamos la función que define el modelo, pasándole sequelize
 
 // Definir las relaciones entre los modelos de forma explícita
 Product.belongsTo(Category, { foreignKey: 'categoryID' });
+Image.belongsTo(Product, { foreignKey: 'productID' });
 
-// Sin necesidad de recorrer la carpeta, ya tienes acceso a los modelos
 sequelize.models = {
   Product,
-  Category
+  Category,
+  Image
 };
 
 export default sequelize;

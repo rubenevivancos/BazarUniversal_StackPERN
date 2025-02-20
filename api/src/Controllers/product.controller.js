@@ -1,6 +1,6 @@
 import sequelize from '../db.js';
 import ProductService from '../Services/product.service.js';
-
+import ImageService from '../Services/image.service.js';
 
 const productController = {
 
@@ -148,15 +148,12 @@ async function getListProducts(search) {
         const listID = listProducts.map((product) => product.id);
 
         //Se obtiene el listado de las imágenes correspondientes a cada producto del listado de productos
-        const listImagesByProduct = await sequelize.query('SELECT * FROM market.get_images_by_product(ARRAY[:productIds])', {
-            replacements: { productIds: listID },
-            type: sequelize.QueryTypes.SELECT
-        });
+        const listImagesByProduct = await ImageService.getImagesByProductIds(listID);
 
         //Se setea a cada producto su correspondiente arreglo de imagenes
         for (let product of listProducts) {
             // Filtra las imágenes correspondientes al producto actual
-            const productImages = listImagesByProduct.filter(image => image.product_id === product.p_id);
+            const productImages = listImagesByProduct.filter(image => image.productID === product.id);
 
             const listUrl = productImages.map((images) => images.url);
 
