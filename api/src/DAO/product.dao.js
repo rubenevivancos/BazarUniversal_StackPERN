@@ -43,39 +43,26 @@ class ProductDAO {
     }
   }
 
+  async getProductDetail(productID) {
+    try {
+      const product = await Product.findOne({
+        where: { id: productID },
+        raw: true
+      });
+
+      if (!product) {
+        throw new Error('Producto con ID ' + productID + ' no encontrado');
+      }
+  
+      return result;
+    } catch (error) {
+      console.error('Error al obtener el detalle del producto:', error);
+      throw error; 
+    }
+  }
+
 }
 
-/*
-async getProductCategoryNames(search) {
-  try {
-    const result = await Product.findAll({
-      attributes: [
-        'id',
-        'title',
-        'description',
-        'price',
-        'discountPercentage',
-        'rating',
-        'stock',
-        'brand',
-        'thumbnail',
-        'categoryID'
-      ],
-      include: [
-        {
-          model: Category, // Incluimos el modelo Category
-          attributes: ['id', 'name'] // Seleccionamos solo los campos 'id' y 'name' de la categoría
-        }
-      ],
-      raw: true // Devuelve los resultados como un objeto plano (sin las instancias de Sequelize)
-    });
-    console.log("Productos encontrados:", result);
-    return result;
-  } catch (error) {
-    console.error('Error al obtener productos y categorías:', error);
-    throw error; 
-  }
-}
-*/
+
 
 export default new ProductDAO();

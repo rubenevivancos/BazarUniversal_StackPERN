@@ -13,7 +13,7 @@ const productController = {
             console.log("[ productSearch ] El producto a buscar es: " + search);
     
             try{
-                //Obteniendo el listado de la busqueda usando la FUNCTION: "BazarUniversal"."getProductCategoryNames"
+                //Obteniendo el listado de la busqueda
                 const result = await getListProducts(search);
     
                 
@@ -62,75 +62,38 @@ const productController = {
 
     getDetail: async (req, res) => {
         console.log("[ products.js/getDetail ] INICIO");
-        const { idProduct } = req.params;
+        const { productID } = req.params;
     
-        if (idProduct) {
-            console.log("[ products.js/getDetail ] El ID del producto a buscar es: " + idProduct);
-            let functionName = "market.product_detail";
+        if (productID) {
+            console.log("[ products.js/getDetail ] El ID del producto a buscar es: " + productID);
     
             try {
-                console.log("[ products.js/getDetail ] Se procede a llamar a la funcion: " + functionName);
-    
-                //OBS: Pese a que la funcion productDetail en postgresql devuelve un objeto, sequelize lo interpreta como un arreglo,
-                //     por eso, productDetail es un arreglo con un solo elemento
-                const productDetail = await sequelize.query('SELECT * FROM market.product_detail(:id)', {
-                    replacements: { id: idProduct },
-                    type: sequelize.QueryTypes.SELECT
-                });
+
+                const productDetail = await ProductService.getProductDetail(productID);
                 
-                if(productDetail.length > 0){
-                    const product = productDetail[0];
-                    console.log("[ products.js/getDetail ] Se encontro el detalle del producto");
-                    console.log("[ products.js/getDetail ] El producto es: " + product.title);
+                console.log("[ products.js/getDetail ] Se encontro el detalle del producto");
+                console.log("[ products.js/getDetail ] El producto es: " + productDetail.title);
     
-                    //Llamar a la funcion para obtener su listado de imagenes
-                    const listID = [product.p_id];
-                    functionName = "market.get_images_by_product";
-                    console.log("[ products.js/getDetail ] Se procede a llamar a la funcion: " + functionName);
-                    const productImages = await sequelize.query('SELECT * FROM market.get_images_by_product(ARRAY[:productIds])', {
-                        replacements: { productIds: listID },
-                        type: sequelize.QueryTypes.SELECT
-                    });
+                //Se obtiene el listado de las imágenes del producto
+                const productImages = await ImageService.getImagesByProductIds(productDetail.id);
     
-                    if(productImages.length > 0){
-                        console.log("[ products.js/getDetail ] El producto tiene " + productImages.length + " imagenes");
-                        const listUrl = productImages.map((images) => images.url);
-                        product.images = listUrl;
-                    }else{
-                        product.images = [];
-                    }
-    
-                    console.log("[ products.js/getDetail ] FIN");
-                    return res.status(200).json(product);
+                if(productImages.length > 0){
+                    console.log("[ products.js/getDetail ] El producto tiene " + productImages.length + " imagenes");
+                    productDetail.images = productImages.map((images) => images.url);
+                }else{
+                    productDetail.images = [];
                 }
     
-                console.log("[ products.js/getDetail ] No hay resultados");
                 console.log("[ products.js/getDetail ] FIN");
-                return res.status(422).json({message: "No hay resultados"}); 
+                return res.status(200).json(productDetail);
     
             } catch (error) {
-                console.error("[ products.js/getDetail ] Error al llamar a la funcion: " + functionName, error);
+                console.error("[ products.js/getDetail ] Error al obtener el detalle del producto: ", error);
                 throw error;
             }
-        }
-    
-        /*
-        const listProducts = getListProducts();
-    
-        if (idProduct) {
-            console.log("[ src/routes/products.js/:idProduct ] El id a buscar es: " + idProduct);
-            const product = listProducts.filter(p => p.id == idProduct);
-            if(product.length){
-                console.log("[ src/routes/products.js/:idProduct ] Se encontro el detalle del producto");
-                console.log("[ src/routes/products.js/:idProduct ] El producto es: " + product[0].title);
-                return res.status(200).json(product[0]);
-            }
-            console.log("[ src/routes/products.js/:idProduct ] No hay resultados");
-            return res.status(422).json({message: "No hay resultados"}); 
-        }
-        */
-    
-        return res.status(400).json({message: "Falta enviar datos obligatorios"});
+        }  
+        return res.status(400).json({message: "Falta enviar ID del producto"});
+
     }
 
 };
@@ -141,7 +104,7 @@ async function getListProducts(search) {
     console.log("[ products.js/getListProducts ] INICIO");
 
     try {
-        //Se obtiene el listado de productos seguú la búsqueda
+        //Se obtiene el listado de productos según la búsqueda
         const listProducts = await ProductService.getProductCategoryNames(search);
 
         //Del listado de productos obtenido, se crea un arreglo con solo los ids

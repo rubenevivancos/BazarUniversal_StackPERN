@@ -6,7 +6,7 @@ const router = Router();
 
 
 router.get('/productSearch', productController.productSearch);
-router.get("/:idProduct", productController.getDetail);
+router.get("/:productID", productController.getDetail);
 
 
 export default router;
