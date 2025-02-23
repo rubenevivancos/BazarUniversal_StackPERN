@@ -45,7 +45,6 @@ const productController = {
                     console.log("[ productSearch ] Se encontraron " + result.length + " resultados");
                     console.log("[ productSearch ] product title: " + result[0].title);
                     console.log("[ productSearch ] category name: " + result[0].Category.name);
-                    console.log("[ productSearch ] probando ---> : " + result[0].images.length);
                     return res.status(200).json(resul);
                 }
                 console.log("[ productSearch ] No hay resultados");
@@ -108,6 +107,7 @@ async function getListProducts(search) {
         //Se obtiene el listado de productos según la búsqueda
         const listProducts = await ProductService.getProductCategoryNames(search);
 
+        /*
         //Del listado de productos obtenido, se crea un arreglo con solo los ids
         const listID = listProducts.map((product) => product.id);
 
@@ -124,6 +124,7 @@ async function getListProducts(search) {
             // Agrega el atributo "images" al objeto product con el arreglo de imágenes correspondientes
             product.images = listUrl;
         }
+        */
         
         console.log("[ products.js/getListProducts ] FIN");
         return listProducts;
