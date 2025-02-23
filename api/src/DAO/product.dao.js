@@ -49,15 +49,14 @@ class ProductDAO {
   async getProductDetail(productID) {
     try {
       const product = await Product.findOne({
-        where: { id: productID },
-        raw: true
+        where: { id: productID }
       });
 
       if (!product) {
         throw new Error('Producto con ID ' + productID + ' no encontrado');
       }
   
-      return result;
+      return product;
     } catch (error) {
       console.error('Error al obtener el detalle del producto:', error);
       throw error; 
