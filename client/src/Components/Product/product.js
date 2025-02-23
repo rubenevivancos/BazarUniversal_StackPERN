@@ -12,7 +12,7 @@ export default function Product({product}) {
                 {/* Columna para la imagen */}
                 <Col xs={12} lg={5} className="mb-4 mb-lg-0">
                     <Image 
-                        src={product.images[0]} 
+                        src={product.Images[0].url} 
                         alt={product.title} 
                         className="img-fluid" 
                         style={{ height: '150px', objectFit: 'contain', width: '100%' }}

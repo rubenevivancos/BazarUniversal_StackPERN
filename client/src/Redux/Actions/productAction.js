@@ -8,7 +8,8 @@ export const productSearch = (product) => async (dispatch) => {
     try {
         console.log("Se busca: " + product);
         let response = (await axios.get(`/products/productSearch?search=${product}`)).data;
-        console.log("[ productSearch(product) ] La busqueda del producto: " + product + " encontro " + response.listProducts.length + " resultados"); 
+        console.log("[ productSearch(product) ] La busqueda del producto: " + product + " encontro " + response.listProducts.length + " resultados");
+        console.log("probando ---> " + Object.keys(response.listProducts[0]));
 
         let result = {response: response, productToSearch: product}
 

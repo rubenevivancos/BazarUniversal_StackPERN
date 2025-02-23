@@ -33,6 +33,8 @@ const Image = ImageModel(sequelize); // Llamamos la función que define el model
 
 // Definir las relaciones entre los modelos de forma explícita
 Product.belongsTo(Category, { foreignKey: 'categoryID' });
+Category.hasMany(Product, { foreignKey: 'categoryID' });
+Product.hasMany(Image, { foreignKey: 'productID' });
 Image.belongsTo(Product, { foreignKey: 'productID' });
 
 sequelize.models = {

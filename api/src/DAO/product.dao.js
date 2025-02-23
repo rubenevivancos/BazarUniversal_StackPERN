@@ -1,7 +1,7 @@
 import { Op } from 'sequelize';
 import sequelize from '../db.js';
 
-const { Product, Category } = sequelize.models;
+const { Product, Category, Image } = sequelize.models;
 
 
 class ProductDAO {
@@ -25,6 +25,10 @@ class ProductDAO {
           {
             model: Category, // Relación sin alias
             attributes: ['id', 'name'] 
+          },
+          {
+            model: Image,
+            attributes: ['url']
           }
         ],
         where: {
@@ -32,8 +36,7 @@ class ProductDAO {
             { title: { [Op.iLike]: `%${search}%` } },
             { '$Category.name$': { [Op.iLike]: `%${search}%` } } // $ hace que Sequelize interprete que estás referenciando un campo del modelo incluido (Category), no de la tabla principal (Product).
           ]
-        },
-        raw: true
+        }
       });
   
       return result;
