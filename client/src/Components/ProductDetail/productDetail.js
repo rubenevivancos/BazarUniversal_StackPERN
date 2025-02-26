@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 import { Container, Row, Col, Image, InputGroup, FormControl } from 'react-bootstrap';
 
 
-import MainHeader from '../MainHeader/mainHeader';
+import MainHeader from '../Header/mainHeader';
 import { getProductDetail } from "../../Redux/Actions/productAction";
 import imagen from '../../Images/libreMercado.png';
 import lupaIcon from '../../Images/lupa.png';

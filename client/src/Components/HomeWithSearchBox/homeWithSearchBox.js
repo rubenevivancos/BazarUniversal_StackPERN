@@ -1,6 +1,6 @@
 import React from "react";
 
-import MainHeader from '../MainHeader/mainHeader';
+import MainHeader from '../Header/mainHeader';
 
 
 export default function HomeWithSearchBox() {

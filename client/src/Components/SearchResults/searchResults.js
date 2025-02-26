@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { Container, Row, Col } from 'react-bootstrap';
 
 
-import MainHeader from '../MainHeader/mainHeader';
+import MainHeader from '../Header/mainHeader.js';
 import Product from "../Product/product.js";
 import GoBack from '../GoBack/goBack';
 
