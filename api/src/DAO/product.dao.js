@@ -23,7 +23,7 @@ class ProductDAO {
         ],
         include: [
           {
-            model: Category, // Relación sin alias
+            model: Category,
             attributes: ['id', 'name'] 
           },
           {
@@ -49,6 +49,16 @@ class ProductDAO {
   async getProductDetail(productID) {
     try {
       const product = await Product.findOne({
+        include: [
+          {
+            model: Category,
+            attributes: ['id', 'name'] 
+          },
+          {
+            model: Image,
+            attributes: ['url']
+          }
+        ],
         where: { id: productID }
       });
 

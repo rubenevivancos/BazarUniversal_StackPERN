@@ -50,22 +50,22 @@ export default function ProductDetail() {
                                     <Row className="mb-4">
                                         {/* Columna para el carrusel de imagenes */}
                                         <Col md={4} className="d-flex flex-column align-items-start">
-                                            {product.images.map((image, index) => (
+                                            {product.Images.map((image, index) => (
                                                 <Image 
                                                     key={index} 
-                                                    src={image} 
+                                                    src={image.url} 
                                                     className="img-fluid mt-2 mb-2" 
                                                     style={{ 
                                                         maxHeight: '5vh',
-                                                        border: selectedImage === image || selectedImage == "" && index === 0 ? '2px solid blue' : 'none' // Aplicar borde azul a la imagen seleccionada
+                                                        border: selectedImage === image.url || selectedImage == "" && index === 0 ? '2px solid blue' : 'none' // Aplicar borde azul a la imagen seleccionada
                                                     }}
-                                                    onMouseEnter={() => setSelectedImage(image)}
+                                                    onMouseEnter={() => setSelectedImage(image.url)}
                                                 />
                                             ))}
                                         </Col>
                                         {/* Columna para la imagen */}
                                         <Col md={8} className="d-flex justify-content-center align-items-center">
-                                            <Image src={selectedImage || product.images[0]} alt={product.title} className="img-fluid" style={{ height: '50vh', objectFit: 'contain' }}/>
+                                            <Image src={selectedImage || product.Images[0].url} alt={product.title} className="img-fluid" style={{ height: '50vh', objectFit: 'contain' }}/>
                                         </Col>
                                     </Row>
                                 </Col>
