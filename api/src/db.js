@@ -25,11 +25,13 @@ const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}
 import ProductModel from './Models/Product.js';
 import CategoryModel from './Models/Category.js';
 import ImageModel from './Models/Image.js';
+import UserModel from './Models/User.js';
 
 // Ahora pasamos el objeto sequelize a los modelos al momento de importarlos
 const Product = ProductModel(sequelize); // Llamamos la función que define el modelo, pasándole sequelize
 const Category = CategoryModel(sequelize); // Llamamos la función que define el modelo, pasándole sequelize
 const Image = ImageModel(sequelize); // Llamamos la función que define el modelo, pasándole sequelize
+const User = UserModel(sequelize); // Llamamos la función que define el modelo, pasándole sequelize
 
 // Definir las relaciones entre los modelos de forma explícita
 Product.belongsTo(Category, { foreignKey: 'categoryID' });
@@ -40,7 +42,8 @@ Image.belongsTo(Product, { foreignKey: 'productID' });
 sequelize.models = {
   Product,
   Category,
-  Image
+  Image,
+  User
 };
 
 export default sequelize;
