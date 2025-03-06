@@ -1,21 +1,20 @@
 import React, { useState } from 'react';
 import { Button, Form, Container, Row, Col, Alert } from 'react-bootstrap';
-import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
-import firebaseApp from '../../firebase';
+import { useDispatch } from 'react-redux';
 
+import { signUp } from '../../Redux/Actions/userAction';
 import BrandHeader from '../Header/brandHeader';
 import GoBack from '../GoBack/goBack';
 
 
 const SignUp = () => {
+  const dispatch = useDispatch();
+  const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
-  
-  // Inicializar Firebase Auth
-  const auth = getAuth(firebaseApp);
-  console.log("auth ---> " + auth);
+
 
   // Manejar el registro de usuario
   const handleSignUp = async (e) => {
@@ -24,16 +23,14 @@ const SignUp = () => {
     setError('');
 
     try {
-      // Llamamos a Firebase Authentication para crear al usuario
-      await createUserWithEmailAndPassword(auth, email, password);
-      setLoading(false);
-      alert('¡Cuenta creada con éxito!');
-      // Redirigir a otra página o mostrar un mensaje de éxito aquí
-    } catch (error) {
-      setLoading(false);
-      setError(error.message);
-      console.log("Error en la autenticacion ---> " + error);
-    }
+        await dispatch(signUp(name, email, password));
+        alert('¡Cuenta creada con éxito!');
+      } catch (error) {
+        setError(error.message);
+        console.error("Error en la autenticación ---> ", error);
+      } finally {
+        setLoading(false);
+      }
   };
 
   return (
@@ -53,6 +50,18 @@ const SignUp = () => {
                             <Form onSubmit={handleSignUp}>
                                 {/* Mostrar error si ocurre algún problema */}
                                 {error && <Alert variant="danger">{error}</Alert>}
+
+                                {/* Campo de nombre */}
+                                <Form.Group controlId="formName">
+                                    <Form.Label>Nombre</Form.Label>
+                                    <Form.Control
+                                        type="text"
+                                        placeholder="Introduce tu nombre"
+                                        value={name}
+                                        onChange={(e) => setName(e.target.value)}
+                                        required
+                                    />
+                                </Form.Group>
 
                                 {/* Campo de email */}
                                 <Form.Group controlId="formEmail">
