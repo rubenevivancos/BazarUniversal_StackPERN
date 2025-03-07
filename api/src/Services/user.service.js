@@ -3,10 +3,10 @@ import UserDAO from '../DAO/user.dao.js';
 
 class UserService {
 
-    async registerUser(name, email) {
+    async registerUser(firebaseUID, name, email) {
         try {
 
-          const result = await UserDAO.registerUser(name, email);
+          const result = await UserDAO.registerUser(firebaseUID, name, email);
           return result;
 
         } catch (error) {

@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useSelector } from 'react-redux';
 import { Button, Form, Container, Row, Col, Alert } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
 
@@ -13,24 +14,27 @@ const SignUp = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
-  const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState('');
+
+  const errorFromStore = useSelector((state) => state.userReducer.error);
+  const successFromStore = useSelector((state) => state.userReducer.success);
+  
+  useEffect(() => {
+    setError(errorFromStore);
+  }, [errorFromStore]);
+  
+  useEffect(() => {
+    setSuccess(successFromStore);
+  }, [successFromStore]);
 
 
   // Manejar el registro de usuario
-  const handleSignUp = async (e) => {
+  const handleSignUp = (e) => {
     e.preventDefault();
-    setLoading(true);
     setError('');
 
-    try {
-        await dispatch(signUp(name, email, password));
-        alert('¡Cuenta creada con éxito!');
-      } catch (error) {
-        setError(error.message);
-        console.error("Error en la autenticación ---> ", error);
-      } finally {
-        setLoading(false);
-      }
+
+    dispatch(signUp(name, email, password));
   };
 
   return (
@@ -50,6 +54,9 @@ const SignUp = () => {
                             <Form onSubmit={handleSignUp}>
                                 {/* Mostrar error si ocurre algún problema */}
                                 {error && <Alert variant="danger">{error}</Alert>}
+
+                                {/* Mostrar éxito si se registra correctamente */}
+                                {success && <Alert variant="success">{success}</Alert>}
 
                                 {/* Campo de nombre */}
                                 <Form.Group controlId="formName">
@@ -88,8 +95,8 @@ const SignUp = () => {
                                 </Form.Group>
 
                                 {/* Botón de registro */}
-                                <Button variant="primary" type="submit" className="mt-3" disabled={loading}>
-                                    {loading ? 'Registrando...' : 'Crear Cuenta'}
+                                <Button variant="primary" type="submit" className="mt-3">
+                                    Crear Cuenta
                                 </Button>
 
                                 {/* Enlace a la página de login si el usuario ya tiene cuenta */}

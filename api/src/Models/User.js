@@ -9,6 +9,12 @@ export default (sequelize) => {
         defaultValue: DataTypes.UUIDV4,
         primaryKey: true,
     },
+    firebaseUID: {
+      type: DataTypes.STRING(255),
+      allowNull: false,
+      unique: true,
+      field: 'firebase_uid'
+    },
     name: {
         type: DataTypes.STRING(100),
         allowNull: false,

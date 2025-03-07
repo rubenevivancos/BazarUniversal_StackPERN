@@ -5,11 +5,11 @@ const { User } = sequelize.models;
 
 class UserDAO {
 
-  async registerUser(name, email) {
+  async registerUser(firebaseUID, name, email) {
     try {
 
-        const newUser = await User.create({ name, email });
-        return newUser;
+        const newUser = await User.create({ firebaseUID, name, email });
+        return newUser.dataValues;
 
     } catch (error) {
       console.error('[ user.dao.js ] Error al registrar el usuario: ' + error.message);
