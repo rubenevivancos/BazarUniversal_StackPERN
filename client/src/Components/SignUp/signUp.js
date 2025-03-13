@@ -2,39 +2,54 @@ import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { Button, Form, Container, Row, Col, Alert } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
+import { useNavigate } from "react-router-dom";
 
-import { signUp } from '../../Redux/Actions/userAction';
+import { signUp, clearUserMessages } from '../../Redux/Actions/userAction';
 import BrandHeader from '../Header/brandHeader';
 import GoBack from '../GoBack/goBack';
+import SuccessToast from './successToast';
 
 
 const SignUp = () => {
   const dispatch = useDispatch();
+  const [showToast, setShowToast] = useState(false);
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
+  const navigate = useNavigate();
 
   const errorFromStore = useSelector((state) => state.userReducer.error);
   const successFromStore = useSelector((state) => state.userReducer.success);
   
+
   useEffect(() => {
-    setError(errorFromStore);
+    if (errorFromStore) setError(errorFromStore);
   }, [errorFromStore]);
   
   useEffect(() => {
-    setSuccess(successFromStore);
-  }, [successFromStore]);
+    if (successFromStore) {
+        setSuccess(successFromStore);
+        setShowToast(true);
+        setTimeout(() => {
+            dispatch(clearUserMessages()); // Borra los mensajes antes de redirigir
+            navigate("/");
+          }, 3000);
+      }
+  }, [successFromStore, navigate]);
 
 
   // Manejar el registro de usuario
   const handleSignUp = (e) => {
     e.preventDefault();
+    setSuccess('');
     setError('');
-
+    
 
     dispatch(signUp(name, email, password));
+
+    //setTimeout(() => navigate("/"), 3000);
   };
 
   return (
@@ -56,7 +71,7 @@ const SignUp = () => {
                                 {error && <Alert variant="danger">{error}</Alert>}
 
                                 {/* Mostrar éxito si se registra correctamente */}
-                                {success && <Alert variant="success">{success}</Alert>}
+                                <SuccessToast show={showToast} onClose={() => setShowToast(false)} />
 
                                 {/* Campo de nombre */}
                                 <Form.Group controlId="formName">
