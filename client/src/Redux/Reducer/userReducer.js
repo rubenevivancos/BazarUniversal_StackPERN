@@ -13,7 +13,7 @@ export const userReducer = createSlice({
         signUpReducer: (state, action) => {
             state.user = action.payload; // Guarda los datos del usuario
             state.error = "";
-            state.success = "Registro exitoso";
+            state.success = "Tu cuenta ha sido creada correctamente.";
         },
         signInReducer: (state, action) => {
             state.user = action.payload; // Guarda los datos del usuario autenticado

@@ -48,8 +48,6 @@ const SignUp = () => {
     
 
     dispatch(signUp(name, email, password));
-
-    //setTimeout(() => navigate("/"), 3000);
   };
 
   return (
@@ -71,7 +69,7 @@ const SignUp = () => {
                                 {error && <Alert variant="danger">{error}</Alert>}
 
                                 {/* Mostrar éxito si se registra correctamente */}
-                                <SuccessToast show={showToast} onClose={() => setShowToast(false)} />
+                                <SuccessToast show={showToast} onClose={() => setShowToast(false)} message={successFromStore} />
 
                                 {/* Campo de nombre */}
                                 <Form.Group controlId="formName">
