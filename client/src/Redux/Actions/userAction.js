@@ -11,16 +11,14 @@ export const signUp = (name, email, password) => async (dispatch) => {
 
         const auth = getAuth(firebaseApp);
 
-        // Registrar usuario en Firebase
-        console.log("Antes de crear usuario en Firebase");
+        //Registrar usuario en Firebase
         const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-        console.log("Despues de crear usuario en Firebase");
         const user = userCredential.user;
 
-        // Actualizar el perfil con el nombre
+        //Actualizar el perfil con el nombre
         await updateProfile(user, { displayName: name });
 
-        // Crear objeto con los datos del usuario
+        //Crear objeto con los datos del usuario
         const userData = {
             firebaseUID: user.uid,
             name: user.displayName,
@@ -31,10 +29,9 @@ export const signUp = (name, email, password) => async (dispatch) => {
 
         //Registrar usuario en la BD
         const registeredUser = (await axios.post("/users/registerUser", userData)).data;
-
         console.log("[userAction.signUp] Usuario registrado en la BD:", registeredUser);
 
-        // Despachar acción para actualizar Redux
+        //Despachar acción para actualizar Redux
         dispatch(signUpReducer(registeredUser));
 
 

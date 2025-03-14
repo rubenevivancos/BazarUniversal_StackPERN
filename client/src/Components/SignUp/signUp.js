@@ -34,7 +34,7 @@ const SignUp = () => {
         setShowToast(true);
         setTimeout(() => {
             dispatch(clearUserMessages()); // Borra los mensajes antes de redirigir
-            navigate("/");
+            navigate("/logIn");
           }, 3000);
       }
   }, [successFromStore, navigate]);
