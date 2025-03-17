@@ -1,7 +1,7 @@
 import axios from "axios";
 
 import { signUpReducer, errorMsg, clearUserMessagesReducer } from "../Reducer/userReducer";
-import { getAuth, createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, updateProfile, signInWithEmailAndPassword } from "firebase/auth";
 import firebaseApp from "../../firebase";
 
 
@@ -40,6 +40,17 @@ export const signUp = (name, email, password) => async (dispatch) => {
         dispatch(errorMsg("Ocurrió un error... inténtelo más tarde"));
     }
 }
+
+export const loginUser = async (email, password) => {
+    try {
+        const auth = getAuth(firebaseApp);
+        const userCredential = await signInWithEmailAndPassword(auth, email, password);
+        return userCredential.user; // Retorna el usuario autenticado
+    } catch (error) {
+        console.error("[userAction.loginUser] Error:", error.message);
+        throw new Error(error.message);
+    }
+  };
 
 export const clearUserMessages = () => (dispatch) => {
     dispatch(clearUserMessagesReducer());
