@@ -13,7 +13,19 @@ class UserService {
           console.error('Error al registrar el usuario: ' + error.message);
           throw error;
         }
+    }
+
+    async loginUser(firebaseUID, name, email) {
+      try {
+
+        const result = await UserDAO.loginUser(firebaseUID, name, email);
+        return result;
+
+      } catch (error) {
+        console.error('Error al registrar el usuario: ' + error.message);
+        throw error;
       }
+  }
 
 }
 

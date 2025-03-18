@@ -21,7 +21,23 @@ const userController = {
         
     },
 
+    loginUser: async (req, res) =>{
+        console.log("[ user.controller/loginUser ] INICIO");
+        const { firebaseUID, name, email } = req.body;
 
+        try {
+            
+            const result = await UserService.loginUser(firebaseUID, name, email);
+
+            return res.status(200).json(result);
+
+        } catch (error) {
+            console.error("[ user.controller/loginUser ] Error: ", error);
+            return res.status(400).json({});
+        }
+        
+        
+    },
 
 };
 
