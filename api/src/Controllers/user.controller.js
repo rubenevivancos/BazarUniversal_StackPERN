@@ -25,18 +25,31 @@ const userController = {
     loginUser: async (req, res) =>{
         console.log("[ user.controller/loginUser ] INICIO");
         const { idToken } = req.body;
+        console.log("[ user.controller/loginUser ] El idToken recibido es: " + idToken);
 
         try {
+
             // Verificar el token de Firebase
+            console.log("[ user.controller/loginUser ] Verificando el token de Firebase");
             const decodedToken = await admin.auth().verifyIdToken(idToken);
+            console.log("[ user.controller/loginUser ] Token correcto");
             const { uid, email } = decodedToken;
+            console.log("[ user.controller/loginUser ] El uid es: " + uid);
+            console.log("[ user.controller/loginUser ] El email es: " + email);
 
             // Buscar el usuario en PostgreSQL
+            console.log("[ user.controller/loginUser ] Buscando al usuario en la BD");
             const user = await UserService.find(uid);
 
             if (!user) {
+                console.error("[ user.controller/loginUser ] El usuario con uid: " + uid + " no existe");
                 return res.status(404).json({ message: "User not found" });
             }
+
+            console.log("[ user.controller/loginUser ] Usuario encontrado");
+            console.log("[ user.controller/loginUser ] id: " + user.id);
+            console.log("[ user.controller/loginUser ] name: " + user.name);
+            console.log("[ user.controller/loginUser ] email: " + user.email);
 
             return res.status(200).json({ 
                 message: "Login successful", 

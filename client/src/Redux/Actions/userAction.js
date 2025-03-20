@@ -41,25 +41,26 @@ export const signUp = (name, email, password) => async (dispatch) => {
     }
 }
 
-export const loginUser = async (email, password) => {
+export const loginUser = (email, password) => async (dispatch) => {
     try {
 
+        console.log("[ userAction.loginUser ] INICIO");
         const auth = getAuth(firebaseApp);
         const userCredential = await signInWithEmailAndPassword(auth, email, password);
         const user =  userCredential.user;
 
         // Obtener el token de Firebase
         const idToken = await user.getIdToken();
+        console.log("[ userAction.loginUser ] El idToken de Firebase es: " + idToken);
 
-        const response = (await axios.post("/users/loginUser", idToken)).data;
+        const response = (await axios.post("/users/loginUser", {idToken: idToken})).data;
 
-        if (!response.data) {
+        if (!response) {
             console.error("[userAction.loginUser] Error al validar usuario en el backend");
             throw new Error("Error al validar usuario en el backend");
         }
 
-        const userData = response.data;
-        dispatch(signInReducer(userData));
+        dispatch(signInReducer(response.user));
             
         return userData;
     } catch (error) {
