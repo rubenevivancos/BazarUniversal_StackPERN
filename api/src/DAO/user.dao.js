@@ -17,14 +17,14 @@ class UserDAO {
     }
   }
 
-  async loginUser(firebaseUID, name, email) {
+  async find(uid) {
     try {
 
-        //const newUser = await User.create({ firebaseUID, name, email });
-        return "";
+      const user = await User.findOne({ where: { firebase_uid: uid } });
+        return user;
 
     } catch (error) {
-      console.error('[ user.dao.js ] Error al registrar el usuario: ' + error.message);
+      console.error('[ user.dao.js ] Error al encontrar el usuario: ' + error.message);
       throw error;
     }
   }

@@ -15,14 +15,14 @@ class UserService {
         }
     }
 
-    async loginUser(firebaseUID, name, email) {
+    async find(uid) {
       try {
 
-        const result = await UserDAO.loginUser(firebaseUID, name, email);
-        return result;
+        const user = await UserDAO.find(uid);
+        return user;
 
       } catch (error) {
-        console.error('Error al registrar el usuario: ' + error.message);
+        console.error('Error al encontrar el usuario: ' + error.message);
         throw error;
       }
   }
