@@ -66,6 +66,7 @@ export const loginUser = (email, password) => async (dispatch) => {
         return response.user;
     } catch (error) {
         console.error("[userAction.loginUser] Error:", error.message);
+        dispatch(errorMsg(error.message));
         throw new Error(error.message);
     }
   };
