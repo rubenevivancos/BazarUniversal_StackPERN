@@ -62,7 +62,13 @@ const SearchAndNav = () => {
                             )}
                             <Link to="#purchases" className="nav-link">Mis compras</Link>
                             {user && (
-                                <Link to="/" onClick={handleLogout} className="nav-link">Cerrar Sesión</Link>
+                                <>
+                                    <Link to="/" onClick={handleLogout} className="nav-link">Cerrar Sesión</Link>
+                                    <div className="text-start me-3">
+                                        <span className="d-block">Bienvenido</span>
+                                        <strong>{user.name}</strong>
+                                    </div>
+                                </>
                             )}
                         </Nav>
                     </Col>

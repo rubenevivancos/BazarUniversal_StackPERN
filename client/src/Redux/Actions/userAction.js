@@ -1,7 +1,7 @@
 import axios from "axios";
 
 import { signUpReducer, signInReducer, signOutReducer, errorMsg, clearUserMessagesReducer } from "../Reducer/userReducer";
-import { getAuth, createUserWithEmailAndPassword, updateProfile, signInWithEmailAndPassword, signOut } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, updateProfile, signInWithEmailAndPassword, signOut, onAuthStateChanged  } from "firebase/auth";
 import firebaseApp from "../../firebase";
 
 
@@ -88,6 +88,27 @@ export const loginUser = (email, password) => async (dispatch) => {
         console.error("[userAction.logoutUser] Error:", error.message);
         dispatch(errorMsg("Error al cerrar sesión, inténtelo más tarde"));
     }
+};
+
+export const monitorAuthState = () => (dispatch) => {
+    const auth = getAuth(firebaseApp);
+
+    onAuthStateChanged(auth, (user) => {
+        if (user) {
+            console.log("[userAction.monitorAuthState] Usuario detectado:", user);
+            const userData = {
+                firebaseUID: user.uid,
+                name: user.displayName,
+                email: user.email,
+            };
+            localStorage.setItem("user", JSON.stringify(userData)); // Guardar en LocalStorage
+            dispatch(signInReducer(userData)); // Actualizar Redux
+        } else {
+            console.log("[userAction.monitorAuthState] No hay usuario activo");
+            localStorage.removeItem("user"); // Limpiar LocalStorage
+            dispatch(signOutReducer()); // Actualizar Redux
+        }
+    });
 };
 
 export const clearUserMessages = () => (dispatch) => {

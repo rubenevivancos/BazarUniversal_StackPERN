@@ -1,6 +1,9 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
 
+import { monitorAuthState } from "./Redux/Actions/userAction";
 import HomeWithSearchBox from './Components/HomeWithSearchBox/homeWithSearchBox';
 import SearchResults from './Components/SearchResults/searchResults';
 import ProductDetail from './Components/ProductDetail/productDetail';
@@ -9,6 +12,13 @@ import SignUp from './Components/SignUp/signUp';
 
 
 function App() {
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+      dispatch(monitorAuthState()); // Inicia el monitoreo de la sesión
+  }, [dispatch]);
+
   return (
     <BrowserRouter>
       <Routes>
