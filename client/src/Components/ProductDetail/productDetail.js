@@ -1,7 +1,7 @@
 import React, { useEffect, useState }  from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { Container, Row, Col, Image } from 'react-bootstrap';
+import { Container, Row, Col, Image, Button } from 'react-bootstrap';
 
 
 import MainHeader from '../Header/mainHeader';
@@ -22,6 +22,13 @@ export default function ProductDetail() {
     useEffect(() => {
         dispatch(getProductDetail(id));
     }, [dispatch, id]);
+
+
+    const handleBuyNow = (e) => {
+        e.preventDefault();
+
+        
+    };
     
 
     if(product !== null){
@@ -60,7 +67,7 @@ export default function ProductDetail() {
                                         </Col>
                                     </Row>
                                 </Col>
-                                <Col md={3} className="border border-2 border-primary rounded p-3">
+                                <Col md={3} className="d-flex flex-column flex-wrap justify-content-center border border-2 border-primary rounded p-3">
                                     <Row className="mb-4">
                                         <Col className="d-flex flex-column flex-wrap justify-content-start align-items-start">
                                             <h5>{product.title} - {product.brand}</h5>
@@ -78,11 +85,11 @@ export default function ProductDetail() {
                                     </Row>
                                     <Row>
                                         <Col className="text-center">
-                                            Comprar ahora
+                                            <Button variant="primary" onClick={handleBuyNow} className="w-100">Comprar ahora</Button>
                                         </Col>
                                     </Row>
                                     <Row>
-                                        <Col className="text-center">
+                                        <Col className="text-center text-primary">
                                             Agregar al carrito
                                         </Col>
                                     </Row>
