@@ -103,10 +103,12 @@ export const monitorAuthState = () => (dispatch) => {
             };
             localStorage.setItem("user", JSON.stringify(userData)); // Guardar en LocalStorage
             dispatch(signInReducer(userData)); // Actualizar Redux
+            dispatch(clearUserMessagesReducer());
         } else {
             console.log("[userAction.monitorAuthState] No hay usuario activo");
             localStorage.removeItem("user"); // Limpiar LocalStorage
             dispatch(signOutReducer()); // Actualizar Redux
+            dispatch(clearUserMessagesReducer());
         }
     });
 };
