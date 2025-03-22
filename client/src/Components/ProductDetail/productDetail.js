@@ -61,23 +61,17 @@ export default function ProductDetail() {
                                     </Row>
                                 </Col>
                                 <Col md={3} className="border border-2 border-primary rounded p-3">
-                                    <Row className="mb-2">
-                                        <Col className="d-flex flex-wrap justify-content-center align-items-center">
-                                            <h4>{product.title}</h4> <h4>-</h4> <h4>{product.brand}</h4>
-                                        </Col>
-                                    </Row>
                                     <Row className="mb-4">
-                                        <Col className="d-flex flex-wrap justify-content-center">
-                                            <div className="d-flex flex-column justify-content-center align-items-center me-4">
-                                                <h4>{product.price}$</h4>
-                                                <h6>{product.stock} disponibles</h6>
-                                            </div>
+                                        <Col className="d-flex flex-column flex-wrap justify-content-start align-items-start">
+                                            <h5>{product.title} - {product.brand}</h5>
                                             <div className="d-flex justify-content-center align-items-center">
                                                 <CalificacionEstrellas calificacion={product.rating} />
                                             </div>
+                                            <h4>{product.price}$</h4>
+                                            <h6>{product.stock} disponibles</h6>
                                         </Col>
                                     </Row>
-                                    <Row>
+                                    <Row className="mb-4">
                                         <Col className="d-flex justify-content-center align-items-center">
                                             <h6>{product.description}</h6>
                                         </Col>
