@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, Link } from 'react-router-dom';
 import { Form, FormControl, Button, Nav, Row, Col } from 'react-bootstrap';
 import { productSearch } from "../../Redux/Actions/productAction";
+import { logoutUser, clearUserMessages } from "../../Redux/Actions/userAction";
 
 const SearchAndNav = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
+    const user = useSelector(state => state.userReducer.user);
     const [product, setProduct] = useState("");
 
     const handleInput = (e) => {
@@ -24,6 +26,13 @@ const SearchAndNav = () => {
 
         navigate(newRoute);
     }
+
+    const handleLogout = async (e) => {
+        e.preventDefault();
+        dispatch(logoutUser()); 
+        dispatch(clearUserMessages());
+        navigate("/"); 
+    };
 
     return (
         <div className="d-flex justify-content-between w-100">
@@ -45,9 +54,16 @@ const SearchAndNav = () => {
                         {/* Menú horizontal */}
                         <Nav className="ms-auto">
                             <Link to="#categories" className="nav-link">Categorías</Link>
-                            <Link to="/signUp" className="nav-link">Crea tu cuenta</Link>
-                            <Link to="/logIn" className="nav-link">Ingresa</Link>
+                            {!user && (
+                                <>
+                                    <Link to="/signUp" className="nav-link">Crea tu cuenta</Link>
+                                    <Link to="/logIn" className="nav-link">Ingresa</Link>
+                                </>
+                            )}
                             <Link to="#purchases" className="nav-link">Mis compras</Link>
+                            {user && (
+                                <Link to="/" onClick={handleLogout} className="nav-link">Cerrar Sesión</Link>
+                            )}
                         </Nav>
                     </Col>
                 </Row>

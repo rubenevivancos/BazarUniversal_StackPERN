@@ -1,7 +1,7 @@
 import axios from "axios";
 
-import { signUpReducer, signInReducer, errorMsg, clearUserMessagesReducer } from "../Reducer/userReducer";
-import { getAuth, createUserWithEmailAndPassword, updateProfile, signInWithEmailAndPassword } from "firebase/auth";
+import { signUpReducer, signInReducer, signOutReducer, errorMsg, clearUserMessagesReducer } from "../Reducer/userReducer";
+import { getAuth, createUserWithEmailAndPassword, updateProfile, signInWithEmailAndPassword, signOut } from "firebase/auth";
 import firebaseApp from "../../firebase";
 
 
@@ -69,6 +69,26 @@ export const loginUser = (email, password) => async (dispatch) => {
         throw new Error(error.message);
     }
   };
+
+  export const logoutUser = () => async (dispatch) => {
+    try {
+        console.log("[ userAction.logoutUser ] INICIO");
+        
+        const auth = getAuth(firebaseApp);
+        
+        // Cerrar sesión en Firebase
+        await signOut(auth);
+        console.log("[ userAction.logoutUser ] Sesión cerrada en Firebase");
+
+        // Actualizar el estado de Redux
+        dispatch(signOutReducer());
+        dispatch(clearUserMessagesReducer());
+        
+    } catch (error) {
+        console.error("[userAction.logoutUser] Error:", error.message);
+        dispatch(errorMsg("Error al cerrar sesión, inténtelo más tarde"));
+    }
+};
 
 export const clearUserMessages = () => (dispatch) => {
     dispatch(clearUserMessagesReducer());
