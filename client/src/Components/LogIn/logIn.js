@@ -1,30 +1,46 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { Button, Form, Container, Row, Col, Alert } from 'react-bootstrap';
 import { useNavigate } from "react-router-dom";
 
-import { loginUser } from "../../Redux/Actions/userAction";
+import { loginUser, clearUserMessages } from "../../Redux/Actions/userAction";
 import BrandHeader from '../Header/brandHeader';
 import GoBack from '../GoBack/goBack';
 
 
 export default function LogIn() {
 
+    const dispatch = useDispatch();
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const [error, setError] = useState(null);
+    const [error, setError] = useState('');
+    const [success, setSuccess] = useState('');
     const navigate = useNavigate();
+
+    const errorFromStore = useSelector((state) => state.userReducer.error);
+    const successFromStore = useSelector((state) => state.userReducer.success);
+
+
+    useEffect(() => {
+        if (errorFromStore) setError(errorFromStore);
+    }, [errorFromStore]);
+
+    
+    useEffect(() => {
+        if (successFromStore) {
+            setSuccess(successFromStore);
+            dispatch(clearUserMessages()); // Borra los mensajes antes de redirigir
+            navigate("/");
+        }
+    }, [successFromStore, navigate]);
 
   
     const handleLogin = async (e) => {
-      e.preventDefault();
-      try {
-        const user = await loginUser(email, password);
-        console.log("Usuario autenticado:", user);
-        navigate("/");
-      } catch (err) {
-        setError(err.message);
-      }
+        e.preventDefault();
+        setSuccess('');
+        setError('');
+
+        dispatch(loginUser(email, password));
     };
 
 

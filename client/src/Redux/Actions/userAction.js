@@ -61,8 +61,9 @@ export const loginUser = (email, password) => async (dispatch) => {
         }
 
         dispatch(signInReducer(response.user));
+        console.log("[ userAction.loginUser ] El usuario: " + response.user.name + " inicio sesión correctamente");
             
-        return userData;
+        return response.user;
     } catch (error) {
         console.error("[userAction.loginUser] Error:", error.message);
         throw new Error(error.message);
