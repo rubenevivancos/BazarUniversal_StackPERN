@@ -48,7 +48,7 @@ const SignUp = () => {
     setError('');
     
 
-    dispatch(signUp(name, email, password, address, city, postalCode));
+    dispatch(signUp(name, email, password, { address, city, postalCode }));
   };
 
   return (

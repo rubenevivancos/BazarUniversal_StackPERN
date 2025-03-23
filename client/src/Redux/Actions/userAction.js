@@ -5,7 +5,7 @@ import { getAuth, createUserWithEmailAndPassword, updateProfile, signInWithEmail
 import firebaseApp from "../../firebase";
 
 
-export const signUp = (name, email, password) => async (dispatch) => {
+export const signUp = (name, email, password, addressData) => async (dispatch) => {
     try {
         console.log("[userAction.signUp] Se inicia el registro de un nuevo usuario");
 
@@ -22,7 +22,10 @@ export const signUp = (name, email, password) => async (dispatch) => {
         const userData = {
             firebaseUID: user.uid,
             name: user.displayName,
-            email: user.email
+            email: user.email,
+            address: addressData.address,
+            city: addressData.city,
+            postalCode: addressData.postalCode
         };
 
         console.log("[userAction.signUp] Usuario registrado en Firebase:", userData);
@@ -36,8 +39,16 @@ export const signUp = (name, email, password) => async (dispatch) => {
 
 
     } catch (error) {
-        console.error("[userAction.signUp] Error:", error.message);
-        dispatch(errorMsg("Ocurrió un error... inténtelo más tarde"));
+        console.error("[userAction.signUp] Error durante el registro:", error.message);
+
+        // Manejo de errores específicos
+        if (error.code === "auth/email-already-in-use") {
+            dispatch(errorMsg("El correo ya está en uso. Intente con otro."));
+        } else if (error.code === "auth/weak-password") {
+            dispatch(errorMsg("La contraseña debe tener al menos 6 caracteres."));
+        } else {
+            dispatch(errorMsg("Ocurrió un error... inténtelo más tarde."));
+        }
     }
 }
 
