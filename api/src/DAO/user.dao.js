@@ -5,10 +5,10 @@ const { User } = sequelize.models;
 
 class UserDAO {
 
-  async registerUser(firebaseUID, name, email) {
+  async registerUser(firebaseUID, name, email, address, city, postalCode) {
     try {
 
-        const newUser = await User.create({ firebaseUID, name, email });
+        const newUser = await User.create({ firebaseUID, name, email, address, city, postalCode });
         return newUser.dataValues;
 
     } catch (error) {

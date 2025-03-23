@@ -19,6 +19,7 @@ const SignUp = () => {
   const [city, setCity] = useState('');
   const [postalCode, setPostalCode] = useState('');
   const [error, setError] = useState('');
+  const [success, setSuccess] = useState('');
   const navigate = useNavigate();
 
   const errorFromStore = useSelector((state) => state.userReducer.error);

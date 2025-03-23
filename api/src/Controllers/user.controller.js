@@ -5,11 +5,11 @@ const userController = {
 
     registerUser: async (req, res) =>{
         console.log("[ user.controller/registerUser ] INICIO");
-        const { firebaseUID, name, email } = req.body;
+        const { firebaseUID, name, email, address, city, postalCode } = req.body;
 
         try {
             
-            const result = await UserService.registerUser(firebaseUID, name, email);
+            const result = await UserService.registerUser(firebaseUID, name, email, address, city, postalCode);
             console.log("[ user.controller/registerUser ] Usuario registrado en la BD: ", result);
 
             return res.status(200).json(result);

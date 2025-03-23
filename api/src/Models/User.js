@@ -27,6 +27,19 @@ export default (sequelize) => {
           isEmail: true,
         },
     },
+    address: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    city: {
+        type: DataTypes.STRING(100),
+        allowNull: false
+    },
+    postalCode: {
+        type: DataTypes.STRING(20),
+        allowNull: false,
+        field: 'postal_code',
+    }
   }, {
     tableName: 'user', // El nombre de la tabla en la BD
     schema: 'market',
