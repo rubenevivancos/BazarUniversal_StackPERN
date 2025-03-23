@@ -15,8 +15,10 @@ const SignUp = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [address, setAddress] = useState('');
+  const [city, setCity] = useState('');
+  const [postalCode, setPostalCode] = useState('');
   const [error, setError] = useState('');
-  const [success, setSuccess] = useState('');
   const navigate = useNavigate();
 
   const errorFromStore = useSelector((state) => state.userReducer.error);
@@ -46,7 +48,7 @@ const SignUp = () => {
     setError('');
     
 
-    dispatch(signUp(name, email, password));
+    dispatch(signUp(name, email, password, address, city, postalCode));
   };
 
   return (
@@ -103,6 +105,42 @@ const SignUp = () => {
                                         value={password}
                                         onChange={(e) => setPassword(e.target.value)}
                                         required
+                                    />
+                                </Form.Group>
+
+                                {/* Campo de Dirección */}
+                                <Form.Group controlId="formAddress" className="mt-2">
+                                    <Form.Label>Dirección</Form.Label>
+                                    <Form.Control
+                                    type="text"
+                                    placeholder="Ejemplo: Av. Siempre Viva 742"
+                                    value={address}
+                                    onChange={(e) => setAddress(e.target.value)}
+                                    required
+                                    />
+                                </Form.Group>
+
+                                {/* Campo de Ciudad */}
+                                <Form.Group controlId="formCity" className="mt-2">
+                                    <Form.Label>Ciudad</Form.Label>
+                                    <Form.Control
+                                    type="text"
+                                    placeholder="Introduce tu ciudad"
+                                    value={city}
+                                    onChange={(e) => setCity(e.target.value)}
+                                    required
+                                    />
+                                </Form.Group>
+
+                                {/* Campo de Código Postal */}
+                                <Form.Group controlId="formPostalCode" className="mt-2">
+                                    <Form.Label>Código Postal</Form.Label>
+                                    <Form.Control
+                                    type="text"
+                                    placeholder="Ejemplo: 15001"
+                                    value={postalCode}
+                                    onChange={(e) => setPostalCode(e.target.value)}
+                                    required
                                     />
                                 </Form.Group>
 

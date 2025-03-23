@@ -44,10 +44,10 @@ export default function ProductDetail() {
                                 <GoBack/>
                             </Row>
                             <Row>
-                                <Col md={9} className="border border-2 border-primary rounded p-3">
+                                <Col md={9}>
                                     <Row className="mb-4">
                                         {/* Columna para el carrusel de imagenes */}
-                                        <Col md={4} className="d-flex flex-column align-items-center border border-2 border-primary rounded p-3">
+                                        <Col md={4} className="d-flex flex-column align-items-end">
                                             {product.Images.map((image, index) => (
                                                 <Image 
                                                     key={index} 
@@ -62,12 +62,12 @@ export default function ProductDetail() {
                                             ))}
                                         </Col>
                                         {/* Columna para la imagen */}
-                                        <Col md={8} className="d-flex justify-content-center align-items-center border border-2 border-primary rounded p-3">
+                                        <Col md={8} className="d-flex justify-content-center align-items-center">
                                             <Image src={selectedImage || product.Images[0].url} alt={product.title} className="img-fluid" style={{ height: '60vh', objectFit: 'contain' }}/>
                                         </Col>
                                     </Row>
                                 </Col>
-                                <Col md={3} className="d-flex flex-column flex-wrap justify-content-center border border-2 border-primary rounded p-3">
+                                <Col md={3} className="d-flex flex-column flex-wrap justify-content-center">
                                     <Row className="mb-4">
                                         <Col className="d-flex flex-column flex-wrap justify-content-start align-items-start">
                                             <h5>{product.title} - {product.brand}</h5>
