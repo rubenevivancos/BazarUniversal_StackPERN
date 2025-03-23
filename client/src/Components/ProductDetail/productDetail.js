@@ -47,7 +47,7 @@ export default function ProductDetail() {
                                 <Col md={9}>
                                     <Row className="mb-4">
                                         {/* Columna para el carrusel de imagenes */}
-                                        <Col md={4} className="d-flex flex-column align-items-end">
+                                        <Col md={4} className="d-flex flex-column justify-content-center align-items-end">
                                             {product.Images.map((image, index) => (
                                                 <Image 
                                                     key={index} 
