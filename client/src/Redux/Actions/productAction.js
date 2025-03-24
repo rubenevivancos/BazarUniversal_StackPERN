@@ -1,6 +1,6 @@
 import axios from "axios";
 
-import { productSearchReducer, getProductDetailReducer, errorMsg } from "../Reducer/productReducer";
+import { productSearchReducer, getProductDetailReducer, errorMsg, clearProductDetailReducer } from "../Reducer/productReducer";
 
 
 
@@ -33,4 +33,8 @@ export const getProductDetail = (id) => async (dispatch) => {
         console.log("[ getProductDetail ] Excepcion: error.message: " + error.message);
         dispatch(errorMsg("Ocurrio un error...intentelo mas tarde"));
     }
+}
+
+export const clearProductDetail = () => (dispatch) => {
+    dispatch(clearProductDetailReducer());
 }

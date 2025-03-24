@@ -33,7 +33,7 @@ export const userReducer = createSlice({
         clearUserMessagesReducer: (state, action) => {
             state.success = "";
             state.error = "";
-        },
+        }
     }
 });
 

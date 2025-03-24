@@ -39,6 +39,9 @@ export const productReducer = createSlice({
         errorMsg: (state, action) => {
             state.error = action.payload
         },
+        clearProductDetailReducer: (state, action) => {
+            state.productDetail = null;
+        },
     }
 })
 
@@ -46,7 +49,8 @@ export const {
     productSearchReducer,
     getProductDetailReducer,
     successMsg, 
-    errorMsg
+    errorMsg,
+    clearProductDetailReducer
 } = productReducer.actions;
 
 export default productReducer.reducer

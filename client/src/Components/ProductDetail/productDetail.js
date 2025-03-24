@@ -5,7 +5,7 @@ import { Container, Row, Col, Image, Button } from 'react-bootstrap';
 
 
 import MainHeader from '../Header/mainHeader';
-import { getProductDetail } from "../../Redux/Actions/productAction";
+import { getProductDetail, clearProductDetail } from "../../Redux/Actions/productAction";
 import CalificacionEstrellas from '../Product/stars';
 import GoBack from '../GoBack/goBack';
 
@@ -21,6 +21,11 @@ export default function ProductDetail() {
 
     useEffect(() => {
         dispatch(getProductDetail(id));
+
+        //Cleaning the product details
+        return () => {
+            dispatch(clearProductDetail());
+        };
     }, [dispatch, id]);
 
 
