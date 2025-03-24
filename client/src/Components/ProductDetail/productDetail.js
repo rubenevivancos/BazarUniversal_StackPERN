@@ -36,7 +36,6 @@ export default function ProductDetail() {
     };
     
 
-    if(product !== null){
         return(
             <div className="d-flex justify-content-center align-items-start" style={{ backgroundColor: '#fdfd96', minHeight: '100vh' }}>
                 <Container fluid>
@@ -49,6 +48,9 @@ export default function ProductDetail() {
                                 <GoBack/>
                             </Row>
                             <Row>
+                            {
+                                product && Object.keys(product).length > 0 ? (
+                                    <>
                                 <Col md={9}>
                                     <Row className="mb-4">
                                         {/* Columna para el carrusel de imagenes */}
@@ -99,13 +101,17 @@ export default function ProductDetail() {
                                         </Col>
                                     </Row>
                                 </Col>
+                                </>
+                                ) : (
+                                    <Col className="d-flex justify-content-center align-items-center" style={{ minHeight: '50vh' }}>
+                                        <h2>Loading...</h2>
+                                    </Col>
+                                )
+                            }
                             </Row>
                         </Container>
                     </Row>
                 </Container>
             </div>
         )
-    }else{
-        return <div>Loading...</div>;
-    }
 }
