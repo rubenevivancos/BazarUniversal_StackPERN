@@ -29,7 +29,7 @@ export default function DeliveryMethod() {
                                         <span>Urb El Cuadro E - 87</span>
                                     </Col>
                                     <Col className="text-end text-success">
-                                        <h6>Gratis</h6>
+                                        <h6>S/20</h6>
                                     </Col>
                                 </Row>
                                 <Row className="mb-4">
@@ -49,7 +49,7 @@ export default function DeliveryMethod() {
                                 <Row className="mt-2 mb-4">
                                     <h6>Resumen de compra</h6>
                                 </Row>
-                                <Row className="mb-2">
+                                <Row className="mb-1">
                                     <Col>
                                         Producto
                                     </Col>
@@ -57,12 +57,20 @@ export default function DeliveryMethod() {
                                         S/67
                                     </Col>
                                 </Row>
+                                <Row className="mb-4">
+                                    <Col>
+                                        Envío
+                                    </Col>
+                                    <Col>
+                                        S/20
+                                    </Col>
+                                </Row>
                                 <Row>
                                     <Col>
                                         Pagas
                                     </Col>
                                     <Col>
-                                        S/67
+                                        S/87
                                     </Col>
                                 </Row>
                             </Col>
