@@ -9,6 +9,7 @@ import SearchResults from './Components/SearchResults/searchResults';
 import ProductDetail from './Components/ProductDetail/productDetail';
 import LogIn from './Components/LogIn/logIn';
 import SignUp from './Components/SignUp/signUp';
+import DeliveryMethod from './Components/ProductPurchase/deliveryMethod';
 
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
         <Route path="/items/:id" element={<ProductDetail/>} />
         <Route path="/signUp" element={<SignUp/>} />
         <Route path="/logIn" element={<LogIn/>} />
+        <Route path="/deliveryMethod" element={<DeliveryMethod/>} />
       </Routes>
     </BrowserRouter>
   );

@@ -1,6 +1,6 @@
 import React, { useEffect, useState }  from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { Container, Row, Col, Image, Button } from 'react-bootstrap';
 
 
@@ -14,6 +14,7 @@ export default function ProductDetail() {
 
     const [selectedImage, setSelectedImage] = useState("");
     const product = useSelector((state) => state.productReducer.productDetail);
+    const navigate = useNavigate();
 
     const dispatch = useDispatch();
     let { id } = useParams();
@@ -31,8 +32,7 @@ export default function ProductDetail() {
 
     const handleBuyNow = (e) => {
         e.preventDefault();
-
-        
+        navigate("/deliveryMethod");
     };
     
 
