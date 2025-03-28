@@ -1,41 +1,72 @@
-import React from "react";
-import { Container, Row, Col, Button } from 'react-bootstrap';
+import React, { useState } from "react";
+import { Container, Row, Col, Button,Form } from 'react-bootstrap';
 
 
 import MainHeader from '../Header/mainHeader';
 import GoBack from '../GoBack/goBack';
 
 
-export default function DeliveryMethod() { 
+export default function DeliveryMethod() {
+
+    const [selectedOption, setSelectedOption] = useState("homeDelivery");
 
         return(
-            <Container fluid className="border border-primary border-4" style={{ backgroundColor: '#fdfd96', minHeight: '100vh' }}>
-                <Row className="mb-2 border border-dark border-4">
+            <Container fluid style={{ backgroundColor: '#fdfd96', minHeight: '100vh' }}>
+                <Row className="mb-2">
                     <MainHeader/>
                 </Row>
-                <Row className="mb-2 border border-dark border-4">
-                    <Container className="w-75 border border-primary border-4">
-                        <Row className="mb-4 border border-dark border-5">
+                <Row className="mb-2">
+                    <Container className="w-75">
+                        <Row className="mb-4">
                             <GoBack/>
                         </Row>
-                        <Row className="border border-dark border-4">
-                            <Col className="border border-primary border-4">
+                        <Row>
+                            <br/><br/><br/>
+                        </Row>
+                        <Row>
+                            <Col className="me-5">
                                 <Row className="mb-4">
                                     <h5>Elige la forma de entrega</h5>
                                 </Row>
                                 <Row className="mb-4">
-                                    <Col className="d-flex flex-column">
-                                        <span>Enviar a domicilio</span>
-                                        <span>Urb El Cuadro E - 87</span>
+                                    <Col>
+                                        <Row>
+                                            <Col className="col-auto">
+                                                <Form.Check 
+                                                    type="radio" 
+                                                    id="homeDelivery" 
+                                                    name="deliveryMethod" 
+                                                    checked={selectedOption === "homeDelivery"}
+                                                    onChange={() => setSelectedOption("homeDelivery")}
+                                                />
+                                            </Col>
+                                            <Col className="d-flex flex-column">
+                                                <span>Enviar a domicilio</span>
+                                                <span>Urb El Cuadro E - 87</span>
+                                            </Col>
+                                        </Row>
                                     </Col>
                                     <Col className="text-end text-success">
                                         <h6>S/20</h6>
                                     </Col>
                                 </Row>
                                 <Row className="mb-4">
-                                    <Col className="d-flex flex-column">                                        
-                                        <span>Retirar en el domicilio del vendedor</span>
-                                        <span>La Victoria, Lima Metropolitana</span>
+                                    <Col>
+                                        <Row>
+                                            <Col className="col-auto">
+                                                <Form.Check 
+                                                    type="radio" 
+                                                    id="sellerPickup" 
+                                                    name="deliveryMethod" 
+                                                    checked={selectedOption === "sellerPickup"}
+                                                    onChange={() => setSelectedOption("sellerPickup")}
+                                                />
+                                            </Col>
+                                            <Col className="d-flex flex-column">
+                                                <span>Retirar en el domicilio del vendedor</span>
+                                                <span>La Victoria, Lima Metropolitana</span>
+                                            </Col>
+                                        </Row>
                                     </Col>
                                     <Col className="text-end text-success">
                                         <h6>Gratis</h6>
@@ -45,7 +76,7 @@ export default function DeliveryMethod() {
                                     <Button variant="primary" className="w-auto">Continuar</Button>
                                 </Row>
                             </Col>
-                            <Col className="border border-primary border-4">
+                            <Col className="ms-5">
                                 <Row className="mt-2 mb-4">
                                     <h6>Resumen de compra</h6>
                                 </Row>
@@ -62,7 +93,7 @@ export default function DeliveryMethod() {
                                         Envío
                                     </Col>
                                     <Col>
-                                        S/20
+                                        {selectedOption === "homeDelivery" ? "S/20" : "Gratis"}
                                     </Col>
                                 </Row>
                                 <Row>
@@ -70,7 +101,7 @@ export default function DeliveryMethod() {
                                         Pagas
                                     </Col>
                                     <Col>
-                                        S/87
+                                        {selectedOption === "homeDelivery" ? "S/87" : "S/67"}
                                     </Col>
                                 </Row>
                             </Col>
