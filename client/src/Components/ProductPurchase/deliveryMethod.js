@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useMemo  } from "react";
 import { useSelector } from "react-redux";
 import { Container, Row, Col, Button,Form } from 'react-bootstrap';
 
@@ -12,6 +12,18 @@ export default function DeliveryMethod() {
     const [selectedOption, setSelectedOption] = useState("homeDelivery");
 
     const product = useSelector((state) => state.productReducer.productDetail);
+
+    const shippingCost = 20;
+
+    //Function to calculate the total price
+    const totalAmount = useMemo(() => {
+        if (!product || !product.price) return 0;
+        const price = Number(product.price); // Asegurarse de que sea número
+        return selectedOption === "homeDelivery"
+            ? price + shippingCost
+            : price;
+    }, [selectedOption, product]);
+
 
         return(
             <Container fluid style={{ backgroundColor: '#fdfd96', minHeight: '100vh' }}>
@@ -50,7 +62,7 @@ export default function DeliveryMethod() {
                                         </Row>
                                     </Col>
                                     <Col className="text-end text-success">
-                                        <h6>$/ {product.price}</h6>
+                                        <h6>$/ {product?.price || 0}</h6>
                                     </Col>
                                 </Row>
                                 <Row className="mb-4">
@@ -88,7 +100,7 @@ export default function DeliveryMethod() {
                                         Producto
                                     </Col>
                                     <Col>
-                                        $/ {product.price}
+                                        $/ {product?.price || 0}
                                     </Col>
                                 </Row>
                                 <Row className="mb-4">
@@ -96,7 +108,7 @@ export default function DeliveryMethod() {
                                         Envío
                                     </Col>
                                     <Col>
-                                        {selectedOption === "homeDelivery" ? "$/ 20" : "Gratis"}
+                                        {selectedOption === "homeDelivery" ? `$/ ${shippingCost}` : "Gratis"}
                                     </Col>
                                 </Row>
                                 <Row>
@@ -104,7 +116,7 @@ export default function DeliveryMethod() {
                                         Pagas
                                     </Col>
                                     <Col>
-                                        {selectedOption === "homeDelivery" ? "S/87" : "S/67"}
+                                        $/ {totalAmount}
                                     </Col>
                                 </Row>
                             </Col>
