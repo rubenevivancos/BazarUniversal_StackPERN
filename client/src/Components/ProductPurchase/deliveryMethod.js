@@ -18,11 +18,11 @@ export default function DeliveryMethod() {
 
     //Function to calculate the total price
     const totalAmount = useMemo(() => {
-        if (!product || !product.price) return 0;
+        if (!product || !product.price) return (0).toFixed(2);
         const price = Number(product.price); // Asegurarse de que sea número
         return selectedOption === "homeDelivery"
-            ? price + shippingCost
-            : price;
+            ? (price + shippingCost).toFixed(2)
+            : price.toFixed(2);
     }, [selectedOption, product]);
 
 
@@ -63,7 +63,7 @@ export default function DeliveryMethod() {
                                         </Row>
                                     </Col>
                                     <Col className="text-end text-success">
-                                        <h6>$/ {product?.price || 0}</h6>
+                                        <h6>$/ {Number(product?.price || 0).toFixed(2)}</h6>
                                     </Col>
                                 </Row>
                                 <Row className="mb-4">
@@ -109,7 +109,7 @@ export default function DeliveryMethod() {
                                         Envío
                                     </Col>
                                     <Col>
-                                        {selectedOption === "homeDelivery" ? `$/ ${shippingCost}` : "Gratis"}
+                                        {selectedOption === "homeDelivery" ? `$/ ${shippingCost.toFixed(2)}` : "Gratis"}
                                     </Col>
                                 </Row>
                                 <Row>
