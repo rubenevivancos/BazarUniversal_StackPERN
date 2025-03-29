@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useSelector } from "react-redux";
 import { Container, Row, Col, Button,Form } from 'react-bootstrap';
 
 
@@ -9,6 +10,8 @@ import GoBack from '../GoBack/goBack';
 export default function DeliveryMethod() {
 
     const [selectedOption, setSelectedOption] = useState("homeDelivery");
+
+    const product = useSelector((state) => state.productReducer.productDetail);
 
         return(
             <Container fluid style={{ backgroundColor: '#fdfd96', minHeight: '100vh' }}>
@@ -47,7 +50,7 @@ export default function DeliveryMethod() {
                                         </Row>
                                     </Col>
                                     <Col className="text-end text-success">
-                                        <h6>S/20</h6>
+                                        <h6>$/ {product.price}</h6>
                                     </Col>
                                 </Row>
                                 <Row className="mb-4">
@@ -85,7 +88,7 @@ export default function DeliveryMethod() {
                                         Producto
                                     </Col>
                                     <Col>
-                                        S/67
+                                        $/ {product.price}
                                     </Col>
                                 </Row>
                                 <Row className="mb-4">
@@ -93,7 +96,7 @@ export default function DeliveryMethod() {
                                         Envío
                                     </Col>
                                     <Col>
-                                        {selectedOption === "homeDelivery" ? "S/20" : "Gratis"}
+                                        {selectedOption === "homeDelivery" ? "$/ 20" : "Gratis"}
                                     </Col>
                                 </Row>
                                 <Row>

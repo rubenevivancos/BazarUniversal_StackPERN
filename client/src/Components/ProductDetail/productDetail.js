@@ -1,4 +1,4 @@
-import React, { useEffect, useState }  from "react";
+import React, { useEffect, useState, useRef }  from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams, useNavigate } from "react-router-dom";
 import { Container, Row, Col, Image, Button } from 'react-bootstrap';
@@ -14,6 +14,7 @@ export default function ProductDetail() {
 
     const [selectedImage, setSelectedImage] = useState("");
     const product = useSelector((state) => state.productReducer.productDetail);
+    const isBuying = useRef(false); //Flag to prevent product details from being eliminated if they are being purchased.
     const navigate = useNavigate();
 
     const dispatch = useDispatch();
@@ -25,13 +26,16 @@ export default function ProductDetail() {
 
         //Cleaning the product details
         return () => {
-            dispatch(clearProductDetail());
+            if (!isBuying.current) {
+                dispatch(clearProductDetail());
+            }
         };
     }, [dispatch, id]);
 
 
     const handleBuyNow = (e) => {
         e.preventDefault();
+        isBuying.current = true;
         navigate("/deliveryMethod");
     };
     

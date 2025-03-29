@@ -73,7 +73,7 @@ const productController = {
                 
                 console.log("[ products.js/getDetail ] Se encontro el detalle del producto");
                 console.log("[ products.js/getDetail ] El producto es: " + productDetail.title);
-    
+                /*
                 //Se obtiene el listado de las imágenes del producto
                 const productImages = await ImageService.getImagesByProductIds(productDetail.id);
     
@@ -83,7 +83,7 @@ const productController = {
                 }else{
                     productDetail.images = [];
                 }
-    
+                */
                 console.log("[ products.js/getDetail ] FIN");
                 return res.status(200).json(productDetail);
     

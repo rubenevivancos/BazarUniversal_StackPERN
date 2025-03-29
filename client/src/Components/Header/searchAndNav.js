@@ -65,7 +65,7 @@ const SearchAndNav = () => {
                                 <>
                                     <Link to="/" onClick={handleLogout} className="nav-link">Cerrar Sesión</Link>
                                     <div className="text-start me-3">
-                                        <span className="d-block">Bienvenido</span>
+                                        <span className="d-block">Bienvenido/a</span>
                                         <strong>{user.name}</strong>
                                     </div>
                                 </>
