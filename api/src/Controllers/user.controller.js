@@ -53,7 +53,7 @@ const userController = {
 
             return res.status(200).json({ 
                 message: "Login successful", 
-                user: { id: user.id, name: user.name, email: user.email } 
+                user: { id: user.id, name: user.name, email: user.email, address: user.address } 
               });
 
         } catch (error) {

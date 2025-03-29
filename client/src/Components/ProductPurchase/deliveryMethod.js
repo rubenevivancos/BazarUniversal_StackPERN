@@ -12,6 +12,7 @@ export default function DeliveryMethod() {
     const [selectedOption, setSelectedOption] = useState("homeDelivery");
 
     const product = useSelector((state) => state.productReducer.productDetail);
+    const user = useSelector((state) => state.userReducer.user);
 
     const shippingCost = 20;
 
@@ -57,7 +58,7 @@ export default function DeliveryMethod() {
                                             </Col>
                                             <Col className="d-flex flex-column">
                                                 <span>Enviar a domicilio</span>
-                                                <span>Urb El Cuadro E - 87</span>
+                                                <span>{user.address}</span>
                                             </Col>
                                         </Row>
                                     </Col>
