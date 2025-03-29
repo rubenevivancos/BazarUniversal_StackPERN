@@ -1,16 +1,17 @@
 import React, { useState, useMemo  } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { Container, Row, Col, Button,Form } from 'react-bootstrap';
 
 
 import MainHeader from '../Header/mainHeader';
 import GoBack from '../GoBack/goBack';
+import { payWithThePaymentGateway } from "../../Redux/Actions/paymentAction";
 
 
 export default function DeliveryMethod() {
 
+    const dispatch = useDispatch();
     const [selectedOption, setSelectedOption] = useState("homeDelivery");
-
     const product = useSelector((state) => state.productReducer.productDetail);
     const user = useSelector((state) => state.userReducer.user);
 
@@ -24,6 +25,11 @@ export default function DeliveryMethod() {
             ? (price + shippingCost).toFixed(2)
             : price.toFixed(2);
     }, [selectedOption, product]);
+
+    const handleBuy = (e) => {
+        e.preventDefault();
+        dispatch(payWithThePaymentGateway());
+    };
 
 
         return(
@@ -89,7 +95,7 @@ export default function DeliveryMethod() {
                                     </Col>
                                 </Row>
                                 <Row className="justify-content-end">
-                                    <Button variant="primary" className="w-auto">Continuar</Button>
+                                    <Button variant="primary" className="w-auto" onClick={handleBuy}>Pagar</Button>
                                 </Row>
                             </Col>
                             <Col className="ms-5">
