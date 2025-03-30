@@ -99,34 +99,34 @@ export default function DeliveryMethod() {
                                 </Row>
                             </Col>
                             <Col className="ms-5">
-                            <div className="w-50 mx-auto">
-                                <Row className="mt-2 mb-4">
-                                    <h6>Resumen de compra</h6>
-                                </Row>
-                                <Row className="mb-1">
-                                    <Col>
-                                        Producto
-                                    </Col>
-                                    <Col className="text-end">
-                                        $/ {product?.price || 0}
-                                    </Col>
-                                </Row>
-                                <Row className="mb-4">
-                                    <Col>
-                                        Envío
-                                    </Col>
-                                    <Col className="text-end">
-                                        {selectedOption === "homeDelivery" ? `$/ ${shippingCost.toFixed(2)}` : "Gratis"}
-                                    </Col>
-                                </Row>
-                                <Row>
-                                    <Col>
-                                        Pagas
-                                    </Col>
-                                    <Col className="text-end">
-                                        $/ {totalAmount}
-                                    </Col>
-                                </Row>
+                                <div className="w-50 mx-auto">
+                                    <Row className="mt-2 mb-4">
+                                        <h6>Resumen de compra</h6>
+                                    </Row>
+                                    <Row className="mb-1">
+                                        <Col>
+                                            Producto
+                                        </Col>
+                                        <Col className="text-end">
+                                            $/ {product?.price || 0}
+                                        </Col>
+                                    </Row>
+                                    <Row className="mb-4">
+                                        <Col>
+                                            Envío
+                                        </Col>
+                                        <Col className="text-end">
+                                            {selectedOption === "homeDelivery" ? `$/ ${shippingCost.toFixed(2)}` : "Gratis"}
+                                        </Col>
+                                    </Row>
+                                    <Row>
+                                        <Col>
+                                            Pagas
+                                        </Col>
+                                        <Col className="text-end">
+                                            $/ {totalAmount}
+                                        </Col>
+                                    </Row>
                                 </div>
                             </Col>
                         </Row>

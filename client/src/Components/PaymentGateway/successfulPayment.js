@@ -1,17 +1,17 @@
-import React, { useState, useMemo  } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { Container, Row, Col, Button,Form } from 'react-bootstrap';
+import React from "react";
+import { useSelector } from "react-redux";
+import { Container, Row } from 'react-bootstrap';
 
 
 import MainHeader from '../Header/mainHeader';
 import GoBack from '../GoBack/goBack';
-import { payWithThePaymentGateway } from "../../Redux/Actions/paymentAction";
 
 
-export default function DeliveryMethod() {
+export default function SuccessfulPayment() {
 
-    const user = useSelector((state) => state.userReducer.user);
-
+    const storedUser = localStorage.getItem("user");
+    const user = useSelector((state) => state.userReducer.user) || (storedUser ? JSON.parse(storedUser) : null);
+    console.log("user --> " + user);
 
     return(
         <Container fluid style={{ backgroundColor: '#fdfd96', minHeight: '100vh' }}>
@@ -24,7 +24,7 @@ export default function DeliveryMethod() {
                         <GoBack/>
                     </Row>
                     <Row>
-                        FELICIDADES {user.name}, <span>TU PAGO FU EXITOSO</span>
+                        FELICIDADES {user.name}, TU PAGO FUE EXITOSO
                     </Row>
                 </Container>
             </Row>
