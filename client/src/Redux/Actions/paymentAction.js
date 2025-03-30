@@ -1,22 +1,22 @@
 import axios from "axios";
 
 
-export const payWithThePaymentGateway = () => async (dispatch, getState) => {
+export const payWithThePaymentGateway = () => async (dispatch, getState, product) => {
     try {
         console.log("[ paymentAction.js/payWithThePaymentGateway ] INICIO");
 
         const data = {
-            name: "Consulta Dermatología",
-            description: "Consulta con dermatologo",
+            name: product.name,
+            //description: "Consulta con dermatologo",
             currency: "usd",
-            unit_amount: 3000, //Se pone en centimos, 20000 equivale a 200.00 dolares
+            unit_amount: product.price, //It is written in cents, for example: 20000 is equivalent to 200.00 dollars
             quantity: 1,
             mode: "payment",
             success_url: `http://localhost:3000/successfulPayment`,
             cancel_url: "http://localhost:3000/unsuccessfulPayment",
           };
         
-        let response = (await axios.get("/paymentGateway/createCheckoutSession")).data;
+        let response = (await axios.post("/paymentGateway/createCheckoutSession", data)).data;
 
         console.log("[ paymentAction.js/payWithThePaymentGateway ] Se recibio respuesta del backend", response);
     
