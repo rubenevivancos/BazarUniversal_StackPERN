@@ -1,5 +1,7 @@
+import "./config.js"; //First, the environment variables must be loaded
 import server from './src/app.js';
 import sequelize from './src/db.js';
+
 
 
 sequelize.sync({ alter: true }).then(() => {
