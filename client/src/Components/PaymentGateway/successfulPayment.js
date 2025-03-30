@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { Container, Row } from 'react-bootstrap';
+import { Container, Row, Button } from 'react-bootstrap';
 import { useNavigate } from "react-router-dom";
 
 
@@ -31,7 +31,7 @@ export default function SuccessfulPayment() {
                     <Row>
                         FELICIDADES {user.name}, TU PAGO FUE EXITOSO
                     </Row>
-                    <Row className="justify-content-end">
+                    <Row className="justify-content-center">
                         <Button variant="primary" className="w-auto" onClick={goToHome}>Ir al inicio</Button>
                     </Row>
                 </Container>
