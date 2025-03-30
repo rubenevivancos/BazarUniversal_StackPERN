@@ -11,6 +11,7 @@ import LogIn from './Components/LogIn/logIn';
 import SignUp from './Components/SignUp/signUp';
 import DeliveryMethod from './Components/ProductPurchase/deliveryMethod';
 import SuccessfulPayment from './Components/PaymentGateway/successfulPayment';
+import UnsuccessfulPayment from './Components/PaymentGateway/unsuccessfulPayment';
 
 
 function App() {
@@ -31,6 +32,7 @@ function App() {
         <Route path="/logIn" element={<LogIn/>} />
         <Route path="/deliveryMethod" element={<DeliveryMethod/>} />
         <Route path="/successfulPayment" element={<SuccessfulPayment />} />
+        <Route path="/unsuccessfulPayment" element={<UnsuccessfulPayment />} />
       </Routes>
     </BrowserRouter>
   );
