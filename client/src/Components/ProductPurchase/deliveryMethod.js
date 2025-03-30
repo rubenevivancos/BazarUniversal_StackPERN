@@ -99,6 +99,7 @@ export default function DeliveryMethod() {
                                 </Row>
                             </Col>
                             <Col className="ms-5">
+                            <div className="w-50 mx-auto">
                                 <Row className="mt-2 mb-4">
                                     <h6>Resumen de compra</h6>
                                 </Row>
@@ -106,7 +107,7 @@ export default function DeliveryMethod() {
                                     <Col>
                                         Producto
                                     </Col>
-                                    <Col>
+                                    <Col className="text-end">
                                         $/ {product?.price || 0}
                                     </Col>
                                 </Row>
@@ -114,7 +115,7 @@ export default function DeliveryMethod() {
                                     <Col>
                                         Envío
                                     </Col>
-                                    <Col>
+                                    <Col className="text-end">
                                         {selectedOption === "homeDelivery" ? `$/ ${shippingCost.toFixed(2)}` : "Gratis"}
                                     </Col>
                                 </Row>
@@ -122,10 +123,11 @@ export default function DeliveryMethod() {
                                     <Col>
                                         Pagas
                                     </Col>
-                                    <Col>
+                                    <Col className="text-end">
                                         $/ {totalAmount}
                                     </Col>
                                 </Row>
+                                </div>
                             </Col>
                         </Row>
                     </Container>
