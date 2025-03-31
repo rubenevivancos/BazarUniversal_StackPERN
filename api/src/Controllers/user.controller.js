@@ -1,4 +1,4 @@
-import admin from "../firebaseAdmin.js";
+import admin from "../firebaseConfig.js";
 import UserService from '../Services/user.service.js';
 
 const userController = {

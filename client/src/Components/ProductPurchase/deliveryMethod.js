@@ -28,8 +28,8 @@ export default function DeliveryMethod() {
 
     const handleBuy = (e) => {
         e.preventDefault();
-        const formattedPrice = Math.round(Number(product.price) * 100); //It is written in cents, for example: 20000 is equivalent to 200.00 dollars
-        dispatch(payWithThePaymentGateway({name: product.name, price: formattedPrice}));
+        const formattedPrice = Math.round(Number(totalAmount) * 100); //It is written in cents, for example: 20000 is equivalent to 200.00 dollars
+        dispatch(payWithThePaymentGateway({name: product.title, price: formattedPrice}));
     };
 
 

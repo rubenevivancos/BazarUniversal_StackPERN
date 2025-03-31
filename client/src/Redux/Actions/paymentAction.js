@@ -1,9 +1,11 @@
 import axios from "axios";
 
 
-export const payWithThePaymentGateway = () => async (dispatch, getState, product) => {
+export const payWithThePaymentGateway = (product) => async (dispatch, getState) => {
     try {
         console.log("[ paymentAction.js/payWithThePaymentGateway ] INICIO");
+        console.log("[ paymentAction.js/payWithThePaymentGateway ] El producto es --> " + product);
+        console.log("[ paymentAction.js/payWithThePaymentGateway ] El producto es --> " + product.name);
 
         const data = {
             name: product.name,
