@@ -2,12 +2,14 @@ import React, { useEffect, useState, useRef }  from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams, useNavigate } from "react-router-dom";
 import { Container, Row, Col, Image, Button } from 'react-bootstrap';
+import { getAuth } from "firebase/auth";
 
 
 import MainHeader from '../Header/mainHeader';
 import { getProductDetail, clearProductDetail } from "../../Redux/Actions/productAction";
 import CalificacionEstrellas from '../Product/stars';
 import GoBack from '../GoBack/goBack';
+import firebaseApp from "../../firebase";
 
 
 export default function ProductDetail() {
@@ -35,8 +37,16 @@ export default function ProductDetail() {
 
     const handleBuyNow = (e) => {
         e.preventDefault();
-        isBuying.current = true;
-        navigate("/deliveryMethod");
+
+        const auth = getAuth(firebaseApp);
+        const currentUser = auth.currentUser;
+    
+        if (currentUser) {
+            isBuying.current = true;
+            navigate("/deliveryMethod");
+        } else {
+            navigate("/logIn");
+        }
     };
     
 
