@@ -68,19 +68,6 @@ export default function SearchResults() {
                                             <div><b><h1>{productToSearch}</h1></b><br/>{listProducts.length} resultados</div>
                                         </Col>
                                     </Row>
-                                    <Row className="mb-4">
-                                        <Col className="d-flex flex-wrap justify-content-start">
-                                            {categoriesWithCount.map((cat, index) => (                            
-                                                <span 
-                                                    key={index} 
-                                                    className="me-2 p-1 mb-1 rounded small fw-bold" 
-                                                    style={{ backgroundColor: generateColor(cat.category) }}
-                                                >
-                                                    {cat.category} - {cat.count}
-                                                </span>
-                                            ))}
-                                        </Col>
-                                    </Row>
                                 </Col>
                                 <Col md={6}>
                                     <Row>

@@ -38,6 +38,7 @@ export default function ProductDetail() {
     const handleBuyNow = (e) => {
         e.preventDefault();
 
+        //Validate user session before buying a product
         const auth = getAuth(firebaseApp);
         const currentUser = auth.currentUser;
     
