@@ -20,34 +20,7 @@ export default function SearchResults() {
 
     const listProducts = useSelector((state) => state.productReducer.listProduct);
     const productToSearch = useSelector((state) => state.productReducer.productToSearch);
-    const categoriesWithCount = useSelector((state) => state.productReducer.categoriesWithCount);
 
-    function generateColor(category) {
-        let color = "#";
-        switch (category) {
-            case "smartphones":
-                color = "#FFC0CB"; //Rosado claro
-                break;
-            case "laptops":
-                color = "#4285F4"; //Celeste
-                break;
-            case "fragrances":
-                color = "#90EE90"; //Verde claro
-                break;
-            case "skincare":
-                color = "#FFFF00"; //Amarillo
-                break;
-            case "groceries":
-                color = "#800080"; //Morado
-                break;
-            case "home-decoration":
-                color = "#D2B48C"; //Beige
-                break;
-            default:
-              color = "#B0E0E6"; //Azul polvo
-        }
-        return color;
-      }
 
     if(listProducts.length){
         return(
@@ -62,39 +35,47 @@ export default function SearchResults() {
                                 <GoBack/>
                             </Row>
                             <Row>
-                                <Col md={3}>
-                                    <Row className="mb-4 justify-content-left">
-                                        <Col xs={12} md={10} className="text-left">
-                                            <div><b><h1>{productToSearch}</h1></b><br/>{listProducts.length} resultados</div>
+                                {listProducts.length > 0 ? (
+                                    <>
+                                        <Col md={3}>
+                                            <Row className="mb-4 justify-content-left">
+                                                <Col xs={12} md={10} className="text-left">
+                                                    <div><b><h1>{productToSearch}</h1></b><br/>{listProducts.length} resultados</div>
+                                                </Col>
+                                            </Row>
                                         </Col>
-                                    </Row>
-                                </Col>
-                                <Col md={6}>
-                                    <Row>
-                                        <Col className="text-left">
-                                            <div>
-                                                { listProducts.map( product => (
-                                                    <div key={product.id} style={{ marginBottom: '4rem' }}>
-                                                        <Link 
-                                                            to={"/items/"+product.id} 
-                                                            key={product.id}
-                                                            className="text-decoration-none"
-                                                        >
-                                                            <Product product={product}/>
-                                                        </Link>
+                                        <Col md={6}>
+                                            <Row>
+                                                <Col className="text-left">
+                                                    <div>
+                                                        { listProducts.map( product => (
+                                                            <div key={product.id} style={{ marginBottom: '4rem' }}>
+                                                                <Link 
+                                                                    to={"/items/"+product.id} 
+                                                                    key={product.id}
+                                                                    className="text-decoration-none"
+                                                                >
+                                                                    <Product product={product}/>
+                                                                </Link>
+                                                            </div>
+                                                        ))}
                                                     </div>
-                                                ))}
-                                            </div>
+                                                </Col>
+                                            </Row>
                                         </Col>
-                                    </Row>
-                                </Col>
-                                <Col md={3}>
-                                    <Row>
-                                        <Col className="text-end">
-                                            Ordenar por
+                                        <Col md={3}>
+                                            <Row>
+                                                <Col className="text-end">
+                                                    Ordenar por
+                                                </Col>
+                                            </Row>
                                         </Col>
-                                    </Row>
-                                </Col>
+                                    </>
+                                ) : (
+                                    <Col className="d-flex justify-content-center align-items-center" style={{ minHeight: '50vh' }}>
+                                        <h2>Loading...</h2>
+                                    </Col>
+                                )}
                             </Row>
                         </Container>
                     </Row>

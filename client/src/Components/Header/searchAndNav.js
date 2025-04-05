@@ -4,6 +4,8 @@ import { useNavigate, Link } from 'react-router-dom';
 import { Form, FormControl, Button, Nav, Row, Col } from 'react-bootstrap';
 import { productSearch } from "../../Redux/Actions/productAction";
 import { logoutUser, clearUserMessages } from "../../Redux/Actions/userAction";
+import { BsSearch } from 'react-icons/bs';
+
 
 const SearchAndNav = () => {
     const dispatch = useDispatch();
@@ -52,15 +54,17 @@ const SearchAndNav = () => {
                 <Row className="w-100">
                     <Col>
                         {/* Caja de búsqueda */}
-                        <Form className="d-flex ms-auto me-3" style={{ flexGrow: 1 }}>
+                        <Form className="d-flex ms-auto me-3" onSubmit={handleSubmit} style={{ flexGrow: 1 }}>
                             <FormControl
                                 type="search"
                                 placeholder="Buscar productos, marcas y más..."
-                                className="me-2 w-100"
+                                className="w-100"
                                 aria-label="Search"
                                 onChange={handleInput}
                             />
-                            <Button variant="primary" onClick={handleSubmit}>Buscar</Button>
+                            <Button type="submit" variant="light">
+                                <BsSearch />
+                            </Button>
                         </Form>
                     </Col>
                     <Col>
