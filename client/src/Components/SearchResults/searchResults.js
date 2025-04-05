@@ -1,9 +1,10 @@
-import React, { useState } from "react";
-import { useSelector } from 'react-redux';
-import { Link } from "react-router-dom";
+import React, { useEffect } from "react";
+import { useSelector, useDispatch } from 'react-redux';
+import { Link, useLocation  } from "react-router-dom";
 import { Container, Row, Col } from 'react-bootstrap';
 
 
+import { productSearch } from "../../Redux/Actions/productAction";
 import MainHeader from '../Header/mainHeader.js';
 import Product from "../Product/product.js";
 import GoBack from '../GoBack/goBack';
@@ -11,18 +12,23 @@ import GoBack from '../GoBack/goBack';
 
 export default function SearchResults() {
 
-    const [product, setProduct] = useState("");
+    const dispatch = useDispatch();
 
-    const handleInput = (e) => {
-        e.preventDefault();
-        setProduct(e.target.value);        
-    }
+    const { listProduct } = useSelector((state) => state.productReducer);
 
-    const listProducts = useSelector((state) => state.productReducer.listProduct);
-    const productToSearch = useSelector((state) => state.productReducer.productToSearch);
+    const location = useLocation();
+
+    // Obtener el query string de la URL
+    const queryParams = new URLSearchParams(location.search);
+    const productToSearch = queryParams.get("search");
+
+    useEffect(() => {
+        if (productToSearch) {
+            dispatch(productSearch(productToSearch));
+        }
+    }, [dispatch, productToSearch]);
 
 
-    if(listProducts.length){
         return(
             <div className="d-flex justify-content-center align-items-start" style={{ backgroundColor: '#fdfd96', minHeight: '100vh' }}>
                 <Container fluid>
@@ -35,12 +41,12 @@ export default function SearchResults() {
                                 <GoBack/>
                             </Row>
                             <Row>
-                                {listProducts.length > 0 ? (
+                                {listProduct.length > 0 ? (
                                     <>
                                         <Col md={3}>
                                             <Row className="mb-4 justify-content-left">
                                                 <Col xs={12} md={10} className="text-left">
-                                                    <div><b><h1>{productToSearch}</h1></b><br/>{listProducts.length} resultados</div>
+                                                    <div><b><h1>{productToSearch}</h1></b><br/>{listProduct.length} resultados</div>
                                                 </Col>
                                             </Row>
                                         </Col>
@@ -48,7 +54,7 @@ export default function SearchResults() {
                                             <Row>
                                                 <Col className="text-left">
                                                     <div>
-                                                        { listProducts.map( product => (
+                                                        { listProduct.map( product => (
                                                             <div key={product.id} style={{ marginBottom: '4rem' }}>
                                                                 <Link 
                                                                     to={"/items/"+product.id} 
@@ -82,5 +88,4 @@ export default function SearchResults() {
                 </Container>
             </div>
         )
-    }
 }

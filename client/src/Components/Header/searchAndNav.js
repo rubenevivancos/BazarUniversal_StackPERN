@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, Link } from 'react-router-dom';
 import { Form, FormControl, Button, Nav, Row, Col } from 'react-bootstrap';
-import { productSearch } from "../../Redux/Actions/productAction";
 import { logoutUser, clearUserMessages } from "../../Redux/Actions/userAction";
 import { BsSearch } from 'react-icons/bs';
 
@@ -20,7 +19,6 @@ const SearchAndNav = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        dispatch(productSearch(product));
         navigate(`/items?search=${product}`);
     }
 
