@@ -12,19 +12,14 @@ const SearchAndNav = () => {
     const user = useSelector(state => state.userReducer.user);
     const [product, setProduct] = useState("");
 
-    const handleInput = (e) => {
-        e.preventDefault();
-        setProduct(e.target.value);        
-    }
+
+    const handleInput = (e) => setProduct(e.target.value);
+
 
     const handleSubmit = (e) => {
         e.preventDefault()
         dispatch(productSearch(product));
-
-        // Crea una nueva ruta con el parámetro de consulta "search"
-        const newRoute = `/items?search=${product}`;
-
-        navigate(newRoute);
+        navigate(`/items?search=${product}`);
     }
 
     const handleLogout = async (e) => {
@@ -33,6 +28,24 @@ const SearchAndNav = () => {
         dispatch(clearUserMessages());
         navigate("/"); 
     };
+
+    const renderLoggedOutLinks = () => (
+        <>
+            <Link to="/signUp" className="nav-link">Crea tu cuenta</Link>
+            <Link to="/logIn" className="nav-link">Ingresa</Link>
+        </>
+    );
+
+    const renderLoggedInLinks = () => (
+        <>
+            <Link to="#purchases" className="nav-link">Mis compras</Link>
+            <Link to="/" onClick={handleLogout} className="nav-link">Cerrar Sesión</Link>
+            <div className="text-start me-3">
+                <span className="d-block">Bienvenido/a</span>
+                <strong>{user.name}</strong>
+            </div>
+        </>
+    );
 
     return (
         <div className="d-flex justify-content-between w-100">
@@ -54,22 +67,7 @@ const SearchAndNav = () => {
                         {/* Menú horizontal */}
                         <Nav className="ms-auto">
                             <Link to="#categories" className="nav-link">Categorías</Link>
-                            {!user && (
-                                <>
-                                    <Link to="/signUp" className="nav-link">Crea tu cuenta</Link>
-                                    <Link to="/logIn" className="nav-link">Ingresa</Link>
-                                </>
-                            )}
-                            <Link to="#purchases" className="nav-link">Mis compras</Link>
-                            {user && (
-                                <>
-                                    <Link to="/" onClick={handleLogout} className="nav-link">Cerrar Sesión</Link>
-                                    <div className="text-start me-3">
-                                        <span className="d-block">Bienvenido/a</span>
-                                        <strong>{user.name}</strong>
-                                    </div>
-                                </>
-                            )}
+                            {user ? renderLoggedInLinks() : renderLoggedOutLinks()}
                         </Nav>
                     </Col>
                 </Row>
