@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Button, Form, Container, Row, Col, Alert } from 'react-bootstrap';
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 import { loginUser, clearUserMessages } from "../../Redux/Actions/userAction";
 import BrandHeader from '../Header/brandHeader';
@@ -45,20 +45,19 @@ export default function LogIn() {
 
 
     return(
-        <div className="d-flex justify-content-center align-items-start" style={{ backgroundColor: '#fdfd96', minHeight: '100vh' }}>
-            <Container fluid>
-                <Row className="mb-2">
-                    <BrandHeader/>
-                </Row>
-                <Row>
-                    <Container className="w-75">
-                        <Row className="mb-2">
-                            <GoBack/>
-                        </Row>
-                        <Row>
-                            <Col>
-                                <h3 className="text-center mb-4">Ingresa</h3>
-                                <Form onSubmit={handleLogin}>
+        <Container fluid style={{ backgroundColor: '#fdfd96', minHeight: '100vh' }}>
+            <Row className="mb-2">
+                <BrandHeader/>
+            </Row>
+            <Row>
+                <Container className="w-75">
+                    <Row className="mb-5">
+                        <GoBack/>
+                    </Row>
+                    <Row>
+                        <Col>
+                                <h3 className="text-center mb-5">Ingresa</h3>
+                                <Form onSubmit={handleLogin} className="w-25 mx-auto">
                                     {/* Mostrar error si ocurre algún problema */}
                                     {error && <Alert variant="danger">{error}</Alert>}
 
@@ -86,15 +85,23 @@ export default function LogIn() {
                                         />
                                     </Form.Group>
 
-                                    <Button variant="primary" type="submit" className="mt-3">
-                                        Iniciar sesión
-                                    </Button>
+                                    <div className="d-flex justify-content-center mt-5">
+                                        <Button variant="primary" type="submit">
+                                            Iniciar sesión
+                                        </Button>
+                                    </div>
+
+                                    {/* Enlace a la página de Crea tu Cuenta si el usuario no tiene cuenta */}
+                                    <div className="mt-3 text-center">
+                                        <small>
+                                            ¿No tienes cuenta? <Link to="/signUp">Crea tu cuenta</Link>
+                                        </small>
+                                    </div>
                                 </Form>
-                            </Col>
-                        </Row>
-                    </Container>
-                </Row>
-            </Container>
-        </div>
+                        </Col>
+                    </Row>
+                </Container>
+            </Row>
+        </Container>
     )
 }

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Button, Form, Container, Row, Col, Alert } from 'react-bootstrap';
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 import { signUp, clearUserMessages } from '../../Redux/Actions/userAction';
 import BrandHeader from '../Header/brandHeader';
@@ -53,8 +53,7 @@ const SignUp = () => {
   };
 
   return (
-    <div className="d-flex justify-content-center align-items-start" style={{ backgroundColor: '#fdfd96', minHeight: '100vh' }}>
-        <Container fluid>
+        <Container fluid style={{ backgroundColor: '#fdfd96', minHeight: '100vh' }}>
             <Row className="mb-2">
                 <BrandHeader/>
             </Row>
@@ -66,7 +65,7 @@ const SignUp = () => {
                     <Row>
                         <Col>
                             <h3 className="text-center mb-4">Crea tu Cuenta</h3>
-                            <Form onSubmit={handleSignUp}>
+                            <Form onSubmit={handleSignUp} className="w-25 mx-auto">
                                 {/* Mostrar error si ocurre algún problema */}
                                 {error && <Alert variant="danger">{error}</Alert>}
 
@@ -74,7 +73,7 @@ const SignUp = () => {
                                 <SuccessToast show={showToast} onClose={() => setShowToast(false)} message={successFromStore} />
 
                                 {/* Campo de nombre */}
-                                <Form.Group controlId="formName">
+                                <Form.Group controlId="formName" className="mb-4">
                                     <Form.Label>Nombre</Form.Label>
                                     <Form.Control
                                         type="text"
@@ -86,7 +85,7 @@ const SignUp = () => {
                                 </Form.Group>
 
                                 {/* Campo de email */}
-                                <Form.Group controlId="formEmail">
+                                <Form.Group controlId="formEmail" className="mb-4">
                                     <Form.Label>Correo electrónico</Form.Label>
                                     <Form.Control
                                         type="email"
@@ -98,7 +97,7 @@ const SignUp = () => {
                                 </Form.Group>
 
                                 {/* Campo de contraseña */}
-                                <Form.Group controlId="formPassword" className="mt-3">
+                                <Form.Group controlId="formPassword" className="mb-4">
                                     <Form.Label>Contraseña</Form.Label>
                                     <Form.Control
                                         type="password"
@@ -110,7 +109,7 @@ const SignUp = () => {
                                 </Form.Group>
 
                                 {/* Campo de Dirección */}
-                                <Form.Group controlId="formAddress" className="mt-2">
+                                <Form.Group controlId="formAddress" className="mb-4">
                                     <Form.Label>Dirección</Form.Label>
                                     <Form.Control
                                     type="text"
@@ -122,7 +121,7 @@ const SignUp = () => {
                                 </Form.Group>
 
                                 {/* Campo de Ciudad */}
-                                <Form.Group controlId="formCity" className="mt-2">
+                                <Form.Group controlId="formCity" className="mb-4">
                                     <Form.Label>Ciudad</Form.Label>
                                     <Form.Control
                                     type="text"
@@ -134,7 +133,7 @@ const SignUp = () => {
                                 </Form.Group>
 
                                 {/* Campo de Código Postal */}
-                                <Form.Group controlId="formPostalCode" className="mt-2">
+                                <Form.Group controlId="formPostalCode" className="mb-4">
                                     <Form.Label>Código Postal</Form.Label>
                                     <Form.Control
                                     type="text"
@@ -146,14 +145,16 @@ const SignUp = () => {
                                 </Form.Group>
 
                                 {/* Botón de registro */}
-                                <Button variant="primary" type="submit" className="mt-3">
-                                    Crear Cuenta
-                                </Button>
+                                <div className="d-flex justify-content-center mt-5">
+                                    <Button variant="primary" type="submit">
+                                        Crear Cuenta
+                                    </Button>
+                                </div>
 
                                 {/* Enlace a la página de login si el usuario ya tiene cuenta */}
                                 <div className="mt-3 text-center">
                                     <small>
-                                        ¿Ya tienes cuenta? <a href="/login">Iniciar sesión</a>
+                                        ¿Ya tienes cuenta? <Link to="/logIn">Iniciar sesión</Link>
                                     </small>
                                 </div>
                             </Form>
@@ -162,7 +163,6 @@ const SignUp = () => {
                 </Container>
             </Row>
         </Container>
-    </div>
   );
 };
 
