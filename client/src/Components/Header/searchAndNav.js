@@ -31,6 +31,7 @@ const SearchAndNav = () => {
 
     const renderLoggedOutLinks = () => (
         <>
+            <Link to="#categories" className="nav-link">Categorías</Link>
             <Link to="/signUp" className="nav-link">Crea tu cuenta</Link>
             <Link to="/logIn" className="nav-link">Ingresa</Link>
         </>
@@ -38,12 +39,13 @@ const SearchAndNav = () => {
 
     const renderLoggedInLinks = () => (
         <>
-            <Link to="#purchases" className="nav-link">Mis compras</Link>
-            <Link to="/" onClick={handleLogout} className="nav-link">Cerrar Sesión</Link>
             <div className="text-start me-3">
                 <span className="d-block">Bienvenido/a</span>
                 <strong>{user.name}</strong>
             </div>
+            <Link to="#categories" className="nav-link">Categorías</Link>
+            <Link to="#purchases" className="nav-link">Mis compras</Link>
+            <Link to="/" onClick={handleLogout} className="nav-link">Cerrar Sesión</Link>
         </>
     );
 
@@ -68,7 +70,6 @@ const SearchAndNav = () => {
                     <Col>
                         {/* Menú horizontal */}
                         <Nav className="ms-auto">
-                            <Link to="#categories" className="nav-link">Categorías</Link>
                             {user ? renderLoggedInLinks() : renderLoggedOutLinks()}
                         </Nav>
                     </Col>

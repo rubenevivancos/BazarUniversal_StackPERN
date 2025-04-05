@@ -17,7 +17,7 @@ export default function HomeWithSearchBox() {
             {/* Carrusel centrado */}
             <div className="d-flex justify-content-center align-items-center flex-grow-1">
                 <Carousel 
-                    className="w-75"
+                    
                     interval={3000} // Intervalo de 3 segundos para el auto-play
                     autoplay={true}
                 >
