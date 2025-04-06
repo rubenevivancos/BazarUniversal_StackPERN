@@ -14,8 +14,8 @@ export const payWithThePaymentGateway = (product) => async (dispatch, getState) 
             unit_amount: product.price, //It is written in cents, for example: 20000 is equivalent to 200.00 dollars
             quantity: 1,
             mode: "payment",
-            success_url: `http://localhost:3000/successfulPayment`,
-            cancel_url: "http://localhost:3000/unsuccessfulPayment",
+            success_url: `https://libre-mercado-stack-pern.vercel.app/successfulPayment`,
+            cancel_url: "https://libre-mercado-stack-pern.vercel.app/unsuccessfulPayment",
           };
         
         let response = (await axios.post("/paymentGateway/createCheckoutSession", data)).data;

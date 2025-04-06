@@ -62,7 +62,6 @@ export const loginUser = (email, password) => async (dispatch) => {
 
         // Obtener el token de Firebase
         const idToken = await user.getIdToken();
-        console.log("[ userAction.loginUser ] El idToken de Firebase es: " + idToken);
 
         const response = (await axios.post("/users/loginUser", {idToken: idToken})).data;
 
