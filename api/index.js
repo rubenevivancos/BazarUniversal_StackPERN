@@ -2,22 +2,10 @@ import "./src/envConfig.js"; //First, the environment variables must be loaded
 import server from './src/app.js';
 import sequelize from './src/db.js';
 
-
-
-sequelize.sync({ alter: true }).then(() => {
-    server.listen(3001, () => {
-      console.log('%s listening at 3001');
-    });
-});
-
-
-
-
 /*
-
 ¡¡¡¡¡¡ IMPORTANTE !!!!!!
-
 En PRODUCCION, simplemente se conecta la base de datos sin sincronizar automáticamente.
+*/
 
 sequelize.authenticate().then(() => {
     console.log('Conexión establecida con éxito.');
@@ -30,6 +18,18 @@ sequelize.authenticate().then(() => {
   });
 
 
-  En PRODUCCION, se deben usar MIGRACIONES MANUALES para controlar los cambios en la base de datos.
+/* En PRODUCCION, se deben usar MIGRACIONES MANUALES para controlar los cambios en la base de datos. */
 
+
+
+
+
+/*
+##### DEVELOPMENT #####
+
+sequelize.sync({ alter: true }).then(() => {
+    server.listen(3001, () => {
+      console.log('%s listening at 3001');
+    });
+});
 */
