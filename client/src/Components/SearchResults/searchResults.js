@@ -41,15 +41,16 @@ export default function SearchResults() {
                                 <GoBack/>
                             </Row>
                             <Row>
-                                if (listProduct == null) {
+                                {
+                                listProduct === null ? (
                                     <Col className="d-flex justify-content-center align-items-center" style={{ minHeight: '50vh' }}>
                                         <h2>Loading...</h2>
                                     </Col>
-                                } else if (listProduct.length === 0) {
+                                ) : listProduct.length === 0 ? (
                                     <Col className="d-flex justify-content-center align-items-center" style={{ minHeight: '50vh' }}>
                                         <h2>No se encontraron resultados para "{productToSearch}"</h2>
                                     </Col>
-                                } else {
+                                ) : (
                                     <>
                                         <Col md={3}>
                                             <Row className="mb-4 justify-content-left">
@@ -85,6 +86,7 @@ export default function SearchResults() {
                                             </Row>
                                         </Col>
                                     </>
+                                )
                                 }
                             </Row>
                         </Container>

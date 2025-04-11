@@ -16,7 +16,7 @@ export const productReducer = createSlice({
     reducers:{
         productSearchReducer: (state, action) => {
             let result = action.payload;
-            if(result.response.listProducts.length){
+            if(result.response.listProducts.length > 0){
                 state.listProduct = result.response.listProducts;
                 state.categoriesWithCount = result.response.categoriesWithCount;
                 state.productToSearch = result.productToSearch;
