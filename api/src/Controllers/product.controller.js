@@ -48,7 +48,8 @@ const productController = {
                     return res.status(200).json(resul);
                 }
                 console.log("[ productSearch ] No hay resultados");
-                return res.status(422).json({message: "No hay resultados"}); 
+                resul = {listProducts: [], categoriesWithCount: []};
+                return res.status(200).json(resul);
     
             } catch (error) {
                 console.log("[ productSearch ] Ocurrio una excepcion: " + error.message);

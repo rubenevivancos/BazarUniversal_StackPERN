@@ -19,7 +19,6 @@ export default function HomeWithSearchBox() {
                 <Carousel 
                     
                     interval={3000} // Intervalo de 3 segundos para el auto-play
-                    autoplay={true}
                 >
                     <Carousel.Item>
                         <img

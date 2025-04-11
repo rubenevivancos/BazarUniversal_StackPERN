@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
     productToSearch: "",
-    listProduct: [],
+    listProduct: null,
     categoriesWithCount: [],
     productDetail: null,
     error: "",
@@ -16,12 +16,15 @@ export const productReducer = createSlice({
     reducers:{
         productSearchReducer: (state, action) => {
             let result = action.payload;
-            if(result.response.listProducts.length){
+            if(result.response.listProducts.length > 0){
                 state.listProduct = result.response.listProducts;
                 state.categoriesWithCount = result.response.categoriesWithCount;
                 state.productToSearch = result.productToSearch;
                 state.error= "";
             }else{
+                state.listProduct = []; // 👈 importante
+                state.categoriesWithCount = [];
+                state.productToSearch = result.productToSearch;
                 state.error = "NO HAY RESULTADOS";
             }
         },
