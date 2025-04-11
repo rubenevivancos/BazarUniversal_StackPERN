@@ -25,14 +25,11 @@ export default function SuccessfulPayment() {
             </Row>
             <Row className="mb-2">
                 <Container className="w-75">
-                    <Row className="mb-4">
-                        <br></br>
-                    </Row>
                     <Row>
-                        FELICIDADES {user.name}, TU PAGO FUE EXITOSO
-                    </Row>
-                    <Row className="justify-content-center">
-                        <Button variant="primary" className="w-auto" onClick={goToHome}>Ir al inicio</Button>
+                        <Col className="d-flex flex-column justify-content-center align-items-center" style={{ minHeight: '50vh' }}>
+                            <h2 className="mb-5">Felicidades {user.name}, tu pago fue exitoso</h2>
+                            <Button variant="primary" className="w-auto mt-3" onClick={goToHome}>Ir al inicio</Button>
+                        </Col>
                     </Row>
                 </Container>
             </Row>

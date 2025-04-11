@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { Container, Row, Button } from 'react-bootstrap';
+import { Container, Row, Button, Col } from 'react-bootstrap';
 import { useNavigate } from "react-router-dom";
 
 
@@ -25,14 +25,11 @@ export default function UnsuccessfulPayment() {
             </Row>
             <Row className="mb-2">
                 <Container className="w-75">
-                    <Row className="mb-4">
-                        <br></br>
-                    </Row>
                     <Row>
-                        LO SENTIMOS {user.name}, TU PAGO NO SE PUDO REALIZAR
-                    </Row>
-                    <Row className="justify-content-center">
-                        <Button variant="primary" className="w-auto" onClick={goToHome}>Ir al inicio</Button>
+                        <Col className="d-flex flex-column justify-content-center align-items-center" style={{ minHeight: '50vh' }}>
+                            <h2 className="mb-5">Lo sentimos {user.name}, tu pago no se pudo realizar</h2>
+                            <Button variant="primary" className="w-auto mt-3" onClick={goToHome}>Ir al inicio</Button>
+                        </Col>
                     </Row>
                 </Container>
             </Row>
