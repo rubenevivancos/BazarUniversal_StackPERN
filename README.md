@@ -12,7 +12,6 @@
   <a href="https://github.com/rubenevivancos/LibreMercado_StackPERN/tree/production" target="_blank">
     <img alt="GitHub" src="https://img.shields.io/github/repo-size/rubenevivancos/LibreMercado_StackPERN?style=flat-square" />
   </a>
-  <img alt="License" src="https://img.shields.io/badge/license-MIT-green?style=flat-square" />
 </p>
 
 ---
