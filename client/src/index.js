@@ -10,7 +10,7 @@ import App from './App';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
-axios.defaults.baseURL='http://localhost:3001';
+axios.defaults.baseURL='https://libre-mercado-stack-pern-backend.vercel.app';
 
 
 
