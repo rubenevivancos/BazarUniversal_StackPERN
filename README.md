@@ -68,3 +68,4 @@ Actualmente incluye funcionalidades como:
 - 🌐 Portafolio: [https://portafolio-murex-one.vercel.app](https://portafolio-murex-one.vercel.app)
 - 💼 LinkedIn: [https://www.linkedin.com/in/rubenvivancosalazar](https://www.linkedin.com/in/rubenvivancosalazar)
 - 📧 Email: rernestovsalazar@hotmail.com
+
